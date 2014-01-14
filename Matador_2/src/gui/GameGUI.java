@@ -6,6 +6,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GameGUI extends JFrame  implements ComponentListener
@@ -16,6 +17,7 @@ public class GameGUI extends JFrame  implements ComponentListener
 	private Dimension controlDimension;
 	private ControlPanel controlPanel;
 	private BoardPanel boardPanel;
+	JPanel backgroundPanel;
 	private double GAME_SIZE_MODIFIER = 0.7;
 
 	//-----------------------------------------------------
@@ -41,6 +43,11 @@ public class GameGUI extends JFrame  implements ComponentListener
 		controlPanel = new ControlPanel();
 		boardPanel = new BoardPanel();
 		
+		backgroundPanel = new JPanel();
+		backgroundPanel.setLayout(null);
+		backgroundPanel.add(boardPanel);
+		backgroundPanel.add(controlPanel);
+		
 		
 		
 		
@@ -49,9 +56,8 @@ public class GameGUI extends JFrame  implements ComponentListener
 		this.setLocation((int) (((1.0 - GAME_SIZE_MODIFIER) / 2.0) * screenDimension.width), (int) (((1.0 - GAME_SIZE_MODIFIER) / 2.0) * screenDimension.height));
 		this.addComponentListener(this);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.getRootPane().setPreferredSize(gameDimension);
-		this.add(boardPanel);
-		this.add(controlPanel);
+		this.add(backgroundPanel);
+		this.setPreferredSize(gameDimension);
 		this.setVisible(true);
 		this.pack();
 		
@@ -64,15 +70,13 @@ public class GameGUI extends JFrame  implements ComponentListener
 	{
 		gameDimension = this.getSize();
 		boardDimension.setSize( (this.getContentPane().getSize().width * 4.0 / 6.0), (this.getContentPane().getSize().height));
-		controlDimension.setSize( (gameDimension.width * 2.0 / 6.0), (gameDimension.height));
-		
+		controlDimension.setSize( (this.getContentPane().getSize().width * 2.0 / 6.0), (this.getContentPane().getSize().height));
 		boardPanel.setBounds(0, 0, boardDimension.width, boardDimension.height);
 		controlPanel.setBounds(boardDimension.width, 0, controlDimension.width, controlDimension.height);
 		
 		controlPanel.updatePositions();
 		boardPanel.updatePositions();
-		
-		this.repaint();
+
 	}
 	
 	@Override
@@ -100,6 +104,6 @@ public class GameGUI extends JFrame  implements ComponentListener
 	public void componentShown(ComponentEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 }

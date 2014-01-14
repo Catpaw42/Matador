@@ -82,7 +82,8 @@ public class BoardPanel extends JPanel
 	//Standard Board generator
 	protected void setupFields()
 	{
-		this.fields = new FieldPanel[12];
+		this.fields = new FieldPanel[40];
+		
 		this.fields[0] = new FieldPanel.Builder()
 								  .setTitle("START")
 								  .setSubText("kr. 4000")
@@ -153,7 +154,7 @@ public class BoardPanel extends JPanel
 		this.fields[11] = new FieldPanel.Builder()
 								  .setTitle("Frederiksberg Allé")
 								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setBGColor(Color.GREEN)
 								  .build();
 		this.fields[12] = new FieldPanel.Builder()
 								  .setTitle("Tuborg")
@@ -163,12 +164,12 @@ public class BoardPanel extends JPanel
 		this.fields[13] = new FieldPanel.Builder()
 								  .setTitle("Bülowsvej")
 								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setBGColor(Color.GREEN)
 								  .build();
 		this.fields[14] = new FieldPanel.Builder()
 								  .setTitle("Gl. Kongevej")
 								  .setSubText("kr. 3200")
-								  .setBGColor(Color.YELLOW)
+								  .setBGColor(Color.GREEN)
 								  .build();
 		this.fields[15] = new FieldPanel.Builder()
 								  .setTitle("Mols Linien")
@@ -176,124 +177,123 @@ public class BoardPanel extends JPanel
 								  .setPicture(Builder.FERRY2)
 								  .build();
 		this.fields[16] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Bernstoftsvej")
+								  .setSubText("kr. 3600")
+								  .setBGColor(Color.LIGHT_GRAY)
 								  .build();
 		this.fields[17] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Prøv Lykken")
+								  .setSubText("Prøv Lykken")
+								  .setPicture(Builder.PRØVLYKKEN)
 								  .build();
 		this.fields[18] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Hellerupvej")
+								  .setSubText("kr. 3600")
+								  .setBGColor(Color.LIGHT_GRAY)
 								  .build();
 		this.fields[19] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Strandvejen")
+								  .setSubText("kr. 4000")
+								  .setBGColor(Color.LIGHT_GRAY)
 								  .build();
 		this.fields[20] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Helle")
+								  .setSubText("Helle")
+								  .setPicture(Builder.CONES)
 								  .build();
 		this.fields[21] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
+								  .setTitle("------------------------------------------------------------------------------")
 								  .setSubText("kr. 2800")
 								  .setBGColor(Color.YELLOW)
 								  .build();
 		this.fields[22] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Prøv Lykken")
+								  .setSubText("Prøv Lykken")
+								  .setPicture(Builder.PRØVLYKKEN)
 								  .build();
 		this.fields[23] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
+								  .setTitle("------------------------------------------------------------------------------")
 								  .setSubText("kr. 2800")
 								  .setBGColor(Color.YELLOW)
 								  .build();
 		this.fields[24] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
+								  .setTitle("------------------------------------------------------------------------------")
 								  .setSubText("kr. 2800")
 								  .setBGColor(Color.YELLOW)
 								  .build();
 		this.fields[25] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("ColorLine")
+								  .setSubText("kr. 4000")
+								  .setPicture(Builder.FERRY3)
 								  .build();
 		this.fields[26] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Bredgade")
+								  .setSubText("kr. 5200")
+								  .setBGColor(Color.WHITE)
 								  .build();
 		this.fields[27] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Kgs. Nytorv")
+								  .setSubText("kr. 5200")
+								  .setBGColor(Color.WHITE)
 								  .build();
 		this.fields[28] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Coca Cola")
+								  .setSubText("3000")
+								  .setPicture(Builder.BREWERY2)
 								  .build();
 		this.fields[29] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Østergade")
+								  .setSubText("kr. 5800")
+								  .setBGColor(Color.WHITE)
 								  .build();
 		this.fields[30] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Gå i fængsel")
+								  .setSubText("gå i fængsel")
+								  .setPicture(Builder.GOTOJAIL)
 								  .build();
 		this.fields[31] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
+								  .setTitle("Amagertorv")
+								  .setSubText("kr. 6000")
 								  .setBGColor(Color.YELLOW)
 								  .build();
 		this.fields[32] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
+								  .setTitle("VimmelSkaftet")
+								  .setSubText("kr. 6000")
 								  .setBGColor(Color.YELLOW)
 								  .build();
 		this.fields[33] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Prøv Lykken")
+								  .setSubText("Prøv Lykken")
+								  .setPicture(Builder.PRØVLYKKEN)
 								  .build();
 		this.fields[34] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
+								  .setTitle("Nygade")
+								  .setSubText("kr. 6400")
 								  .setBGColor(Color.YELLOW)
 								  .build();
 		this.fields[35] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Oslo Færgen")
+								  .setSubText("kr. 4000")
+								  .setPicture(Builder.FERRY4)
 								  .build();
 		this.fields[36] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Prøv Lykken")
+								  .setSubText("Prøv Lykken")
+								  .setPicture(Builder.PRØVLYKKEN)
 								  .build();
 		this.fields[37] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Frederiksberg gade")
+								  .setSubText("kr. 7000")
+								  .setBGColor(new Color(211, 0, 104)) //custom purple
 								  .build();
 		this.fields[38] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Extraordinær skat")
+								  .setSubText("betal 2000")
 								  .build();
 		this.fields[39] = new FieldPanel.Builder()
-								  .setTitle("Frederiksberg Allé")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Rådhuspladsen")
+								  .setSubText("kr. 8000")
+								  .setBGColor(new Color(211, 0, 104)) //custom purple
 								  .build();
 		
 		setupFields(this.fields);
@@ -303,28 +303,11 @@ public class BoardPanel extends JPanel
 	protected void setupFields(FieldPanel[] fields)
 	{
 		this.fields = fields;
-		int xOffset = 10;
-		int yOffset = 10;
+		
 		for (int i = 0; i < fields.length; i++)
 		{
 			this.add(fields[i]);
 			fields[i].setVisible(true);
-			
-			//first 10 fields, bottom right to left
-			if(xOffset > 0 && yOffset == 10)
-				xOffset--;
-			
-			//next 10 fields, left side bottom and up
-			else if(xOffset == 0 && yOffset > 0)
-				yOffset--;
-			
-			//next 10, top left to right
-			else if(xOffset < 10 && yOffset == 0)
-				xOffset++;
-			
-			//final 10, right side top to bottom
-			else if(xOffset == 10 && yOffset < 10)
-				yOffset++;
 		}
 	}
 	

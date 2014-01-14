@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -30,22 +29,17 @@ public class FieldPanel extends JPanel
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		this.add(titleLabel);
 		
-		
 		subTextLabel = new JLabel("<html>" +  b.subText + "</html>",SwingConstants.CENTER);
 		this.add(subTextLabel);
-		
 		
 		if(b.img != null)
 		{
 			pictureLabel = new JLabel(CreateImageIcon(b.img));
 			this.add(pictureLabel);
-			
 		}
 		
 		this.description = b.description;
 		this.setBackground(b.bgColor);
-		
-		
 	}
 	
 	protected void updatePositions()
