@@ -5,8 +5,10 @@ import java.awt.Toolkit;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
 public class GameGUI extends JFrame  implements ComponentListener
@@ -78,6 +80,19 @@ public class GameGUI extends JFrame  implements ComponentListener
 		boardPanel.updatePositions();
 
 	}
+	//----------------------------------------------------------------------------------------------------------------------------
+	// interface to the rest of the GUI
+	//----------------------------------------------------------------------------------------------------------------------------
+	public JButton getButton(int b)
+	{
+		return this.controlPanel.buttons[b];
+	}
+	
+	public void appendText(String str)
+	{
+		this.controlPanel.textArea.append(str + "\n");
+	}
+	//----------------------------------------------------------------------------------------------------------------------------
 	
 	@Override
 	public void componentHidden(ComponentEvent e)
