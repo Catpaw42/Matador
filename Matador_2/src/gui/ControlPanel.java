@@ -26,7 +26,7 @@ public class ControlPanel extends JPanel
 		
 		for (int i = 0; i < buttons.length; i++)
 		{
-			buttons[i].addActionListener(GameActionListener.getInstance());
+			buttons[i].addActionListener(new GameActionListener());
 		}
 
 		textArea = new JTextArea();

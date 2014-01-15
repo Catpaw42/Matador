@@ -92,6 +92,12 @@ public class GameGUI extends JFrame  implements ComponentListener
 	{
 		this.controlPanel.textArea.append(str + "\n");
 	}
+	
+	public void setDice(int value1, int value2)
+	{
+		this.boardPanel.setDice(value1, value2);
+	}
+	
 	//----------------------------------------------------------------------------------------------------------------------------
 	
 	@Override

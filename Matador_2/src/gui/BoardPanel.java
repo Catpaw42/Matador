@@ -70,11 +70,13 @@ public class BoardPanel extends JPanel
 	{
 		Random r = new Random();
 		d1.setDice(value1);
-		d1XModifier = r.nextInt((this.getSize().width - 2 * fieldDimension.width) - 65);
-		d1YModifier = r.nextInt((this.getSize().height - 2 * fieldDimension.height) - 65);
+		d1XModifier = r.nextInt((this.getSize().width - 2 * fieldDimension.width) - 65) + fieldDimension.width;
+		d1YModifier = r.nextInt((this.getSize().height - 2 * fieldDimension.height) - 65) + fieldDimension.height;
 		d2.setDice(value2);
-		d2XModifier = r.nextInt((this.getSize().width - 2 * fieldDimension.width) - 65);
-		d2YModifier = r.nextInt((this.getSize().height - 2 * fieldDimension.height) - 65);
+		d2XModifier = r.nextInt((this.getSize().width - 2 * fieldDimension.width) - 65) + fieldDimension.width;
+		d2YModifier = r.nextInt((this.getSize().height - 2 * fieldDimension.height) - 65) + fieldDimension.height;
+		d1.setBounds(d1XModifier, d1YModifier, 65, 65);
+		d2.setBounds(d2XModifier, d2YModifier, 65, 65);
 		d1.setVisible(true);
 		d2.setVisible(true);
 	}
@@ -202,9 +204,9 @@ public class BoardPanel extends JPanel
 								  .setPicture(Builder.CONES)
 								  .build();
 		this.fields[21] = new FieldPanel.Builder()
-								  .setTitle("------------------------------------------------------------------------------")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Trianglen")
+								  .setSubText("kr. 4400")
+								  .setBGColor(Color.RED)
 								  .build();
 		this.fields[22] = new FieldPanel.Builder()
 								  .setTitle("Prøv Lykken")
@@ -212,14 +214,14 @@ public class BoardPanel extends JPanel
 								  .setPicture(Builder.PRØVLYKKEN)
 								  .build();
 		this.fields[23] = new FieldPanel.Builder()
-								  .setTitle("------------------------------------------------------------------------------")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Østerbrogade")
+								  .setSubText("kr. 4400")
+								  .setBGColor(Color.RED)
 								  .build();
 		this.fields[24] = new FieldPanel.Builder()
-								  .setTitle("------------------------------------------------------------------------------")
-								  .setSubText("kr. 2800")
-								  .setBGColor(Color.YELLOW)
+								  .setTitle("Grønningen")
+								  .setSubText("kr. 4800")
+								  .setBGColor(Color.RED)
 								  .build();
 		this.fields[25] = new FieldPanel.Builder()
 								  .setTitle("ColorLine")
