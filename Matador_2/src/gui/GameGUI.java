@@ -8,7 +8,6 @@ import java.awt.event.ComponentListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
 public class GameGUI extends JFrame  implements ComponentListener
@@ -39,6 +38,9 @@ public class GameGUI extends JFrame  implements ComponentListener
 	{
 		screenDimension = Toolkit.getDefaultToolkit().getScreenSize();	
 		gameDimension = new Dimension((int) (screenDimension.width * GAME_SIZE_MODIFIER), (int) (screenDimension.height * GAME_SIZE_MODIFIER));
+		if(gameDimension.getWidth() < 1236 || gameDimension.getHeight() < 720)
+			gameDimension.setSize(1236, 720);
+		System.out.println(gameDimension);
 		boardDimension = new Dimension((int) (gameDimension.width * 4.0 / 6.0), (int) (gameDimension.height));
 		controlDimension = new Dimension((int) (gameDimension.width * 2.0 / 6.0), (int) (gameDimension.height));
 		
@@ -49,9 +51,6 @@ public class GameGUI extends JFrame  implements ComponentListener
 		backgroundPanel.setLayout(null);
 		backgroundPanel.add(boardPanel);
 		backgroundPanel.add(controlPanel);
-		
-		
-		
 		
 		// manage the frame
 		this.setTitle("Matador");

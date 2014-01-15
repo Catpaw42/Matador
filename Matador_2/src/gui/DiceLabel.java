@@ -59,6 +59,7 @@ public class DiceLabel extends JLabel
 		this.rotation = r.nextInt(360);
 		this.setIcon(diceIcons[value-1]);
 		this.repaint();
+		//TODO: fix to certain rotations only? to avoid "twisting" the die
 	}
 	
 	@Override

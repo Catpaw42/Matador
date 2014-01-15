@@ -17,10 +17,10 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class FieldPanel extends JPanel
 {
-	private JLabel subTextLabel;
-	private JLabel titleLabel;
-	private JLabel pictureLabel;
-	private String description;
+	protected JLabel subTextLabel;
+	protected JLabel titleLabel;
+	protected JLabel pictureLabel;
+	protected String description;
 
 	private FieldPanel(Builder b)
 	{
@@ -28,9 +28,11 @@ public class FieldPanel extends JPanel
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
+		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		this.add(titleLabel);
 		
 		subTextLabel = new JLabel("<html>" +  b.subText + "</html>",SwingConstants.CENTER);
+		subTextLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		this.add(subTextLabel);
 		
 		if(b.img != null)
@@ -47,8 +49,6 @@ public class FieldPanel extends JPanel
 	{
 		titleLabel.setBounds(0, 0, this.getWidth(), this.getSize().height * 4 / 12);
 		subTextLabel.setBounds(0, this.getSize().height * 9/ 12, this.getWidth(), this.getSize().height * 3 / 12);
-		updateTextSize(this.titleLabel);
-		updateTextSize(subTextLabel);
 		
 		if(pictureLabel != null)
 			pictureLabel.setBounds(this.getSize().width / 12, this.getSize().height * 4/ 12, this.getSize().width * 10/ 12, this.getSize().height * 5/ 12);
@@ -76,27 +76,6 @@ public class FieldPanel extends JPanel
 		
 	}
 
-	private void updateTextSize(JLabel label)
-	{
-		Font labelFont = label.getFont();
-		String labelText = label.getText();
-
-		int stringWidth = label.getFontMetrics(labelFont).stringWidth(labelText);
-		int componentWidth = label.getWidth();
-
-		// Find out how much the font can grow in width.
-		double widthRatio = (double)componentWidth / (double)stringWidth;
-
-		int newFontSize = (int)(labelFont.getSize() * widthRatio);
-		int componentHeight = label.getHeight();
-
-		// Pick a new font size so it will not be larger than the height of label.
-		int fontSizeToUse = Math.min(newFontSize, componentHeight);
-
-		// Set the label's font size to the newly determined size.
-		label.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
-	}
-	
 	public static class Builder
 	{
 		private String title = "Dummy";

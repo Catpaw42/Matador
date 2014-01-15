@@ -80,6 +80,18 @@ public class BoardPanel extends JPanel
 		d1.setVisible(true);
 		d2.setVisible(true);
 	}
+
+	//custom board generator
+	protected void setupFields(FieldPanel[] fields)
+	{
+		this.fields = fields;
+		
+		for (int i = 0; i < fields.length; i++)
+		{
+			this.add(fields[i]);
+			fields[i].setVisible(true);
+		}
+	}
 	
 	//Standard Board generator
 	protected void setupFields()
@@ -286,33 +298,18 @@ public class BoardPanel extends JPanel
 		this.fields[37] = new FieldPanel.Builder()
 								  .setTitle("Frederiksberg gade")
 								  .setSubText("kr. 7000")
-								  .setBGColor(new Color(211, 0, 104)) //custom purple
+								  .setBGColor(new Color(211, 0, 120)) //custom purple
 								  .build();
 		this.fields[38] = new FieldPanel.Builder()
 								  .setTitle("Extraordinær skat")
-								  .setSubText("betal 2000")
+								  .setSubText("kr. 2000")
 								  .build();
 		this.fields[39] = new FieldPanel.Builder()
 								  .setTitle("Rådhuspladsen")
 								  .setSubText("kr. 8000")
-								  .setBGColor(new Color(211, 0, 104)) //custom purple
+								  .setBGColor(new Color(211, 0, 120)) //custom purple
 								  .build();
 		
 		setupFields(this.fields);
 	}
-	
-	//custom board generator
-	protected void setupFields(FieldPanel[] fields)
-	{
-		this.fields = fields;
-		
-		for (int i = 0; i < fields.length; i++)
-		{
-			this.add(fields[i]);
-			fields[i].setVisible(true);
-		}
-	}
-	
-	
-	
 }
