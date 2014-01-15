@@ -2,6 +2,11 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,17 +20,20 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
-public class FieldPanel extends JPanel
+public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
 {
 	protected JLabel subTextLabel;
 	protected JLabel titleLabel;
 	protected JLabel pictureLabel;
 	protected String description;
+	protected PopUpField popUpField;
 
 	private FieldPanel(Builder b)
 	{
 		this.setLayout(null);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
 		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
@@ -43,6 +51,8 @@ public class FieldPanel extends JPanel
 		
 		this.description = b.description;
 		this.setBackground(b.bgColor);
+		
+		popUpField = new PopUpField(this);
 	}
 	
 	protected void updatePositions()
@@ -134,4 +144,54 @@ public class FieldPanel extends JPanel
 		}
 	}
 
+	
+
+	@Override
+	public void mouseEntered(MouseEvent e)
+	{
+		Point p = MouseInfo.getPointerInfo().getLocation();
+		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 300, 200);
+		this.popUpField.setVisible(true);
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e)
+	{
+		this.popUpField.setVisible(false);
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent e)
+	{
+		Point p = MouseInfo.getPointerInfo().getLocation();
+		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 300, 200);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void mousePressed(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }
