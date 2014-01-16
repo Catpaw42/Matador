@@ -1,10 +1,10 @@
 package gui;
 
-import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 
-public class CarLabel extends JLabel
+public class CarLabel extends JLayeredPane
 {
-	public CarLabel()
+	protected CarLabel()
 	{
 		
 	}

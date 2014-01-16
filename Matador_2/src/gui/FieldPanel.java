@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -22,18 +23,27 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
 {
-	protected JLabel subTextLabel;
-	protected JLabel titleLabel;
-	protected JLabel pictureLabel;
+	private JLabel subTextLabel;
+	private JLabel pictureLabel;
+	private Dimension popUpSize;
+	private PopUpField popUpField;
+	
+	protected BufferedImage picture;
 	protected String description;
-	protected PopUpField popUpField;
+	protected final int FieldNumber;
+	protected JLabel titleLabel;
+	
 
+	@SuppressWarnings("static-access")
 	private FieldPanel(Builder b)
 	{
+		this.FieldNumber = b.fieldNumber;
+		b.fieldNumber++;
 		this.setLayout(null);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		this.setBackground(b.bgColor);
 		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
@@ -45,14 +55,16 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		
 		if(b.img != null)
 		{
-			pictureLabel = new JLabel(CreateImageIcon(b.img));
+			picture = CreateImage(b.img);
+			pictureLabel = new JLabel(new ImageIcon(picture));
 			this.add(pictureLabel);
 		}
 		
-		this.description = b.description;
-		this.setBackground(b.bgColor);
+		this.description = "<html>" +  b.description + "</html>";
 		
+		popUpSize = new Dimension(250,260);
 		popUpField = new PopUpField(this);
+		popUpField.setAlwaysOnTop(true);
 	}
 	
 	protected void updatePositions()
@@ -64,7 +76,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 			pictureLabel.setBounds(this.getSize().width / 12, this.getSize().height * 4/ 12, this.getSize().width * 10/ 12, this.getSize().height * 5/ 12);
 	}
 
-	private ImageIcon CreateImageIcon(String img)
+	private BufferedImage CreateImage(String img)
 	{
 		try
 		{
@@ -75,7 +87,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 			
 			BufferedImage image = ImageIO.read(f);
 			
-			return new ImageIcon(image);
+			return image;
 		} catch (IOException ex)
 		{
 			System.err.println("Error loading the image");
@@ -93,6 +105,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		private String description = "dummyDescription";
 		private String img = null;
 		private Color bgColor = Color.WHITE;
+		private static int fieldNumber = 1;
 		
 		public static final String BREWERY1 = "pics/Brewery1.jpg";
 		public static final String BREWERY2 = "pics/Brewery2.jpg";
@@ -150,7 +163,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	public void mouseEntered(MouseEvent e)
 	{
 		Point p = MouseInfo.getPointerInfo().getLocation();
-		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 300, 200);
+		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, popUpSize.width, popUpSize.height);
 		this.popUpField.setVisible(true);
 	}
 
@@ -164,7 +177,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	public void mouseMoved(MouseEvent e)
 	{
 		Point p = MouseInfo.getPointerInfo().getLocation();
-		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 300, 200);
+		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, popUpSize.width, popUpSize.height);
 	}
 
 	@Override

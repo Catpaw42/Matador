@@ -94,7 +94,7 @@ public class BoardPanel extends JPanel
 	}
 	
 	//Standard Board generator
-	protected void setupFields()
+	private void setupFields()
 	{
 		this.fields = new FieldPanel[40];
 		
