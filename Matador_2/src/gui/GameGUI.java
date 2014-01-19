@@ -50,19 +50,18 @@ public class GameGUI extends JFrame
 		this.setTitle("Matador");
 		this.setLocation((screenDimension.width / 2) - (gameDimension.width / 2), (screenDimension.height / 2) - (gameDimension.height / 2));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.getRootPane().setDefaultButton(this.getButton(0));
 		this.setResizable(false);
 		this.add(backgroundPanel);
 		this.setPreferredSize(gameDimension);
 		this.setVisible(true);
 		this.pack();
-		
-		updatePositions();
-		
 	}
 
 	// manage the position of everything.
-	private void updatePositions()
+	public void setupGUI()
 	{
+		boardPanel.setupFields();
 		gameDimension = this.getSize();
 		boardDimension.setSize( (this.getContentPane().getSize().width * 4.0 / 6.0), (this.getContentPane().getSize().height));
 		controlDimension.setSize( (this.getContentPane().getSize().width * 2.0 / 6.0), (this.getContentPane().getSize().height));
@@ -71,8 +70,22 @@ public class GameGUI extends JFrame
 		
 		controlPanel.updatePositions();
 		boardPanel.updatePositions();
-
 	}
+	
+	public void setupGUI(FieldPanel[] fields)
+	{
+		boardPanel.setupFields(fields);
+		gameDimension = this.getSize();
+		boardDimension.setSize( (this.getContentPane().getSize().width * 4.0 / 6.0), (this.getContentPane().getSize().height));
+		controlDimension.setSize( (this.getContentPane().getSize().width * 2.0 / 6.0), (this.getContentPane().getSize().height));
+		boardPanel.setBounds(0, 0, boardDimension.width, boardDimension.height);
+		controlPanel.setBounds(boardDimension.width, 0, controlDimension.width, controlDimension.height);
+		
+		controlPanel.updatePositions();
+		boardPanel.updatePositions();
+	}
+	
+	
 	//----------------------------------------------------------------------------------------------------------------------------
 	// interface to the rest of the GUI
 	//----------------------------------------------------------------------------------------------------------------------------

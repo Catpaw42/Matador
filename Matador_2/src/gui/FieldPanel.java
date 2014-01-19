@@ -23,16 +23,15 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
 {
-	private JLabel subTextLabel;
 	private JLabel pictureLabel;
 	private Dimension popUpSize;
-	private PopUpField popUpField;
 	
+	protected JLabel subTextLabel;
+	protected PopUpField popUpField;
 	protected BufferedImage picture;
 	protected String description;
 	protected final int FieldNumber;
 	protected JLabel titleLabel;
-	
 
 	@SuppressWarnings("static-access")
 	private FieldPanel(Builder b)

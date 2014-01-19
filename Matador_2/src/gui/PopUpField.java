@@ -1,7 +1,5 @@
 package gui;
 
-import game.ExtraStringUtilities;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -84,9 +82,14 @@ public class PopUpField extends JFrame
 //		titleLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 //		desciptionLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 //		fieldNumberLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-		this.setDescription("hej jeg er en ny testmetode, lad os lege teste leg i haven!! Her i havernes have har vi i dag ikke særlig mange folk at lege med");
-		
+		this.setDescription("hej jeg er en ny testmetode, lad os lege teste leg i haven!! Her i havernes have har vi i dag havernes ikke særlig mange folk at lege med");
 		this.setVisible(false);
+	}
+	
+	
+	protected void setTitleText(String text)
+	{
+		this.titleLabel.setText(text);
 	}
 	
 	protected void setOwner(String text)
@@ -101,9 +104,8 @@ public class PopUpField extends JFrame
 	
 	protected void setDescription(String text)
 	{
-		String result = ExtraStringUtilities.fitToWidth(text, 35, 4);
-		result.replaceAll("\n", "<br>");
-		this.desciptionLabel.setText("<html>" + result + "</html>");
+		text.replaceAll("\n", "<br>"); //works???
+		this.desciptionLabel.setText("<html>" + text + "</html>");
 	}
 	
 	

@@ -19,6 +19,7 @@ public class BoardPanel extends JPanel
 	private int d2XModifier;
 	private int d2YModifier;
 	private FieldPanel[] fields;
+	private PlayerPanel[] players;
 	
 	protected BoardPanel()
 	{
@@ -27,12 +28,15 @@ public class BoardPanel extends JPanel
 		d2XModifier = this.getSize().width / 2;
 		d2YModifier = this.getSize().height / 2;
 		fieldDimension = new Dimension();
+		
+		players = new PlayerPanel[1];
+		players[0] = new PlayerPanel();
+		
+		this.add(players[0]);
 		this.setLayout(null);
 		this.setBackground(Color.GREEN);
 		this.add(d1);
 		this.add(d2);
-		
-		setupFields();
 	}
 	
 	protected void updatePositions()
@@ -40,7 +44,7 @@ public class BoardPanel extends JPanel
 		fieldDimension.setSize( this.getSize().getWidth() / 11.0,  this.getSize().getHeight() / 11.0);
 		d1.setBounds(d1XModifier, d1YModifier, 65, 65);
 		d2.setBounds(d2XModifier, d2YModifier, 65, 65);
-		
+		players[0].setBounds(fieldDimension.width +5, this.getHeight() / 2, 120, 40);
 		int xOffset = 10;
 		int yOffset = 10;
 		for (int i = 0; i < fields.length; i++)
@@ -80,6 +84,29 @@ public class BoardPanel extends JPanel
 		d1.setVisible(true);
 		d2.setVisible(true);
 	}
+	
+	protected void setSubtext(String subText, int fieldNr)
+	{
+		fields[fieldNr - 1].subTextLabel.setText(subText);
+	}
+	protected void setOwner(String owner, int fieldNr)
+	{
+		fields[fieldNr - 1].popUpField.setOwner(owner);
+	}
+	protected void setPrice(String price, String priceType, int fieldNr)
+	{
+		fields[fieldNr - 1].popUpField.setPrice(price, priceType);
+	}
+	protected void setDescription(String descText, int fieldNr)
+	{
+		fields[fieldNr - 1].popUpField.setDescription(descText);
+		fields[fieldNr - 1].description = descText;
+	}
+	protected void setTitle(String title, int fieldNr)
+	{
+		fields[fieldNr - 1].popUpField.setTitleText(title);
+		fields[fieldNr - 1].titleLabel.setText(title);
+	}
 
 	//custom board generator
 	protected void setupFields(FieldPanel[] fields)
@@ -94,7 +121,7 @@ public class BoardPanel extends JPanel
 	}
 	
 	//Standard Board generator
-	private void setupFields()
+	protected void setupFields()
 	{
 		this.fields = new FieldPanel[40];
 		
