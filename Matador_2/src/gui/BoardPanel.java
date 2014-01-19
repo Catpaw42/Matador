@@ -19,38 +19,42 @@ public class BoardPanel extends JPanel
 	private int d2XModifier;
 	private int d2YModifier;
 	private FieldPanel[] fields;
-	private PlayerPanel[] players;
+	private PlayerPanel[] playerFields;
 	
 	protected BoardPanel()
 	{
-		d1XModifier = this.getSize().width / 2;
-		d1YModifier = this.getSize().height / 2;
-		d2XModifier = this.getSize().width / 2;
-		d2YModifier = this.getSize().height / 2;
-		fieldDimension = new Dimension();
-		
-		players = new PlayerPanel[1];
-		players[0] = new PlayerPanel();
-		
-		this.add(players[0]);
 		this.setLayout(null);
+		this.setSize(825, 682);
 		this.setBackground(Color.GREEN);
 		this.add(d1);
 		this.add(d2);
-	}
-	
-	protected void updatePositions()
-	{
-		fieldDimension.setSize( this.getSize().getWidth() / 11.0,  this.getSize().getHeight() / 11.0);
-		d1.setBounds(d1XModifier, d1YModifier, 65, 65);
-		d2.setBounds(d2XModifier, d2YModifier, 65, 65);
-		players[0].setBounds(fieldDimension.width +5, this.getHeight() / 2, 120, 40);
+		
+		fieldDimension = new Dimension((int) (this.getSize().getWidth() / 11.0), (int) (this.getSize().getHeight() / 11.0));
+		System.out.println(fieldDimension);
+		playerFields = new PlayerPanel[10];
+		int x = 0;
+		int y = this.getHeight() * 31/40;
+		int fifth = (this.getWidth() - 2 * fieldDimension.width) / 5;
+		for (int i = 0; i < 10; i++)
+		{
+			playerFields[i] = new PlayerPanel();
+			this.add(playerFields[i]);
+			playerFields[i].setBounds(7 +fieldDimension.width + x * fifth + 1/2 * fifth - 1/2 * 120, y, 120, 40);
+			if (x != 5)
+				x++;
+			if (x == 5)
+			{
+				x = 0;
+				y = y + this.getHeight() * 3/40;
+			}
+		}
+		
+		setupFields();
 		int xOffset = 10;
 		int yOffset = 10;
 		for (int i = 0; i < fields.length; i++)
 		{
 			fields[i].setBounds(xOffset * fieldDimension.width, yOffset * fieldDimension.height, fieldDimension.width, fieldDimension.height);
-			fields[i].updatePositions();
 			
 			//first 10 fields, bottom right to left
 			if(xOffset > 0 && yOffset == 10)
@@ -70,15 +74,36 @@ public class BoardPanel extends JPanel
 		}
 	}
 	
+//	protected BoardPanel(FieldPanel[] fields)
+//	{
+//		d1XModifier = this.getSize().width / 2;
+//		d1YModifier = this.getSize().height / 2;
+//		d2XModifier = this.getSize().width / 2;
+//		d2YModifier = this.getSize().height / 2;
+//		fieldDimension = new Dimension();
+//		
+//		playerFields = new ArrayList<PlayerPanel>();
+//		for (int i = 0; i < 10; i++)
+//		{
+//			playerFields.add(new PlayerPanel());
+//			this.add(playerFields.get(i));
+//			playerFields.get(i).setBounds(x, y, width, height);
+//		}
+//		this.setLayout(null);
+//		this.setBackground(Color.GREEN);
+//		this.add(d1);
+//		this.add(d2);
+//	}
+	
 	protected void setDice(int value1, int value2)
 	{
 		Random r = new Random();
 		d1.setDice(value1);
 		d1XModifier = r.nextInt((this.getSize().width - 2 * fieldDimension.width) - 65) + fieldDimension.width;
-		d1YModifier = r.nextInt((this.getSize().height - 2 * fieldDimension.height) - 65) + fieldDimension.height;
+		d1YModifier = r.nextInt((this.getSize().height - 4 * fieldDimension.height) - 65) + fieldDimension.height;
 		d2.setDice(value2);
 		d2XModifier = r.nextInt((this.getSize().width - 2 * fieldDimension.width) - 65) + fieldDimension.width;
-		d2YModifier = r.nextInt((this.getSize().height - 2 * fieldDimension.height) - 65) + fieldDimension.height;
+		d2YModifier = r.nextInt((this.getSize().height - 4 * fieldDimension.height) - 65) + fieldDimension.height;
 		d1.setBounds(d1XModifier, d1YModifier, 65, 65);
 		d2.setBounds(d2XModifier, d2YModifier, 65, 65);
 		d1.setVisible(true);
@@ -107,9 +132,9 @@ public class BoardPanel extends JPanel
 		fields[fieldNr - 1].popUpField.setTitleText(title);
 		fields[fieldNr - 1].titleLabel.setText(title);
 	}
-
+	
 	//custom board generator
-	protected void setupFields(FieldPanel[] fields)
+	private void setupFields(FieldPanel[] fields)
 	{
 		this.fields = fields;
 		
@@ -121,7 +146,7 @@ public class BoardPanel extends JPanel
 	}
 	
 	//Standard Board generator
-	protected void setupFields()
+	private void setupFields()
 	{
 		this.fields = new FieldPanel[40];
 		

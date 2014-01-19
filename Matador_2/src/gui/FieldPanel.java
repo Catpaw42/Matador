@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -24,7 +23,6 @@ import javax.swing.SwingConstants;
 public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
 {
 	private JLabel pictureLabel;
-	private Dimension popUpSize;
 	
 	protected JLabel subTextLabel;
 	protected PopUpField popUpField;
@@ -39,40 +37,37 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		this.FieldNumber = b.fieldNumber;
 		b.fieldNumber++;
 		this.setLayout(null);
+		this.setSize(75, 62);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		this.setBackground(b.bgColor);
 		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
-		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		this.add(titleLabel);
+		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
+		titleLabel.setBounds(0, 0, this.getWidth(), this.getSize().height * 4 / 12);
+
 		
 		subTextLabel = new JLabel("<html>" +  b.subText + "</html>",SwingConstants.CENTER);
-		subTextLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		this.add(subTextLabel);
+		subTextLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
+		subTextLabel.setBounds(0, this.getSize().height * 9/ 12, this.getWidth(), this.getSize().height * 3 / 12);
+
 		
 		if(b.img != null)
 		{
 			picture = CreateImage(b.img);
 			pictureLabel = new JLabel(new ImageIcon(picture));
+			pictureLabel.setBounds(this.getSize().width / 12, this.getSize().height * 4/ 12, this.getSize().width * 10/ 12, this.getSize().height * 5/ 12);
 			this.add(pictureLabel);
 		}
 		
 		this.description = "<html>" +  b.description + "</html>";
 		
-		popUpSize = new Dimension(250,260);
 		popUpField = new PopUpField(this);
 		popUpField.setAlwaysOnTop(true);
-	}
-	
-	protected void updatePositions()
-	{
-		titleLabel.setBounds(0, 0, this.getWidth(), this.getSize().height * 4 / 12);
-		subTextLabel.setBounds(0, this.getSize().height * 9/ 12, this.getWidth(), this.getSize().height * 3 / 12);
 		
-		if(pictureLabel != null)
-			pictureLabel.setBounds(this.getSize().width / 12, this.getSize().height * 4/ 12, this.getSize().width * 10/ 12, this.getSize().height * 5/ 12);
 	}
 
 	private BufferedImage CreateImage(String img)
@@ -99,9 +94,9 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 
 	public static class Builder
 	{
-		private String title = "Dummy";
-		private String subText = "dummySubText";
-		private String description = "dummyDescription";
+		private String title = "";
+		private String subText = "";
+		private String description = "";
 		private String img = null;
 		private Color bgColor = Color.WHITE;
 		private static int fieldNumber = 1;
@@ -162,7 +157,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	public void mouseEntered(MouseEvent e)
 	{
 		Point p = MouseInfo.getPointerInfo().getLocation();
-		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, popUpSize.width, popUpSize.height);
+		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 250, 260);
 		this.popUpField.setVisible(true);
 	}
 
@@ -176,7 +171,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	public void mouseMoved(MouseEvent e)
 	{
 		Point p = MouseInfo.getPointerInfo().getLocation();
-		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, popUpSize.width, popUpSize.height);
+		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 250, 260);
 	}
 
 	@Override

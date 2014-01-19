@@ -24,25 +24,43 @@ public class PopUpField extends JFrame
 	
 	protected PopUpField(final FieldPanel fp)
 	{
-		backgroundPanel = new JPanel();
-		backgroundPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		titleLabel = new JLabel(fp.titleLabel.getText());
-		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
-		desciptionLabel = new JLabel(fp.description);
-		desciptionLabel.setVerticalAlignment(SwingConstants.TOP);
-		fieldNumberLabel = new JLabel(""+fp.FieldNumber);
-		fieldNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		fieldNumberLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
-		ownerLabel = new JLabel();
-		ownerLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		priceLabel = new JLabel();
-		priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		this.setSize(250, 260);
-		this.add(backgroundPanel);
 		this.setResizable(false);
 		this.setFocusableWindowState(false);
 		this.setUndecorated(true);
+		
+		backgroundPanel = new JPanel();
+		backgroundPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		backgroundPanel.setLayout(null);
+		backgroundPanel.setBackground(fp.getBackground());
+		this.add(backgroundPanel);
+		
+		titleLabel = new JLabel(fp.titleLabel.getText());
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
+		titleLabel.setBounds(this.getWidth() * 2 / 20, this.getHeight() * 2/20, this.getWidth() * 16/20, this.getHeight() * 2/20);
+		backgroundPanel.add(titleLabel);
+		
+		desciptionLabel = new JLabel(fp.description);
+		desciptionLabel.setVerticalAlignment(SwingConstants.TOP);
+		desciptionLabel.setBounds(0, this.getHeight() * 14/20, this.getWidth(), this.getHeight() * 6/20 );
+		backgroundPanel.add(desciptionLabel);
+		
+		fieldNumberLabel = new JLabel(""+fp.FieldNumber);
+		fieldNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		fieldNumberLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
+		fieldNumberLabel.setBounds(this.getWidth() * 8/20, 0, this.getWidth() * 4/20, this.getHeight() * 2/20);
+		backgroundPanel.add(fieldNumberLabel);
+		
+		ownerLabel = new JLabel();
+		ownerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		ownerLabel.setBounds(0, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
+		backgroundPanel.add(ownerLabel);
+		
+		priceLabel = new JLabel();
+		priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		priceLabel.setBounds(this.getWidth() * 14/20, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
+		backgroundPanel.add(priceLabel);
 
 		if(fp.picture != null)
 		{
@@ -63,26 +81,12 @@ public class PopUpField extends JFrame
 			backgroundPanel.add(pictureLabel);
 		}
 		
-		backgroundPanel.setLayout(null);
-		backgroundPanel.add(titleLabel);
-		backgroundPanel.add(desciptionLabel);
-		backgroundPanel.add(fieldNumberLabel);
-		backgroundPanel.add(ownerLabel);
-		backgroundPanel.add(priceLabel);
-		backgroundPanel.setBackground(fp.getBackground());
-		
-		fieldNumberLabel.setBounds(this.getWidth() * 8/20, 0, this.getWidth() * 4/20, this.getHeight() * 2/20);
-		titleLabel.setBounds(this.getWidth() * 2 / 20, this.getHeight() * 2/20, this.getWidth() * 16/20, this.getHeight() * 2/20);
-		desciptionLabel.setBounds(0, this.getHeight() * 14/20, this.getWidth(), this.getHeight() * 6/20 );
-		ownerLabel.setBounds(0, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
-		priceLabel.setBounds(this.getWidth() * 14/20, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
-		
 //		ownerLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 //		priceLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 //		titleLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 //		desciptionLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 //		fieldNumberLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-		this.setDescription("hej jeg er en ny testmetode, lad os lege teste leg i haven!! Her i havernes have har vi i dag havernes ikke særlig mange folk at lege med");
+//		this.setDescription("hej jeg er en ny testmetode, lad os lege teste leg i haven!! Her i havernes have har vi i dag havernes ikke særlig mange folk at lege med");
 		this.setVisible(false);
 	}
 	
