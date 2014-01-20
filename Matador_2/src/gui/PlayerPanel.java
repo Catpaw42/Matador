@@ -23,7 +23,7 @@ public class PlayerPanel extends JPanel
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		car = new CarLabel();
 		car.setCar(3, Color.YELLOW);
-		car.setBounds(0, this.getHeight() / 2 - 10, 40, 21);
+		car.setBounds(5, this.getHeight() / 2 - 10, 40, 21);
 		textLabel = new JLabel("<html>" + "Magnus" + "<br>" + "000000" + "</html>");
 		textLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		textLabel.setBounds(40, 0, 80, 40);

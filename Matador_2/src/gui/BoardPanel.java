@@ -30,19 +30,20 @@ public class BoardPanel extends JPanel
 		this.add(d2);
 		
 		fieldDimension = new Dimension((int) (this.getSize().getWidth() / 11.0), (int) (this.getSize().getHeight() / 11.0));
-		System.out.println(fieldDimension);
-		playerFields = new PlayerPanel[10];
+		
+		playerFields = new PlayerPanel[6];
 		int x = 0;
+		int z = 3;
 		int y = this.getHeight() * 31/40;
-		int fifth = (this.getWidth() - 2 * fieldDimension.width) / 5;
-		for (int i = 0; i < 10; i++)
+		int divisor = (this.getWidth() - 2 * fieldDimension.width) / z;
+		for (int i = 0; i < playerFields.length; i++)
 		{
 			playerFields[i] = new PlayerPanel();
 			this.add(playerFields[i]);
-			playerFields[i].setBounds(7 +fieldDimension.width + x * fifth + 1/2 * fifth - 1/2 * 120, y, 120, 40);
-			if (x != 5)
+			playerFields[i].setBounds((int) (7.0 + (fieldDimension.getWidth() + x * divisor) + (1.0/2.0 * divisor) - (1.0/2.0 * 120.0)), y, 120, 40);
+			if (x != z)
 				x++;
-			if (x == 5)
+			if (x == z)
 			{
 				x = 0;
 				y = y + this.getHeight() * 3/40;

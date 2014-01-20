@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -20,7 +19,6 @@ public class CarLabel extends JLabel
 	{
 		carImages = new BufferedImage[4];
 		setupCarIcons();
-		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 	
 	private void setupCarIcons()

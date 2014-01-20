@@ -54,7 +54,6 @@ public class GameGUI extends JFrame
 		// manage the frame
 		this.setTitle("Matador");
 		this.setPreferredSize(new Dimension(1244, 710));
-		this.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (this.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (this.getHeight() / 2));
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		this.addWindowListener(new WindowAdapter()
 		{
@@ -63,7 +62,6 @@ public class GameGUI extends JFrame
 			{
 				System.exit(0);
 			}
-			
 		});
 		this.getRootPane().setDefaultButton(this.getButton(0));
 		this.setResizable(false);
@@ -81,11 +79,12 @@ public class GameGUI extends JFrame
 		
 		//manage the controller
 		controlPanel.setBounds((int) (this.getContentPane().getWidth() * 4.0 / 6.0), 0, (int) (this.getContentPane().getWidth() * 2.0 / 6.0), this.getContentPane().getHeight());
-		System.out.println(controlPanel.getSize());
 
-		//visibility
+		//visibility and location
+		this.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (this.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (this.getHeight() / 2));
 		this.setVisible(true);
 	}
+	
 	private GameGUI(FieldPanel[] fields)
 	{
 //		backgroundPanel = new JPanel();

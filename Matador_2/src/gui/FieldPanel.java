@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -30,6 +31,9 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	protected String description;
 	protected final int FieldNumber;
 	protected JLabel titleLabel;
+	
+	private JLayeredPane layered;
+	private CarLabel carLabels[];
 
 	@SuppressWarnings("static-access")
 	private FieldPanel(Builder b)
@@ -43,17 +47,29 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		this.addMouseMotionListener(this);
 		this.setBackground(b.bgColor);
 		
+		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
-		this.add(titleLabel);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		titleLabel.setBounds(0, 0, this.getWidth(), this.getSize().height * 4 / 12);
+		this.add(titleLabel);
 
 		
 		subTextLabel = new JLabel("<html>" +  b.subText + "</html>",SwingConstants.CENTER);
-		this.add(subTextLabel);
 		subTextLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		subTextLabel.setBounds(0, this.getSize().height * 9/ 12, this.getWidth(), this.getSize().height * 3 / 12);
-
+		this.add(subTextLabel);
+		
+		layered = new JLayeredPane();
+		layered.setBounds(0, 0, this.getWidth(), this.getHeight());
+		carLabels = new CarLabel[6];
+		for (int i = 0; i < carLabels.length; i++)
+		{
+			carLabels[i] = new CarLabel();
+			layered.add(carLabels[i], 5 + i);
+			carLabels[i].setBounds(3 + 5 * i, 3 + 5 * i, 40, 21);
+		}
+		
+		this.add(layered);
 		
 		if(b.img != null)
 		{
@@ -63,10 +79,12 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 			this.add(pictureLabel);
 		}
 		
-		this.description = "<html>" +  b.description + "</html>";
+		this.description = b.description;
 		
 		popUpField = new PopUpField(this);
 		popUpField.setAlwaysOnTop(true);
+		
+		
 		
 	}
 
@@ -90,6 +108,11 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		//should not be reachable
 		return null;
 		
+	}
+	
+	protected void setCar(int cartype, int layer, Color c)
+	{
+		carLabels[layer].setCar(cartype, c);
 	}
 
 	public static class Builder
