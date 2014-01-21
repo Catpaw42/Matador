@@ -6,8 +6,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -74,22 +74,15 @@ public class ControlPanel extends JPanel
 		this.add(dragLabel);
 		dragLabel.setBounds(this.getWidth() * 4 / 20, this.getHeight() * 12 / 20, this.getWidth() * 3 / 20, this.getHeight() * 1 / 20);
 		dragLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		dragLabel.setTransferHandler(new TransferHandler()
+		dragLabel.setTransferHandler(new TransferHandler("icon"));
+		dragLabel.addMouseMotionListener(new MouseAdapter()
 		{
 			@Override
-			public int getSourceActions(JComponent c)
+			public void mouseDragged(MouseEvent e)
 			{
-				return COPY_OR_MOVE;
-			}
-			@Override
-			protected Transferable createTransferable(JComponent c)
-			{
-				return new StringSelection("Test");
-			}
-			@Override
-			protected void exportDone(JComponent source, Transferable data, int action)
-			{
-				System.out.println("inside exportDone method");
+				JComponent c = (JComponent) e.getSource();
+	            TransferHandler handler = c.getTransferHandler();
+	            handler.exportAsDrag(c, e, TransferHandler.COPY);
 			}
 		});
 		

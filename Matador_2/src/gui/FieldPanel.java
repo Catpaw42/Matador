@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -49,44 +46,8 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		this.setTransferHandler(new TransferHandler("icon"));
 		this.setBackground(b.bgColor);
-		this.setTransferHandler(new TransferHandler()
-		{
-			@Override
-			public boolean canImport(TransferSupport support)
-			{
-				if (!support.isDataFlavorSupported(DataFlavor.stringFlavor))
-				{
-					return false;
-				}
-				return true;
-			}
-			
-			@Override
-			public boolean importData(TransferSupport support)
-			{
-				if(!canImport(support))
-					return false;
-				Transferable t = support.getTransferable();
-				try
-				{
-					String data = (String) t.getTransferData(DataFlavor.stringFlavor);
-					System.out.println(data);
-				} catch (UnsupportedFlavorException e)
-				{
-					// TODO Auto-generated catch block
-					System.out.println("UnsupportedFlavorException");
-					e.printStackTrace();
-				} catch (IOException e)
-				{
-					// TODO Auto-generated catch block
-					System.out.println("IOException");
-					e.printStackTrace();
-				}
-				return true;
-				
-			}
-		});
 		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
