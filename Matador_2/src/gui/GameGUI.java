@@ -1,6 +1,9 @@
 package gui;
 
+import game.GameActionListener;
+
 import java.awt.Dimension;
+import java.awt.KeyboardFocusManager;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -45,6 +48,7 @@ public class GameGUI extends JFrame
 	}
 	//-----------------------------------------------------
 
+
 	private GameGUI()
 	{
 		backgroundPanel = new JPanel();
@@ -63,7 +67,8 @@ public class GameGUI extends JFrame
 				System.exit(0);
 			}
 		});
-		this.getRootPane().setDefaultButton(this.getButton(0));
+		KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+		manager.addKeyEventDispatcher(new GameActionListener());
 		this.setResizable(false);
 		this.add(backgroundPanel);
 		this.pack();

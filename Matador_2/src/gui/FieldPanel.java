@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -19,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.TransferHandler;
 
 @SuppressWarnings("serial")
 public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
@@ -46,7 +50,43 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		this.setBackground(b.bgColor);
-		
+		this.setTransferHandler(new TransferHandler()
+		{
+			@Override
+			public boolean canImport(TransferSupport support)
+			{
+				if (!support.isDataFlavorSupported(DataFlavor.stringFlavor))
+				{
+					return false;
+				}
+				return true;
+			}
+			
+			@Override
+			public boolean importData(TransferSupport support)
+			{
+				if(!canImport(support))
+					return false;
+				Transferable t = support.getTransferable();
+				try
+				{
+					String data = (String) t.getTransferData(DataFlavor.stringFlavor);
+					System.out.println(data);
+				} catch (UnsupportedFlavorException e)
+				{
+					// TODO Auto-generated catch block
+					System.out.println("UnsupportedFlavorException");
+					e.printStackTrace();
+				} catch (IOException e)
+				{
+					// TODO Auto-generated catch block
+					System.out.println("IOException");
+					e.printStackTrace();
+				}
+				return true;
+				
+			}
+		});
 		
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
@@ -134,6 +174,11 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		public static final String GOTOJAIL = "pics/GoToJail.jpg";
 		public static final String JAIL = "pics/Jail.jpg";
 		public static final String PRØVLYKKEN = "pics/Prøv_lykken_small.png";
+		public static final String HOUSE1 = "pics/1House.png";
+		public static final String HOUSE2 = "pics/2House.png";
+		public static final String HOUSE3 = "pics/3House.png";
+		public static final String HOUSE4 = "pics/4House.png";
+		public static final String HOTEL = "pics/Hotel.png";
 		
 
 		public Builder(){}
