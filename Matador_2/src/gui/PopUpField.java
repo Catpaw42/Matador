@@ -46,7 +46,7 @@ public class PopUpField extends JFrame
 		desciptionLabel.setBounds(0, this.getHeight() * 14/20, this.getWidth(), this.getHeight() * 6/20 );
 		backgroundPanel.add(desciptionLabel);
 		
-		fieldNumberLabel = new JLabel(""+fp.FieldNumber);
+		fieldNumberLabel = new JLabel("" + fp.fieldNumber);
 		fieldNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		fieldNumberLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 		fieldNumberLabel.setBounds(this.getWidth() * 8/20, 0, this.getWidth() * 4/20, this.getHeight() * 2/20);

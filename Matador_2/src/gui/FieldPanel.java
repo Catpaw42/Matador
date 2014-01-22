@@ -1,14 +1,17 @@
 package gui;
 
+import game.GameActionListener;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
-import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DnDConstants;
+import java.awt.datatransfer.DataFlavor;
 import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetAdapter;
+import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
+import java.awt.dnd.DropTargetListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -20,7 +23,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -28,34 +30,32 @@ import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 
 @SuppressWarnings("serial")
-public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
+public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener, DropTargetListener
 {
-	private JLabel pictureLabel;
-
 	protected JLabel subTextLabel;
+	protected JLabel titleLabel;
 	protected PopUpField popUpField;
 	protected BufferedImage picture;
 	protected String description;
-	protected final int FieldNumber;
-	protected JLabel titleLabel;
+	protected final int fieldNumber;
 
+	private JLabel pictureLabel;
 	private JLayeredPane layered;
 	private CarLabel carLabels[];
 
 	@SuppressWarnings("static-access")
-	private FieldPanel(Builder b)
+	private FieldPanel(Builder b) 
 	{
-		this.FieldNumber = b.fieldNumber;
+		this.fieldNumber = b.fieldNumber;
 		b.fieldNumber++;
 		this.setLayout(null);
 		this.setSize(75, 62);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
-		this.setTransferHandler(new TransferHandler("icon"));
+		this.setTransferHandler(new TransferHandler("text"));
 		this.setBackground(b.bgColor);
-
-		new MyDropTargetListener(this);
+		new DropTarget(this, this);
 
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
@@ -118,46 +118,13 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 
 	protected void setCar(int cartype, int layer, Color c)
 	{
-		carLabels[layer].setCar(cartype, c);
+		carLabels[5 + layer].setCar(cartype, c);
 	}
 
-	class MyDropTargetListener extends DropTargetAdapter {
-
-		private DropTarget dropTarget;
-		private JPanel panel;
-
-		public MyDropTargetListener(JPanel panel) {
-			this.panel = panel;
-
-			dropTarget = new DropTarget(panel, DnDConstants.ACTION_COPY, 
-					this, true, null);
-		}
-
-
-		public void drop(DropTargetDropEvent event) {
-			try
-			{
-				System.out.println("we're almost there!!");
-				pictureLabel.setIcon(new ImageIcon(CreateImage(Builder.HOUSE1)));
-				Transferable tr = event.getTransferable();
-				JComponent com = (JComponent) tr.getTransferData(TransferableObject.componentFlavor);
-				
-				
-				if (event.isDataFlavorSupported(TransferableObject.componentFlavor)) {
-
-					event.acceptDrop(DnDConstants.ACTION_COPY);
-					System.out.println("lalala");
-					event.dropComplete(true);
-					return;
-				}
-				event.rejectDrop();
-			} catch (Exception e) {
-				e.printStackTrace();
-				event.rejectDrop();
-			}
-		}
-	}
-
+	//---------------------------------------------------------------------------------------------
+	//Builder class for field
+	//---------------------------------------------------------------------------------------------
+	
 	public static class Builder
 	{
 		private String title = "";
@@ -222,8 +189,9 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		}
 	}
 
-
-
+	//---------------------------------------------------------------------------------------------
+	//mouse event handling
+	//---------------------------------------------------------------------------------------------
 	@Override
 	public void mouseEntered(MouseEvent e)
 	{
@@ -244,6 +212,24 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 250, 260);
 	}
+	
+	@Override
+	public void drop(DropTargetDropEvent dtde)
+	{
+		try
+		{
+			final String s = (String) dtde.getTransferable().getTransferData(
+                    new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
+			
+			new GameActionListener().dropEventDispatched(this, s);
+		} catch (Exception e)
+		{
+			System.err.println("Something went terribly wrong with DnD events");
+			e.printStackTrace();
+		}
+		
+	}
+
 
 	@Override
 	public void mouseClicked(MouseEvent e)
@@ -271,5 +257,33 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	{
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void dragEnter(DropTargetDragEvent dtde)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dragExit(DropTargetEvent dte)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dragOver(DropTargetDragEvent dtde)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dropActionChanged(DropTargetDragEvent dtde)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

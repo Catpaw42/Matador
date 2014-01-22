@@ -74,7 +74,7 @@ public class ControlPanel extends JPanel
 		this.add(dragLabel);
 		dragLabel.setBounds(this.getWidth() * 4 / 20, this.getHeight() * 12 / 20, this.getWidth() * 3 / 20, this.getHeight() * 1 / 20);
 		dragLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		dragLabel.setTransferHandler(new TransferHandler("icon"));
+		dragLabel.setTransferHandler(new TransferHandler("text"));
 		dragLabel.addMouseMotionListener(new MouseAdapter()
 		{
 			@Override

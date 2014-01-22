@@ -30,6 +30,13 @@ public class GameActionListener implements ActionListener, KeyEventDispatcher
 		}
 		return false;
 	}
+
+	//custom method for handling drop-events
+	public void dropEventDispatched(Object fieldPanel, String s)
+	{
+		System.out.println("s: " + s);
+		
+	}
 	
 	
 }
