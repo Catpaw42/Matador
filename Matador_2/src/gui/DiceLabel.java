@@ -20,10 +20,10 @@ public class DiceLabel extends JLabel
 	protected DiceLabel()
 	{
 		setupDiceIcons();
-		this.setIcon(diceIcons[0]);
 		this.setVisible(false);
 	}
 
+	//generate the Icons for the Dice
 	private void setupDiceIcons()
 	{
 		try
@@ -59,9 +59,10 @@ public class DiceLabel extends JLabel
 		this.rotation = r.nextInt(360);
 		this.setIcon(diceIcons[value-1]);
 		this.repaint();
-		//TODO: fix to certain rotations only? to avoid "twisting" the die
+		//TODO: fix to certain rotations only? to avoid "tearing" the die-Image
 	}
 	
+	//overrides the paintComponent to enable rotating the dice
 	@Override
 	protected void paintComponent(Graphics g)
 	{
@@ -72,5 +73,4 @@ public class DiceLabel extends JLabel
 		}
 		super.paintComponent(g);
 	}
-	
 }

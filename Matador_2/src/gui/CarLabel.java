@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 public class CarLabel extends JLabel
 {
 	private BufferedImage[] carImages;
+	//the default color of the images(red) used to search and replace
 	private static final int DEFAULTPRIMARYCOLOR = 0xffff0000;
 	
 	protected CarLabel()
@@ -20,7 +21,7 @@ public class CarLabel extends JLabel
 		carImages = new BufferedImage[4];
 		setupCarIcons();
 	}
-	
+	//custom method to create the images of the cars
 	private void setupCarIcons()
 	{
 		try
@@ -52,7 +53,7 @@ public class CarLabel extends JLabel
 			throw new RuntimeException("the selected integer does not match a car");
 		this.setIcon(new ImageIcon(setCarColor(carImages[i], c)));
 	}
-	
+	//method used to paint the cars in different colors, by replacing the Default_color
 	private BufferedImage setCarColor(BufferedImage img, Color c)
 	{
 		for (int y = 0; y < img.getHeight(); y++)
@@ -65,6 +66,4 @@ public class CarLabel extends JLabel
         }
         return img;
 	}
-	
-	
 }

@@ -24,44 +24,52 @@ public class PopUpField extends JFrame
 	
 	protected PopUpField(final FieldPanel fp)
 	{
+		//managethis frame
 		this.setSize(250, 260);
 		this.setResizable(false);
-		this.setFocusableWindowState(false);
-		this.setUndecorated(true);
+		this.setFocusableWindowState(false); //we do'nt want this frame to grab focus as its only here to display data
+		this.setUndecorated(true); //we do'nt want a border / buttons
 		
+		//add a background panel
 		backgroundPanel = new JPanel();
 		backgroundPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		backgroundPanel.setLayout(null);
 		backgroundPanel.setBackground(fp.getBackground());
 		this.add(backgroundPanel);
 		
+		//add a titleLabel
 		titleLabel = new JLabel(fp.titleLabel.getText());
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 		titleLabel.setBounds(this.getWidth() * 2 / 20, this.getHeight() * 2/20, this.getWidth() * 16/20, this.getHeight() * 2/20);
 		backgroundPanel.add(titleLabel);
 		
+		//add a descriptionLabel
 		desciptionLabel = new JLabel(fp.description);
 		desciptionLabel.setVerticalAlignment(SwingConstants.TOP);
 		desciptionLabel.setBounds(0, this.getHeight() * 14/20, this.getWidth(), this.getHeight() * 6/20 );
 		backgroundPanel.add(desciptionLabel);
 		
+		//add a fieldnumberLabel
 		fieldNumberLabel = new JLabel("" + fp.fieldNumber);
 		fieldNumberLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		fieldNumberLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 		fieldNumberLabel.setBounds(this.getWidth() * 8/20, 0, this.getWidth() * 4/20, this.getHeight() * 2/20);
 		backgroundPanel.add(fieldNumberLabel);
 		
+		//add an ownerLabel
 		ownerLabel = new JLabel();
 		ownerLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		ownerLabel.setBounds(0, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
 		backgroundPanel.add(ownerLabel);
 		
+		//add a priceLabel
 		priceLabel = new JLabel();
 		priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		priceLabel.setBounds(this.getWidth() * 14/20, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
 		backgroundPanel.add(priceLabel);
 
+		//if there's a picture on the associated field, add it here using a custom JLabel to scale it up
 		if(fp.picture != null)
 		{
 			this.pictureLabel = new JLabel()
@@ -77,16 +85,8 @@ public class PopUpField extends JFrame
 				}
 			};
 			pictureLabel.setBounds((this.getWidth() * 1 / 2) - (fp.picture.getWidth()), this.getHeight() * 5 / 20, fp.picture.getWidth() * 2, fp.picture.getHeight() * 2);
-//			pictureLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
 			backgroundPanel.add(pictureLabel);
 		}
-		
-//		ownerLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-//		priceLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-//		titleLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-//		desciptionLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-//		fieldNumberLabel.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-//		this.setDescription("hej jeg er en ny testmetode, lad os lege teste leg i haven!! Her i havernes have har vi i dag havernes ikke særlig mange folk at lege med");
 		this.setVisible(false);
 	}
 	

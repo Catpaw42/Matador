@@ -38,10 +38,12 @@ public class ControlPanel extends JPanel
 
 	protected ControlPanel()
 	{
+		//manage this panel
 		this.setLayout(null);
 		this.setSize(412, 682);
 		this.setBackground(Color.ORANGE);
 		
+		//add a label to show the current players name
 		nameLabel = new JLabel("MAGNUS");
 		this.add(nameLabel);
 //		nameLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -49,13 +51,14 @@ public class ControlPanel extends JPanel
 		nameLabel.setFont(new Font(Font.SERIF, Font.BOLD, 26));
 		nameLabel.setBounds(this.getWidth() * 4/20, this.getHeight() * 1/40, this.getWidth() * 12 / 20, this.getHeight() * 1/20);
 		
+		//add a textarea with a scrollpane to show output
 		textArea = new JTextArea();
 		textArea.setEditable(false);
-		
 		scrollPane = new JScrollPane(textArea);
 		this.add(scrollPane);
 		scrollPane.setBounds(this.getWidth() * 2 / 20, this.getHeight() * 2 / 20, this.getWidth() * 16 / 20, this.getHeight() * 9 / 20);
 		
+		//add a custom label for the drag and drop house / hotel
 		hotelPicture = CreateImage("pics/1House.png");
 		housePicture = CreateImage("pics/Hotel.png");
 		dragLabel = new JLabel()
@@ -66,6 +69,7 @@ public class ControlPanel extends JPanel
 				super.paintComponent(g);
 				if (housePicture != null && hotelPicture != null)
 				{
+					//draw a house and a hotel, scaled up to 2x
 					g.drawImage((Image) hotelPicture, 0, 0, hotelPicture.getWidth() * 2, hotelPicture.getHeight() * 2, null);
 					g.drawImage((Image) housePicture, hotelPicture.getWidth() * 2, 0, housePicture.getWidth() * 2, housePicture.getHeight() * 2, null);
 				}
@@ -74,11 +78,11 @@ public class ControlPanel extends JPanel
 		this.add(dragLabel);
 		dragLabel.setBounds(this.getWidth() * 4 / 20, this.getHeight() * 12 / 20, this.getWidth() * 3 / 20, this.getHeight() * 1 / 20);
 		dragLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		dragLabel.setTransferHandler(new TransferHandler("text"));
+		dragLabel.setTransferHandler(new TransferHandler("text")); //add a transferhandler, used to manage drag and drop
 		dragLabel.addMouseMotionListener(new MouseAdapter()
 		{
 			@Override
-			public void mouseDragged(MouseEvent e)
+			public void mouseDragged(MouseEvent e) //add a mouseMotion Listener, this is called when a "drag" event is fired on this label
 			{
 				JComponent c = (JComponent) e.getSource();
 	            TransferHandler handler = c.getTransferHandler();
@@ -86,11 +90,13 @@ public class ControlPanel extends JPanel
 			}
 		});
 		
+		//add buttons to this panel
 		buttons = new JButton[3];
-		buttons[0] = new JButton("START");
-		buttons[1] = new JButton("<html><u>B</u>uy</html>");
-		buttons[2] = new JButton("<html><u>S</u>ell</html>");
+		buttons[0] = new JButton("START"); //main button
+		buttons[1] = new JButton("<html><u>B</u>uy</html>"); //Buy
+		buttons[2] = new JButton("<html><u>S</u>ell</html>");//Sell
 		
+		//add actionlistners to all the buttons
 		for (int i = 0; i < buttons.length; i++)
 		{
 			buttons[i].addActionListener(new GameActionListener());
@@ -101,6 +107,7 @@ public class ControlPanel extends JPanel
 		buttons[2].setBounds(this.getWidth() * 11 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
 	}
 	
+	//custom method to create BufferedImages from a PATH
 	private BufferedImage CreateImage(String img)
 	{
 		try
@@ -118,8 +125,7 @@ public class ControlPanel extends JPanel
 			System.err.println("Error loading the image");
 			ex.printStackTrace();
 		}
-		//should not be reachable
+		//should not be reachable, only here to satisfy the compiler
 		return null;
-		
 	}
 }

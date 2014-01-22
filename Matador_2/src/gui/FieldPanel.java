@@ -46,8 +46,10 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	@SuppressWarnings("static-access")
 	private FieldPanel(Builder b) 
 	{
-		this.fieldNumber = b.fieldNumber;
+		this.fieldNumber = b.fieldNumber; //store and increment the field-number
 		b.fieldNumber++;
+
+		//manage this panel
 		this.setLayout(null);
 		this.setSize(75, 62);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -55,31 +57,33 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		this.addMouseMotionListener(this);
 		this.setTransferHandler(new TransferHandler("text"));
 		this.setBackground(b.bgColor);
-		new DropTarget(this, this);
+		new DropTarget(this, this); //makes this a possible target for drop-events
 
+		//add a label for the title
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
 		titleLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		titleLabel.setBounds(0, 0, this.getWidth(), this.getSize().height * 4 / 12);
 		this.add(titleLabel);
 
-
+		//add a title for the subText
 		subTextLabel = new JLabel("<html>" +  b.subText + "</html>",SwingConstants.CENTER);
 		subTextLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		subTextLabel.setBounds(0, this.getSize().height * 9/ 12, this.getWidth(), this.getSize().height * 3 / 12);
 		this.add(subTextLabel);
 
+		//add a layered-pane for the cars
 		layered = new JLayeredPane();
 		layered.setBounds(0, 0, this.getWidth(), this.getHeight());
 		carLabels = new CarLabel[6];
-		for (int i = 0; i < carLabels.length; i++)
+		for (int i = 0; i < carLabels.length; i++) //make room for 6 cars
 		{
 			carLabels[i] = new CarLabel();
 			layered.add(carLabels[i], 5 + i);
 			carLabels[i].setBounds(3 + 5 * i, 3 + 5 * i, 40, 21);
 		}
-
 		this.add(layered);
 
+		//if an image was selected in the Builder, add it to a label
 		if(b.img != null)
 		{
 			picture = CreateImage(b.img);
@@ -87,13 +91,15 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 			pictureLabel.setBounds(this.getSize().width / 12, this.getSize().height * 4/ 12, this.getSize().width * 10/ 12, this.getSize().height * 5/ 12);
 			this.add(pictureLabel);
 		}
-
+		//store the description from the Builder
 		this.description = b.description;
 
+		//Create a pop-up field associated with this field
 		popUpField = new PopUpField(this);
 		popUpField.setAlwaysOnTop(true);
 	}
 
+	//custom method to generate a BufferedImage from a PATH
 	private BufferedImage CreateImage(String img)
 	{
 		try
@@ -124,7 +130,6 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	//---------------------------------------------------------------------------------------------
 	//Builder class for field
 	//---------------------------------------------------------------------------------------------
-	
 	public static class Builder
 	{
 		private String title = "";
@@ -212,24 +217,27 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 250, 260);
 	}
-	
+
 	@Override
 	public void drop(DropTargetDropEvent dtde)
 	{
 		try
 		{
 			final String s = (String) dtde.getTransferable().getTransferData(
-                    new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
-			
+					new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
+
 			new GameActionListener().dropEventDispatched(this, s);
 		} catch (Exception e)
 		{
 			System.err.println("Something went terribly wrong with DnD events");
 			e.printStackTrace();
 		}
-		
+
 	}
 
+	//---------------------------------------------------------------------------------------------
+	//Unused mouse event handlers
+	//---------------------------------------------------------------------------------------------
 
 	@Override
 	public void mouseClicked(MouseEvent e)
@@ -263,27 +271,27 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	public void dragEnter(DropTargetDragEvent dtde)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void dragExit(DropTargetEvent dte)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void dragOver(DropTargetDragEvent dtde)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void dropActionChanged(DropTargetDragEvent dtde)
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 }

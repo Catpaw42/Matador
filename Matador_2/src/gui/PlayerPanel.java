@@ -17,17 +17,21 @@ public class PlayerPanel extends JPanel
 	
 	public PlayerPanel()
 	{
+		//manage the panel
 		this.setSize(120, 40);
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
+		//add a carLabel
 		car = new CarLabel();
-		car.setCar(3, Color.YELLOW);
 		car.setBounds(5, this.getHeight() / 2 - 10, 40, 21);
+		this.add(car);
+		
+		//add a textLabel
 		textLabel = new JLabel("<html>" + "Magnus" + "<br>" + "000000" + "</html>");
 		textLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		textLabel.setBounds(40, 0, 80, 40);
-		this.add(car);
 		this.add(textLabel);
 	}
 	
