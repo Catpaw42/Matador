@@ -11,15 +11,15 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class BoardPanel extends JPanel
 {
-	Dimension fieldDimension = null;
-	DiceLabel d1 = new DiceLabel();
-	DiceLabel d2 = new DiceLabel();
+	private Dimension fieldDimension = null;
+	private DiceLabel d1 = new DiceLabel();
+	private DiceLabel d2 = new DiceLabel();
 	private int d1XModifier;
 	private int d1YModifier;
 	private int d2XModifier;
 	private int d2YModifier;
 	private FieldPanel[] fields;
-	private PlayerPanel[] playerFields;
+	protected PlayerPanel[] playerFields;
 
 	//standart constructor, used to generate a Standard board
 	protected BoardPanel()
@@ -157,23 +157,42 @@ public class BoardPanel extends JPanel
 	{
 		fields[fieldNr - 1].subTextLabel.setText(subText);
 	}
+	
 	protected void setOwner(String owner, int fieldNr)
 	{
 		fields[fieldNr - 1].popUpField.setOwner(owner);
 	}
-	protected void setPrice(String price, String priceType, int fieldNr)
+	
+	protected void setPrice(String price, int fieldNr)
 	{
-		fields[fieldNr - 1].popUpField.setPrice(price, priceType);
+		fields[fieldNr - 1].popUpField.setPrice(price);
 	}
+	
+	protected void setPriceText(String priceText, int fieldNr)
+	{
+		fields[fieldNr - 1].popUpField.setPriceText(priceText);
+	}
+	
 	protected void setDescription(String descText, int fieldNr)
 	{
 		fields[fieldNr - 1].popUpField.setDescription(descText);
 		fields[fieldNr - 1].description = descText;
 	}
+	
 	protected void setTitle(String title, int fieldNr)
 	{
 		fields[fieldNr - 1].popUpField.setTitleText(title);
 		fields[fieldNr - 1].titleLabel.setText(title);
+	}
+	
+	public void setCar(int fieldNr, int cartype, int carNr, Color c)
+	{
+		this.fields[fieldNr - 1].setCar(cartype, carNr, c);
+	}
+	
+	public void removeCar(int fieldNr, int carNr)
+	{
+		this.fields[fieldNr - 1].removeCar(carNr);
 	}
 
 	//custom board generator

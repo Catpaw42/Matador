@@ -21,6 +21,8 @@ public class PopUpField extends JFrame
 	private JLabel fieldNumberLabel;
 	private JLabel ownerLabel;
 	private JLabel priceLabel;
+	private String priceText;
+	private String price;
 	
 	protected PopUpField(final FieldPanel fp)
 	{
@@ -101,9 +103,16 @@ public class PopUpField extends JFrame
 		this.ownerLabel.setText("<html>" + "Owner:" + "<br>" + text + "</html>");
 	}
 	
-	protected void setPrice(String price, String priceType)
+	protected void setPrice(String price)
 	{
-		this.priceLabel.setText("<html>" + priceType + ":" + "<br>" + price + "</html>");
+		this.price = price;
+		this.priceLabel.setText("<html>" + this.priceText + ":" + "<br>" + this.price + "</html>");
+	}
+	
+	protected void setPriceText(String priceText)
+	{
+		this.priceText = priceText;
+		this.priceLabel.setText("<html>" + this.priceText + ":" + "<br>" + this.price + "</html>");
 	}
 	
 	protected void setDescription(String text)

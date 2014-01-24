@@ -21,6 +21,7 @@ public class PlayerPanel extends JPanel
 		this.setSize(120, 40);
 		this.setLayout(null);
 		this.setOpaque(false);
+		this.setVisible(false);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
 		//add a carLabel
@@ -44,6 +45,12 @@ public class PlayerPanel extends JPanel
 	protected void setPlayerMoney(String money)
 	{
 		this.money = money;
+		textLabel.setText("<html>" + this.name + "<br>" + this.money + "</html>");
+	}
+	
+	protected void setPlayerMoney(int money)
+	{
+		this.money = "" + money;
 		textLabel.setText("<html>" + this.name + "<br>" + this.money + "</html>");
 	}
 }

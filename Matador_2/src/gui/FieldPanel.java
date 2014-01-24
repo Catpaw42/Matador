@@ -122,9 +122,15 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 
 	}
 
-	protected void setCar(int cartype, int layer, Color c)
+	protected void setCar(int cartype, int carNr, Color c)
 	{
-		carLabels[5 + layer].setCar(cartype, c);
+		carLabels[carNr].setCar(cartype, c);
+		carLabels[carNr].setVisible(true);
+	}
+	
+	protected void removeCar(int carNr)
+	{
+		carLabels[carNr].setVisible(false);
 	}
 
 	//---------------------------------------------------------------------------------------------
@@ -226,7 +232,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 			final String s = (String) dtde.getTransferable().getTransferData(
 					new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
 
-			new GameActionListener().dropEventDispatched(this, s);
+			new GameActionListener().dropEvent(this, s);
 		} catch (Exception e)
 		{
 			System.err.println("Something went terribly wrong with DnD events");

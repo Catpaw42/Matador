@@ -20,6 +20,7 @@ public class CarLabel extends JLabel
 	{
 		carImages = new BufferedImage[4];
 		setupCarIcons();
+		this.setVisible(false);
 	}
 	//custom method to create the images of the cars
 	private void setupCarIcons()
@@ -45,7 +46,6 @@ public class CarLabel extends JLabel
 			System.err.println("Error loading the car Icons");
 			ex.printStackTrace();
 		}
-		
 	}
 	protected void setCar(int i, Color c)
 	{

@@ -1,51 +1,88 @@
 package game;
 
-import gui.GameGUI;
+import gui.GUI;
 
 import java.awt.KeyEventDispatcher;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-public class GameActionListener implements ActionListener, KeyEventDispatcher
+public class GameActionListener implements KeyEventDispatcher
 {
-	//called when an actionEvent is fired from the GUI, So far this is the Buttons
-	@Override
-	public void actionPerformed(ActionEvent e)
+	GUI gui = new GUI();
+
+	public GameActionListener(){}
+
+	//--------------------------------------------------------------
+	//Methods to handle Action events
+	//--------------------------------------------------------------
+
+	public void buyButtonEvent()
 	{
-		//figure out what button was pressed
-		if (e.getSource().equals(GameGUI.getInstance().getButton(0)))
-		{
-			//do stuff here
-			GameGUI.getInstance().setDice(1, 2);
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
+	public void mainButtonEvent()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void sellButtonEvent()
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void menuOneEvent()
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void menuTwoEvent()
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	//--------------------------------------------------------------
+	//Method to handle key events
+	//--------------------------------------------------------------
+
 	//called when a keyEvent is fired. This is called once for KEY_PRESSED, and once for KEY_RELEASED
+	//therefore they should be separated, example: if = KEY_RELEASED will only catch one of the events
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent e)
 	{
 		if (e.getID() == KeyEvent.KEY_RELEASED)
 		{
 			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-	           //do stuff here
+				//do stuff here
 			}
 		}
 		return false;
 	}
 
-	//custom method for handling drop-events
-	public void dropEventDispatched(Object source, String data)
+	//--------------------------------------------------------------
+	//Method to handle drop events
+	//--------------------------------------------------------------
+	public void dropEvent(Object source, String data)
 	{
 		System.out.println("s: " + data.toString());
-		
+
 	}
-	
-	//custom method for handling windowClosed
-	public void windowClosingEventDispatched()
+
+	//--------------------------------------------------------------
+	//Method to handle window closing events
+	//--------------------------------------------------------------
+	public void windowClosingEvent()
 	{
 		System.exit(0);
 	}
-	
-	
+
+
+
+
+
+
 }
