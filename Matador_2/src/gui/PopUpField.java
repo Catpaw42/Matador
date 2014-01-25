@@ -117,7 +117,7 @@ public class PopUpField extends JFrame
 	
 	protected void setDescription(String text)
 	{
-		text.replaceAll("\n", "<br>"); //works???
+		text = text.replaceAll("\n", "<br>");
 		this.desciptionLabel.setText("<html>" + text + "</html>");
 	}
 	

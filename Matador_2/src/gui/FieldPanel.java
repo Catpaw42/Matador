@@ -124,13 +124,13 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 
 	protected void setCar(int cartype, int carNr, Color c)
 	{
-		carLabels[carNr].setCar(cartype, c);
-		carLabels[carNr].setVisible(true);
+		carLabels[carNr - 1].setCar(cartype, c);
+		carLabels[carNr - 1].setVisible(true);
 	}
 	
 	protected void removeCar(int carNr)
 	{
-		carLabels[carNr].setVisible(false);
+		carLabels[carNr - 1].setVisible(false);
 	}
 
 	//---------------------------------------------------------------------------------------------

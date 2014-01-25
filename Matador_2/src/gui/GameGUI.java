@@ -188,6 +188,11 @@ public class GameGUI extends JFrame
 	//----------------------------------------------------------------------------------------------------------------------------
 	// interface to the rest of the GUI
 	//----------------------------------------------------------------------------------------------------------------------------
+	protected void setDisplayedText(String text)
+	{
+		this.boardPanel.setDisplayedText(text);
+	}
+	
 	protected void appendText(String str)
 	{
 		this.controlPanel.textArea.append(str + "\n");
