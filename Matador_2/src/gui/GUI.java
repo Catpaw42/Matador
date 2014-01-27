@@ -1,12 +1,7 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -41,33 +36,6 @@ public class GUI
 		GameGUI.createCustomGUI(fields);
 	}
 	
-	//TODO: move this to a static helper class as this is used multiple places
-	/**
-	 * helper method, used to generate a Image from a string path
-	 * @param img a path to the imageFile
-	 * @return a buffered image, created from the specified path.
-	 */
-	private BufferedImage CreateImage(String img)
-	{
-		try
-		{
-			//get the image from the folder
-			File f = new File(img);
-			if(!f.exists())
-				throw new FileNotFoundException("Can't locate image");
-
-			BufferedImage image = ImageIO.read(f);
-
-			return image;
-		} catch (IOException ex)
-		{
-			System.err.println("Error loading the image");
-			ex.printStackTrace();
-		}
-		//should not be reachable
-		return null;
-	}
-
 	/**
 	 * sets the two dice of the game to the specified integers, then moves them to a random
 	 * place on the board, and rotates them at random.
@@ -145,7 +113,7 @@ public class GUI
 	public String getUserSelection(String[] options, String message, String title, String imagePath)
 	{
 		return (String) JOptionPane.showInputDialog(new JFrame(),
-				message, title, JOptionPane.QUESTION_MESSAGE, new ImageIcon(CreateImage(imagePath)),
+				message, title, JOptionPane.QUESTION_MESSAGE, new ImageIcon(ImageFactory.CreateImage(imagePath)),
 				options, options[0]);
 	}
 	
@@ -170,7 +138,7 @@ public class GUI
 	{
 		return JOptionPane.showConfirmDialog(new JFrame(),
 				message, title, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.YES_NO_CANCEL_OPTION,
-				new ImageIcon(CreateImage(imagePath)));
+				new ImageIcon(ImageFactory.CreateImage(imagePath)));
 	}
 	
 	/**
@@ -195,7 +163,7 @@ public class GUI
 	public String getUserTextString(String message, String title,String imagePath, String initialValue)
 	{
 		return (String) JOptionPane.showInputDialog(new JFrame(),
-				message, title, JOptionPane.QUESTION_MESSAGE, new ImageIcon(CreateImage(imagePath)),
+				message, title, JOptionPane.QUESTION_MESSAGE, new ImageIcon(ImageFactory.CreateImage(imagePath)),
 				null, initialValue);
 	}
 	

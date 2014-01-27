@@ -66,9 +66,10 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	//Method to handle drop events
 	//--------------------------------------------------------------
-	public void dropEvent(Object source, String data)
+	public void dropEvent(int source, String data)
 	{
-		System.out.println("s: " + data.toString());
+		System.out.println("Source: field " + source);
+		System.out.println("data: " + data);
 
 	}
 

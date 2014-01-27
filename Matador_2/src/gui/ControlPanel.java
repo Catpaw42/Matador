@@ -11,11 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -61,8 +57,8 @@ public class ControlPanel extends JPanel
 		scrollPane.setBounds(this.getWidth() * 2 / 20, this.getHeight() * 2 / 20, this.getWidth() * 16 / 20, this.getHeight() * 9 / 20);
 
 		//add a custom label for the drag and drop house / hotel
-		hotelPicture = CreateImage("pics/1House.png");
-		housePicture = CreateImage("pics/Hotel.png");
+		hotelPicture = ImageFactory.CreateImage("pics/1House.png");
+		housePicture = ImageFactory.CreateImage("pics/Hotel.png");
 		dragLabel = new JLabel()
 		{
 			@Override
@@ -81,6 +77,7 @@ public class ControlPanel extends JPanel
 		dragLabel.setBounds(this.getWidth() * 4 / 20, this.getHeight() * 12 / 20, this.getWidth() * 3 / 20, this.getHeight() * 1 / 20);
 		dragLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		dragLabel.setTransferHandler(new TransferHandler("text")); //add a transferhandler, used to manage drag and drop
+		dragLabel.getTransferHandler().setDragImage(ImageFactory.CreateImage("pics/1House.png"));
 		dragLabel.addMouseMotionListener(new MouseAdapter()
 		{
 			@Override
@@ -127,27 +124,5 @@ public class ControlPanel extends JPanel
 		buttons[0].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 17 / 20, this.getWidth() * 16 / 20, this.getHeight() * 2 / 20);
 		buttons[1].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
 		buttons[2].setBounds(this.getWidth() * 11 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
-	}
-
-	//custom method to create BufferedImages from a PATH
-	private BufferedImage CreateImage(String img)
-	{
-		try
-		{
-			//get the image from the folder
-			File f = new File(img);
-			if(!f.exists())
-				throw new FileNotFoundException("Can't locate image");
-
-			BufferedImage image = ImageIO.read(f);
-
-			return image;
-		} catch (IOException ex)
-		{
-			System.err.println("Error loading the image");
-			ex.printStackTrace();
-		}
-		//should not be reachable, only here to satisfy the compiler
-		return null;
 	}
 }

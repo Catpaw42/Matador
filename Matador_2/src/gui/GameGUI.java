@@ -118,7 +118,7 @@ public class GameGUI extends JFrame
 		menuBar = new JMenuBar();
 		menuBar.add(menu[0]);
 		this.setJMenuBar(menuBar);
-
+		
 		//manage the board
 		boardPanel = new BoardPanel();
 		boardPanel.setBounds(0, 0, (int) (this.getContentPane().getWidth() * 4.0 / 6.0), this.getContentPane().getHeight());
