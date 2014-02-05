@@ -1,0 +1,1231 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="6.5" multi-file="no">
+  <meta>
+    <name>Project</name>
+    <authors> </authors>
+    <description />
+  </meta>
+  <management>
+    <persons>
+      <person id="Pddc985b8a217449486a8a9faf22fe93d">
+        <first-name />
+        <last-name />
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <tasks />
+    <requirements />
+    <issues />
+    <to-dos />
+  </management>
+  <glossary />
+  <types>
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types />
+  </types>
+  <filters />
+  <items>
+    <item id="di669118625716656549" cid="IOP001" type="interaction-operand" name="If Refuge" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:48:41">
+      <stereotypes />
+      <tagged-values />
+      <associated-diagrams />
+      <owned-items />
+      <style class="default" />
+      <interaction-operand guard="" />
+    </item>
+    <item id="di688343987983055163" cid="CMT001" type="comment" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:40:33">
+      <stereotypes />
+      <tagged-values />
+      <associated-diagrams />
+      <owned-items />
+      <style class="default" />
+      <comment>If felt is free
+</comment>
+    </item>
+    <item id="di474145742602818322" cid="ELEM003" type="frame" name="if Tax" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:50:26">
+      <stereotypes />
+      <tagged-values />
+      <documentation>
+        <text>
+          <styles>
+            <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+              <text>
+                <solid-brush color="#FF000000" />
+              </text>
+            </style>
+          </styles>
+          <content>
+            <paragraph line-spacing="1">
+              <p s="S1">
+                <t />
+              </p>
+            </paragraph>
+          </content>
+        </text>
+      </documentation>
+      <cooperation>
+        <participants />
+        <comments />
+      </cooperation>
+      <associated-diagrams />
+      <owned-items />
+      <style class="default" />
+      <frame type="alt" />
+    </item>
+    <item id="di308184211823344541" cid="ELEM006" type="frame" name="Till balance is 0 or all other players are bankrupt" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:59:10">
+      <stereotypes />
+      <tagged-values />
+      <documentation>
+        <text>
+          <styles>
+            <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+              <text>
+                <solid-brush color="#FF000000" />
+              </text>
+            </style>
+          </styles>
+          <content>
+            <paragraph line-spacing="1">
+              <p s="S1">
+                <t />
+              </p>
+            </paragraph>
+          </content>
+        </text>
+      </documentation>
+      <cooperation>
+        <participants />
+        <comments />
+      </cooperation>
+      <associated-diagrams />
+      <owned-items />
+      <style class="default" />
+      <frame type="loop" />
+    </item>
+    <item id="di362062694810901800" cid="ELEM001" type="frame" name="If Parking lot" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:13:46">
+      <stereotypes />
+      <tagged-values />
+      <documentation>
+        <text>
+          <styles>
+            <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+              <text>
+                <solid-brush color="#FF000000" />
+              </text>
+            </style>
+          </styles>
+          <content>
+            <paragraph line-spacing="1">
+              <p s="S1">
+                <t />
+              </p>
+            </paragraph>
+          </content>
+        </text>
+      </documentation>
+      <cooperation>
+        <participants />
+        <comments />
+      </cooperation>
+      <associated-diagrams />
+      <owned-items />
+      <style class="default" />
+      <frame type="alt" />
+    </item>
+  </items>
+  <models>
+    <model id="p364315436895171978" name="Model 1" type="model" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>11/01/2013 09:58:04</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <tagged-values />
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-sequence" id="p399935853179443171" name="SequenceDiagram1" order-index="1" show-nullability="true" auto-routed-paths="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/01/2013 09:58:04</creation-date>
+          <change-date>02/05/2014 22:28:39</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <tagged-values />
+        <abstract-items>
+          <item id="di417137094155926664" cid="AC001" type="actor" name="Spiller 1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:09:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di329364430744077720" cid="AC002" type="actor" name="Actor2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:24:19">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di971718285431388234" cid="LL002" type="lifeline" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:12:41">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <lifeline classifier-name="System" is-active="false" is-multi-object="false" />
+          </item>
+          <item id="di476552233134512363" cid="AC001" type="actor" name="Player 1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:09:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di436169491913138236" cid="AN002" type="sequence-action" name="Action2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:26:38">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Throw dices" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di125740463858207001" cid="AB002" type="activation-bar" name="ActivationBar2" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:13:48">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <activation-bar lifeline-ref="di971718285431388234" />
+          </item>
+          <item id="di380553383662858185" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:34:38">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Kaster med terninger" is-asynchronous="false" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di205754389455710503" cid="AB003" type="activation-bar" name="ActivationBar3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:14:27">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di565115230610118991" cid="AN003" type="sequence-action" name="Action3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:14:36">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Feltnr. man lander på, samlet pointsum og spillerens beholdning." is-asynchronous="false" from="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di478511300447947456" cid="AN012" type="sequence-action" name="Action12" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:45:56">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You've been put in jail." is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di651211348312326171" cid="AC001" type="actor" name="Player" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 10:09:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di370321718552164972" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="Pddc985b8a217449486a8a9faf22fe93d" creation-date="11/01/2013 11:16:39">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Insert name" is-asynchronous="false" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di251511064173613791" cid="ELEM001" type="frame" name="If ownable" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:35:22">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style shadow-type="smooth" shadow-offset="1,1" shadow-visible="true" shadow-color="#3C000000" gloss-effect="true" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFFFF" name-color="#FF000000" name-font="Verdana;10;B" name-horizontal-alignment="center" name-vertical-alignment="center" part-header-color="#FF1E1E1E" part-header-font="Verdana;9;I" part-header-horizontal-alignment="center" part-header-vertical-alignment="center" text-color="#FF000000" text-font="Verdana;9;" text-horizontal-alignment="left" text-vertical-alignment="center" tagged-value-color="#FF1E1E1E" tagged-value-font="Verdana;9;I" tagged-value-horizontal-alignment="center" tagged-value-vertical-alignment="center" stereotype-color="#FF1E1E1E" stereotype-font="Verdana;9;I" stereotype-horizontal-alignment="center" stereotype-vertical-alignment="center">
+              <background type="vertical-linear" color="#FFD3D3D3" color2="#FFFFFFFF" />
+              <border color="#FF000000" width="1" dash-style="Solid" />
+            </style>
+            <frame type="alt" />
+          </item>
+          <item id="di911512690904659109" cid="AN001" type="sequence-action" name="Action1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:25:46">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="&quot;JUBII!! Du har vundet !&quot; eller &quot;Du har desværre tabt. &quot;" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di706274104553143210" cid="AC003" type="actor" name="Actor3" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:24:22">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di391759069438510199" cid="AB001" type="activation-bar" name="ActivationBar1" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:25:04">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+          </item>
+          <item id="di948161194173604554" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:38:58">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="This felt is free, do you want to buy it?" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di698370349469623999" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:39:34">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Choices to buy or to pass" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di147971221813430686" cid="AN014" type="sequence-action" name="Action14" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:52:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Do you want to pay of 10% or 4000kr" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di552657583277326492" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:41:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Confirmes action, returns new *balance*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di335079333935233816" cid="CMT002" type="comment" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:43:12">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else if owned by other played
+</comment>
+          </item>
+          <item id="di554700573308954175" cid="AN005" type="sequence-action" name="Action5" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:17:58">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Take a break till next turn." is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di482348391986728640" cid="ELEM002" type="frame" name="If chance felt" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:49:35">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <frame type="alt" />
+          </item>
+          <item id="di714345609385377481" cid="AN013" type="sequence-action" name="Action13" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:50:05">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You can withdrawn the chanceard: [chancecard] with the description: [description]. The action has been completed" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di710764112909917169" cid="ELEM001" type="frame" name="If Territory" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:35:22">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <frame type="alt" />
+          </item>
+          <item id="di182148039827242331" cid="AN007" type="sequence-action" name="Action7" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:38:58">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="This felt is free, do you want to buy it?" is-asynchronous="false" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di308493180484860556" cid="AN008" type="sequence-action" name="Action8" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:39:34">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Choices to buy or to pass" is-asynchronous="false" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di330787729142119340" cid="CMT001" type="comment" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:40:33">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If felt is free
+</comment>
+          </item>
+          <item id="di240666598518092504" cid="AN009" type="sequence-action" name="Action9" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:41:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Confirmes action" is-asynchronous="false" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di855801242232152914" cid="CMT002" type="comment" name="" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:43:12">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else</comment>
+          </item>
+          <item id="di996596821670240963" cid="AN010" type="sequence-action" name="Action10" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:43:28">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="This felt is owned by *playername*" is-asynchronous="false" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di740527021989526365" cid="AN015" type="sequence-action" name="Action15" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:53:30">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="send" message="Choices 10% or fixed cost" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di799829750709847957" cid="AN016" type="sequence-action" name="Action16" style-class="default" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="11/15/2013 11:54:00">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Confirmes action and returns *balance*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di103351175269684417" cid="CMT001" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:02:53">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If Revenue-tax</comment>
+          </item>
+          <item id="di533881071845853885" cid="CMT003" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:03:44">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else</comment>
+          </item>
+          <item id="di501745414199440069" cid="AN003" type="sequence-action" name="Action3" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 20:37:20">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="This felt is owned by [player] and have to pay [amount] in rent. Your ned balance is: *balance*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di604042974459049243" cid="AN004" type="sequence-action" name="Action4" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:04:20">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You had to pay extra-ordinary state taxes of 2000 kr, your new balance is: *balance*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di214624645870226570" cid="CMT004" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:19:53">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else if buildable
+</comment>
+          </item>
+          <item id="di484343870222185561" cid="AN001" type="sequence-action" name="Action1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 20:28:45">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="It is [name]'s turn." is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di450061525866499105" cid="AN006" type="sequence-action" name="Action6" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:22:13">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Do you want to build houses or an hotel?" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di627845050742847873" cid="AN007" type="sequence-action" name="Action7" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:24:57">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Choices to build or not" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di850806808251281466" cid="AN008" type="sequence-action" name="Action8" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:25:13">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Confirms action, returns new balance: *balance*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di874941415413875033" cid="CMT005" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:25:55">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else</comment>
+          </item>
+          <item id="di604178328769825819" cid="AN009" type="sequence-action" name="Action9" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:26:05">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Nothing to do here, take a break." is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di630359740473974703" cid="ELEM002" type="frame" name="If in Jail" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:29:30">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <frame type="alt" />
+          </item>
+          <item id="di523619683653762332" cid="AN010" type="sequence-action" name="Action10" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:32:19">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="Your in jail. Choose between your options: [List of options]" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di233359389267781595" cid="AN011" type="sequence-action" name="Action11" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:33:57">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Chooses decision" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di885860141756031069" cid="CMT007" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:36:16">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If paying or special card is chosen
+</comment>
+          </item>
+          <item id="di144810388694058429" cid="AN012" type="sequence-action" name="Action12" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:37:28">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You've bailed out of jail. You can perceed to throwing dices." is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di183157125786523398" cid="CMT008" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:38:49">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else
+</comment>
+          </item>
+          <item id="di431913664470594544" cid="AN017" type="sequence-action" name="Action17" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:47:04">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Throw dices" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di958182605296265998" cid="CMT009" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:48:34">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If Dicevalue1==dicevalue2</comment>
+          </item>
+          <item id="di575155041168835456" cid="AN019" type="sequence-action" name="Action19" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:49:33">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You bailed out, and landed on *felt*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di313618004229474219" cid="CMT010" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:50:13">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>else</comment>
+          </item>
+          <item id="di403048570246138425" cid="AN020" type="sequence-action" name="Action20" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:51:37">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You can stay for *amount* more rounds till you have to pay the fixed cost of billing out" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di975987030114243873" cid="ELEM003" type="frame" name="If want to trade" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:53:51">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <frame type="alt" />
+          </item>
+          <item id="di807652646381479881" cid="AN021" type="sequence-action" name="Action21" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:54:27">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Presses the trade button" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di924728862687783945" cid="AN023" type="sequence-action" name="Action23" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:54:48">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Clicks on [playername] whom wished to trade with" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di524969028999789294" cid="AN024" type="sequence-action" name="Action24" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:55:41">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="It is now [playername]'s turn. [Playername], do you wish to trade with [player]? " is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di737713834307181324" cid="AN026" type="sequence-action" name="Action26" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:56:40">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="Replies" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di823339812409488418" cid="CMT011" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:57:00">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If no</comment>
+          </item>
+          <item id="di290658508297132513" cid="AN027" type="sequence-action" name="Action27" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:57:18">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="[Playername] did not wish to trade. Return to your turn." is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di300456327345238672" cid="CMT012" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:58:36">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If yes
+</comment>
+          </item>
+          <item id="di418349105745635630" cid="ELEM004" type="frame" name="while bid is not accepted or trading is closed" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:58:45">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <frame type="loop" />
+          </item>
+          <item id="di601417708534044521" cid="AN028" type="sequence-action" name="Action28" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 21:59:22">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="[Player], insert offer or close the trade" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di119123805717853664" cid="AN030" type="sequence-action" name="Action30" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:00:11">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="[Player] offered [amout] for your territory. Do you want to accept the offer, not accept or close the trade?" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di871135690645538164" cid="AN031" type="sequence-action" name="Action31" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:01:40">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="call" message="[Playername] does action of decision" is-asynchronous="false" from="di391759069438510199" to="di125740463858207001" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di208984303400099435" cid="ELEM005" type="frame" name="for amount while dicevalue 1 == dicevalue 2 and amount &lt;4" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:05:58">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <styles>
+                  <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                    <text>
+                      <solid-brush color="#FF000000" />
+                    </text>
+                  </style>
+                </styles>
+                <content>
+                  <paragraph line-spacing="1">
+                    <p s="S1">
+                      <t />
+                    </p>
+                  </paragraph>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <frame type="loop" />
+          </item>
+          <item id="di396445513758495656" cid="CMT013" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:09:45">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>If amount = 3</comment>
+          </item>
+          <item id="di836027121637092410" cid="CMT014" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:12:07">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else if you passed the starting line and is not in jail
+</comment>
+          </item>
+          <item id="di768592199781274521" cid="AN032" type="sequence-action" name="Action32" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:12:29">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You landed on *felt*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+          <item id="di465877455551738586" cid="CMT015" type="comment" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:28:28">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <comment>Else
+</comment>
+          </item>
+          <item id="di126411250180419114" cid="AN033" type="sequence-action" name="Action33" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creation-date="02/05/2014 22:28:39">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <sequence-action type="return" message="You passed the starting line, here is 4000kr. You landed on *felt*" is-asynchronous="false" from="di125740463858207001" to="di391759069438510199" return-value="" assign-to-variable="">
+              <parameters />
+            </sequence-action>
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="di971718285431388234" iid="444aa930d1ad41c1940501257912f09d" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/01/2013 10:12:41" order-index="2" type="lifeline">
+            <layout ax="595" ay="50" awidth="185" aheight="152" x="595" y="50" width="185" height="152" angle="0" />
+          </item>
+          <item id="di370321718552164972" iid="21bdf7f6600245048d4a39c46784b12e" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/01/2013 11:16:39" order-index="4" type="sequence-action">
+            <layout x1="119" y1="164" x2="677" y2="164" ax="119" ay="149" awidth="558" aheight="20" x="119" y="149" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action />
+          </item>
+          <item id="di125740463858207001" iid="64bf2c65599444f8bdf09bf1edd65614" container="di971718285431388234" container-iid="444aa930d1ad41c1940501257912f09d" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/01/2013 10:13:48" order-index="3" type="entity">
+            <layout ax="677.5" ay="149" awidth="20" aheight="2075" x="677.5" y="149" width="20" height="2075" angle="0" />
+          </item>
+          <item id="di436169491913138236" iid="e3a71e4b4cce466c8196dfb1b0b05ae3" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:26:38" order-index="6" type="sequence-action">
+            <layout x1="119" y1="1161" x2="677" y2="1161" ax="119" ay="1146" awidth="558" aheight="20" x="119" y="1146" width="558" height="20" message-x="-1" message-y="-2" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di651211348312326171" iid="ddfa894694ab407ca3a16bc732aeabd5" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/01/2013 10:09:30" order-index="1" type="lifeline">
+            <layout ax="48.5" ay="50" awidth="122" aheight="129" x="48.5" y="50" width="122" height="129" angle="0" />
+          </item>
+          <item id="di391759069438510199" iid="649d03efe67449c4b609b9f51fc2aa64" container="di651211348312326171" container-iid="ddfa894694ab407ca3a16bc732aeabd5" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:25:04" order-index="7" type="entity">
+            <layout ax="99.5" ay="149" awidth="20" aheight="2075" x="99.5" y="149" width="20" height="2009" angle="0" />
+          </item>
+          <item id="di484343870222185561" iid="2d9f8a7ed19d4a269216cdb8ce89eff0" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 20:28:45" order-index="34" type="sequence-action">
+            <layout x1="677" y1="231" x2="119" y2="231" ax="119" ay="216" awidth="558" aheight="20" x="119" y="216" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di308184211823344541" iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:59:10" order-index="31" type="entity">
+            <layout ax="49.5" ay="182" awidth="707.5" aheight="2005" x="49.5" y="182" width="707.5" height="2005" angle="0" />
+          </item>
+          <item id="di251511064173613791" iid="ccf87905218e4ac9a16e5f593a1de344" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:35:22" order-index="8" type="entity">
+            <layout ax="92" ay="1388" awidth="642" aheight="804" x="92" y="1388" width="642" height="804" angle="0" />
+          </item>
+          <item id="di501745414199440069" iid="e6adec6f2b5b404fb0eb394582fed94c" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 20:37:20" order-index="35" type="sequence-action">
+            <layout x1="677" y1="1567" x2="119" y2="1567" ax="119" ay="1552" awidth="558" aheight="20" x="119" y="1552" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di335079333935233816" iid="a0adeb07520741c3a04e69a611b92698" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:43:12" order-index="14" type="entity">
+            <layout ax="136.5" ay="1506.194" awidth="239" aheight="21.66898" x="136.5" y="1506.194" width="239" height="21.66898" angle="0" />
+          </item>
+          <item id="di474145742602818322" iid="18ad01d2b8c54296b8a08c0078266bc6" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:50:26" order-index="19" type="entity">
+            <layout ax="92" ay="1914" awidth="642" aheight="170" x="92" y="1914" width="642" height="170" angle="0" />
+          </item>
+          <item id="di482348391986728640" iid="88c9a0799f684749b76916f09f9eee8b" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:49:35" order-index="17" type="entity">
+            <layout ax="101.5" ay="1803.65" awidth="628" aheight="76.82642" x="101.5" y="1803.65" width="628" height="76.82642" angle="0" />
+          </item>
+          <item id="di147971221813430686" iid="a64d28f06b4c47259dee0f1e3012d250" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:52:30" order-index="20" type="sequence-action">
+            <layout x1="677" y1="1944" x2="119" y2="1944" ax="119" ay="1929" awidth="558" aheight="20" x="119" y="1929" width="558" height="20" message-x="0" message-y="-2" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di103351175269684417" iid="354f24bf33c44c5a95af27a8c42deca2" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:02:53" order-index="36" type="entity">
+            <layout ax="159" ay="1912" awidth="110" aheight="27" x="159" y="1912" width="110" height="27" angle="0" />
+          </item>
+          <item id="di850806808251281466" iid="7579d12230674507ba59365e1bbd80b1" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:25:13" order-index="45" type="sequence-action">
+            <layout x1="677" y1="1701.441" x2="119" y2="1701.441" ax="119" ay="1686.441" awidth="558" aheight="20" x="119" y="1686.441" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di874941415413875033" iid="afa292768a6d4be79cc6f25cc450db7a" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:25:55" order-index="46" type="entity">
+            <layout ax="154" ay="1715.99" awidth="84" aheight="22.65393" x="154" y="1715.99" width="84" height="22.65393" angle="0" />
+          </item>
+          <item id="di604178328769825819" iid="23e0ae5ebba94a54901a6adf36ea6e40" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:26:05" order-index="47" type="sequence-action">
+            <layout x1="677" y1="1754.628" x2="119" y2="1754.628" ax="119" ay="1739.628" awidth="558" aheight="20" x="119" y="1739.628" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di740527021989526365" iid="227b7563d35a476aa9d209f753e704df" container="di474145742602818322" container-iid="18ad01d2b8c54296b8a08c0078266bc6" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:53:30" order-index="21" type="sequence-action">
+            <layout x1="119" y1="1967" x2="677" y2="1967" ax="119" ay="1952" awidth="558" aheight="20" x="119" y="1952" width="558" height="20" message-x="-1" message-y="-1" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di799829750709847957" iid="326e2a075d7644649aa6cdf33cc95264" container="di474145742602818322" container-iid="18ad01d2b8c54296b8a08c0078266bc6" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:54:00" order-index="22" type="sequence-action">
+            <layout x1="677" y1="1997" x2="119" y2="1997" ax="119" ay="1982" awidth="558" aheight="20" x="119" y="1982" width="558" height="20" message-x="-1" message-y="-2" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di214624645870226570" iid="55df6d630336414fa1ba16889e101507" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:19:53" order-index="42" type="entity">
+            <layout ax="146" ay="1593.855" awidth="125" aheight="23.63889" x="146" y="1593.855" width="125" height="23.63889" angle="0" />
+          </item>
+          <item id="di450061525866499105" iid="35dcec3f0ec54a4fb70fa04789c2e47f" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:22:13" order-index="43" type="sequence-action">
+            <layout x1="677" y1="1637.419" x2="119" y2="1637.419" ax="119" ay="1622.419" awidth="558" aheight="20" x="119" y="1622.419" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di627845050742847873" iid="12ada04793634dd79e4f57f0eed8fef1" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:24:57" order-index="44" type="sequence-action">
+            <layout x1="119" y1="1671.892" x2="677" y2="1671.892" ax="119" ay="1656.892" awidth="558" aheight="20" x="119" y="1656.892" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di604042974459049243" iid="2bc794aa27804134a23f1e0299a54075" container="di474145742602818322" container-iid="18ad01d2b8c54296b8a08c0078266bc6" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:04:20" order-index="39" type="sequence-action">
+            <layout x1="677" y1="2067" x2="119" y2="2067" ax="119" ay="2052" awidth="558" aheight="20" x="119" y="2052" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di698370349469623999" iid="387ba955fba34a01acdfc43a8109deb6" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:39:34" order-index="10" type="sequence-action">
+            <layout x1="119" y1="1455" x2="677" y2="1455" ax="119" ay="1440" awidth="558" aheight="20" x="119" y="1440" width="558" height="20" message-x="0" message-y="-5" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di948161194173604554" iid="9d67bf89294749a8aac5fae7e1f4d580" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:38:58" order-index="9" type="sequence-action">
+            <layout x1="677" y1="1431" x2="119" y2="1431" ax="119" ay="1416" awidth="558" aheight="20" x="119" y="1416" width="558" height="20" message-x="0" message-y="-2" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di552657583277326492" iid="f7f8e9f5f5f74af09cf8213f218a44de" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:41:30" order-index="12" type="sequence-action">
+            <layout x1="677" y1="1482" x2="119" y2="1482" ax="119" ay="1467" awidth="558" aheight="20" x="119" y="1467" width="558" height="20" message-x="0" message-y="-2" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di533881071845853885" iid="9cb73b3c0582464ca876ff1758dc31d4" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:03:44" order-index="38" type="entity">
+            <layout ax="129" ay="2021" awidth="77" aheight="17" x="129" y="2021" width="77" height="17" angle="0" />
+          </item>
+          <item id="di911512690904659109" iid="0d285d398098479987f6640026fdfdcc" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:25:46" order-index="5" type="sequence-action">
+            <layout x1="677" y1="2224" x2="119" y2="2224" ax="119" ay="2209" awidth="558" aheight="20" x="119" y="2209" width="558" height="20" message-x="3" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di362062694810901800" iid="1c919c0741aa482298176d490d750e30" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:13:46" order-index="40" type="entity">
+            <layout ax="92" ay="2095" awidth="642" aheight="62" x="92" y="2095" width="642" height="62" angle="0" />
+          </item>
+          <item id="di554700573308954175" iid="1562fa1bbcf24d5fb83d44466bac5c77" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:17:58" order-index="41" type="sequence-action">
+            <layout x1="677" y1="2129" x2="119" y2="2129" ax="119" ay="2114" awidth="558" aheight="20" x="119" y="2114" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di688343987983055163" iid="fa1867d941724968b8b58596dffc2b2f" container="di251511064173613791" container-iid="ccf87905218e4ac9a16e5f593a1de344" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:40:33" order-index="11" type="entity">
+            <layout ax="194" ay="1388" awidth="93.5" aheight="19.69907" x="194" y="1388" width="93.5" height="19.69907" angle="0" />
+          </item>
+          <item id="di714345609385377481" iid="99fd5eba3c7e4156be70ce75c40442d0" container="di482348391986728640" container-iid="88c9a0799f684749b76916f09f9eee8b" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:50:05" order-index="18" type="sequence-action">
+            <layout x1="677" y1="1860" x2="119" y2="1860" ax="119" ay="1845" awidth="558" aheight="20" x="119" y="1845" width="558" height="20" message-x="1" message-y="-13" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di630359740473974703" iid="835ef104b3244004b77c9e0704473030" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:29:30" order-index="48" type="entity">
+            <layout ax="68" ay="248" awidth="669" aheight="390" x="68" y="248" width="669" height="390" angle="0" />
+          </item>
+          <item id="di523619683653762332" iid="b9863cbfe566409e92258b088ea8193d" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:32:19" order-index="49" type="sequence-action">
+            <layout x1="677" y1="295" x2="119" y2="295" ax="119" ay="280" awidth="558" aheight="20" x="119" y="280" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di233359389267781595" iid="dd82d548ac3b4661a3279c450a1f0f97" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:33:57" order-index="50" type="sequence-action">
+            <layout x1="119" y1="327" x2="677" y2="327" ax="119" ay="312" awidth="558" aheight="20" x="119" y="312" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di885860141756031069" iid="90f9a834cfcc41488287951134ff7e9c" container="di630359740473974703" container-iid="835ef104b3244004b77c9e0704473030" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:36:16" order-index="51" type="entity">
+            <layout ax="133" ay="347" awidth="236" aheight="24" x="133" y="347" width="236" height="24" angle="0" />
+          </item>
+          <item id="di144810388694058429" iid="bd9afed22b4d43639c9cb62d9c63d139" container="di630359740473974703" container-iid="835ef104b3244004b77c9e0704473030" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:37:28" order-index="52" type="sequence-action">
+            <layout x1="677" y1="400" x2="119" y2="400" ax="119" ay="385" awidth="558" aheight="20" x="119" y="385" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di183157125786523398" iid="ab9be395c19b4ff4838cee06a426b82f" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:38:49" order-index="53" type="entity">
+            <layout ax="119.5" ay="426" awidth="67.5" aheight="20" x="119.5" y="426" width="67.5" height="20" angle="0" />
+          </item>
+          <item id="di431913664470594544" iid="c44d6c10ac5943ad82f86fd0525efb98" container="di630359740473974703" container-iid="835ef104b3244004b77c9e0704473030" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:47:04" order-index="54" type="sequence-action">
+            <layout x1="119" y1="465" x2="677" y2="465" ax="119" ay="450" awidth="558" aheight="20" x="119" y="450" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di958182605296265998" iid="cc74d575deb643108120c4ebca4be6fc" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:48:34" order-index="55" type="entity">
+            <layout ax="119.5" ay="488" awidth="187" aheight="25" x="119.5" y="488" width="187" height="25" angle="0" />
+          </item>
+          <item id="di575155041168835456" iid="5b9b57690f1c4e029e3cdfb5b5d9c983" container="di630359740473974703" container-iid="835ef104b3244004b77c9e0704473030" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:49:33" order-index="56" type="sequence-action">
+            <layout x1="677" y1="547" x2="119" y2="547" ax="119" ay="532" awidth="558" aheight="20" x="119" y="532" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di313618004229474219" iid="d9011bf4850741ed939259b0eb47c9f4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:50:13" order-index="57" type="entity">
+            <layout ax="119.5" ay="563" awidth="53.5" aheight="20" x="119.5" y="563" width="53.5" height="20" angle="0" />
+          </item>
+          <item id="di403048570246138425" iid="468fbb025efc4e9aba37d6acd99bbf45" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:51:37" order-index="58" type="sequence-action">
+            <layout x1="677" y1="621" x2="119" y2="621" ax="119" ay="606" awidth="558" aheight="20" x="119" y="606" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di975987030114243873" iid="5abd90c04b45435e8322985a58ac2751" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:53:51" order-index="59" type="entity">
+            <layout ax="66" ay="652" awidth="670" aheight="435" x="66" y="652" width="670" height="435" angle="0" />
+          </item>
+          <item id="di807652646381479881" iid="1ed230825fc14b158b380b9177480614" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:54:27" order-index="60" type="sequence-action">
+            <layout x1="119" y1="696" x2="677" y2="696" ax="119" ay="681" awidth="558" aheight="20" x="119" y="681" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di924728862687783945" iid="c1ac5fa8362e42a8a80a5e3c0a630c23" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:54:48" order-index="61" type="sequence-action">
+            <layout x1="119" y1="736" x2="677" y2="736" ax="119" ay="721" awidth="558" aheight="20" x="119" y="721" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di524969028999789294" iid="c1d82f8eb7a74515aab7551d77daa7ef" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:55:41" order-index="62" type="sequence-action">
+            <layout x1="677" y1="771" x2="119" y2="771" ax="119" ay="756" awidth="558" aheight="20" x="119" y="756" width="558" height="20" message-x="0" message-y="-9" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di737713834307181324" iid="a864c379029441fab20d98280dec39b1" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:56:40" order-index="63" type="sequence-action">
+            <layout x1="119" y1="801" x2="677" y2="801" ax="119" ay="786" awidth="558" aheight="20" x="119" y="786" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di823339812409488418" iid="2af89875877a44deb4dd736bdf89df20" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:57:00" order-index="64" type="entity">
+            <layout ax="119.5" ay="806" awidth="53.5" aheight="18" x="119.5" y="806" width="53.5" height="18" angle="0" />
+          </item>
+          <item id="di290658508297132513" iid="3db915dc31e141c0823a8c73012c2d0c" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:57:18" order-index="65" type="sequence-action">
+            <layout x1="677" y1="848" x2="119" y2="848" ax="119" ay="833" awidth="558" aheight="20" x="119" y="833" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di300456327345238672" iid="cda49f5608934e129e15360576a22aca" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:58:36" order-index="66" type="entity">
+            <layout ax="122" ay="872" awidth="59" aheight="21" x="122" y="872" width="59" height="21" angle="0" />
+          </item>
+          <item id="di418349105745635630" iid="6a47f436eb16468e82f9713ae439f148" container="di975987030114243873" container-iid="5abd90c04b45435e8322985a58ac2751" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:58:45" order-index="67" type="entity">
+            <layout ax="82" ay="905" awidth="639" aheight="168" x="82" y="905" width="639" height="168" angle="0" />
+          </item>
+          <item id="di601417708534044521" iid="94fae7c9457c40658fdf7ea516a3b093" container="di975987030114243873" container-iid="5abd90c04b45435e8322985a58ac2751" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 21:59:22" order-index="68" type="sequence-action">
+            <layout x1="119" y1="952" x2="677" y2="952" ax="119" ay="937" awidth="558" aheight="20" x="119" y="937" width="558" height="20" message-x="0" message-y="-4" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di119123805717853664" iid="c3e7f3e40c104876834f26f050b3be2e" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:00:11" order-index="69" type="sequence-action">
+            <layout x1="677" y1="1006" x2="119" y2="1006" ax="119" ay="991" awidth="558" aheight="20" x="119" y="991" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di871135690645538164" iid="70b97540235a4c398f3f0c824242dbaa" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:01:40" order-index="70" type="sequence-action">
+            <layout x1="119" y1="1053" x2="677" y2="1053" ax="119" ay="1038" awidth="558" aheight="20" x="119" y="1038" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di391759069438510199" to="di125740463858207001" />
+          </item>
+          <item id="di208984303400099435" iid="01905426868945e88318f4e7e16e4cf9" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:05:58" order-index="71" type="entity">
+            <layout ax="67" ay="1118" awidth="680" aheight="1073" x="67" y="1118" width="680" height="1073" angle="0" />
+          </item>
+          <item id="di478511300447947456" iid="6ab2d3f0652a479bbc5441d815ea9208" container="di208984303400099435" container-iid="01905426868945e88318f4e7e16e4cf9" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="11/15/2013 11:45:56" order-index="16" type="sequence-action">
+            <layout x1="677" y1="1232" x2="119" y2="1232" ax="119" ay="1217" awidth="558" aheight="20" x="119" y="1217" width="558" height="20" message-x="0" message-y="-3" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di396445513758495656" iid="bb0838ec3e9b4a3e81b80c7dd10ba755" container="di208984303400099435" container-iid="01905426868945e88318f4e7e16e4cf9" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:09:45" order-index="72" type="entity">
+            <layout ax="103.5" ay="1181" awidth="122" aheight="31" x="103.5" y="1181" width="122" height="31" angle="0" />
+          </item>
+          <item id="di836027121637092410" iid="3396d73445d24738a3e35e27a0fdb84b" container="di208984303400099435" container-iid="01905426868945e88318f4e7e16e4cf9" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:12:07" order-index="73" type="entity">
+            <layout ax="105.5" ay="1247" awidth="405" aheight="20" x="105.5" y="1247" width="405" height="20" angle="0" />
+          </item>
+          <item id="di768592199781274521" iid="a42fbd54ddcd4a73a705bdd56ba94e63" container="di308184211823344541" container-iid="aa262e9c7b4c4ffd8acd92e7c7697f33" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:12:29" order-index="74" type="sequence-action">
+            <layout x1="677" y1="1355" x2="119" y2="1355" ax="119" ay="1340" awidth="558" aheight="20" x="119" y="1340" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+          <item id="di465877455551738586" iid="9f2a8300895d4d248f507230b3501cdf" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:28:28" order-index="75" type="entity">
+            <layout ax="120" ay="1317" awidth="54" aheight="18" x="120" y="1317" width="54" height="18" angle="0" />
+          </item>
+          <item id="di126411250180419114" iid="12024dc0e8cd45febdf7e2e6bb18de4c" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="02/05/2014 22:28:39" order-index="76" type="sequence-action">
+            <layout x1="677" y1="1294" x2="119" y2="1294" ax="119" ay="1279" awidth="558" aheight="20" x="119" y="1279" width="558" height="20" message-x="0" message-y="-10" />
+            <sequence-action from="di125740463858207001" to="di391759069438510199" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+  <documents />
+  <document-templates />
+</sim-project>
