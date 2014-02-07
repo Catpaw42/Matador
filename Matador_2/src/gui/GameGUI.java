@@ -118,7 +118,7 @@ public class GameGUI extends JFrame
 		menuBar = new JMenuBar();
 		menuBar.add(menu[0]);
 		this.setJMenuBar(menuBar);
-
+		
 		//manage the board
 		boardPanel = new BoardPanel();
 		boardPanel.setBounds(0, 0, (int) (this.getContentPane().getWidth() * 4.0 / 6.0), this.getContentPane().getHeight());
@@ -188,6 +188,11 @@ public class GameGUI extends JFrame
 	//----------------------------------------------------------------------------------------------------------------------------
 	// interface to the rest of the GUI
 	//----------------------------------------------------------------------------------------------------------------------------
+	protected void setDisplayedText(String text)
+	{
+		this.boardPanel.setDisplayedText(text);
+	}
+	
 	protected void appendText(String str)
 	{
 		this.controlPanel.textArea.append(str + "\n");

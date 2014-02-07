@@ -16,11 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -86,7 +82,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		//if an image was selected in the Builder, add it to a label
 		if(b.img != null)
 		{
-			picture = CreateImage(b.img);
+			picture = ImageFactory.CreateImage(b.img);
 			pictureLabel = new JLabel(new ImageIcon(picture));
 			pictureLabel.setBounds(this.getSize().width / 12, this.getSize().height * 4/ 12, this.getSize().width * 10/ 12, this.getSize().height * 5/ 12);
 			this.add(pictureLabel);
@@ -99,38 +95,15 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		popUpField.setAlwaysOnTop(true);
 	}
 
-	//custom method to generate a BufferedImage from a PATH
-	private BufferedImage CreateImage(String img)
-	{
-		try
-		{
-			//get the image from the folder
-			File f = new File(img);
-			if(!f.exists())
-				throw new FileNotFoundException("Can't locate image");
-
-			BufferedImage image = ImageIO.read(f);
-
-			return image;
-		} catch (IOException ex)
-		{
-			System.err.println("Error loading the image");
-			ex.printStackTrace();
-		}
-		//should not be reachable
-		return null;
-
-	}
-
 	protected void setCar(int cartype, int carNr, Color c)
 	{
-		carLabels[carNr].setCar(cartype, c);
-		carLabels[carNr].setVisible(true);
+		carLabels[carNr - 1].setCar(cartype, c);
+		carLabels[carNr - 1].setVisible(true);
 	}
 	
 	protected void removeCar(int carNr)
 	{
-		carLabels[carNr].setVisible(false);
+		carLabels[carNr - 1].setVisible(false);
 	}
 
 	//---------------------------------------------------------------------------------------------
@@ -229,10 +202,10 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	{
 		try
 		{
-			final String s = (String) dtde.getTransferable().getTransferData(
+			String s = (String) dtde.getTransferable().getTransferData(
 					new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
 
-			new GameActionListener().dropEvent(this, s);
+			new GameActionListener().dropEvent(this.fieldNumber, s);
 		} catch (Exception e)
 		{
 			System.err.println("Something went terribly wrong with DnD events");
