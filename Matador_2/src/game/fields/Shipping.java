@@ -1,4 +1,4 @@
-package game;
+package game.fields;
 
 public class Shipping {
 
