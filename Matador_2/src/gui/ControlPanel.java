@@ -42,7 +42,7 @@ public class ControlPanel extends JPanel
 		this.setBackground(Color.ORANGE);
 
 		//add a label to show the current players name
-		nameLabel = new JLabel("MAGNUS");
+		nameLabel = new JLabel();
 		this.add(nameLabel);
 		//		nameLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -124,5 +124,15 @@ public class ControlPanel extends JPanel
 		buttons[0].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 17 / 20, this.getWidth() * 16 / 20, this.getHeight() * 2 / 20);
 		buttons[1].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
 		buttons[2].setBounds(this.getWidth() * 11 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
+	}
+	
+	protected void setNameLabelText(String text)
+	{
+		this.nameLabel.setText(text);
+	}
+	
+	protected void setButtonText(int i, String text)
+	{
+		this.buttons[i].setText(text);
 	}
 }

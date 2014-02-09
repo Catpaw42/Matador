@@ -37,7 +37,7 @@ public class GameGUI extends JFrame
 	protected static GameGUI getInstance()
 	{
 		if(instance == null)
-			instance = new GameGUI();
+			instance = new GameGUI(null);
 		return instance;
 	}
 	/**
@@ -60,7 +60,7 @@ public class GameGUI extends JFrame
 	//-----------------------------------------------------
 
 	//constructor, this is used to create a standard board
-	private GameGUI()
+	private GameGUI(FieldPanel[] fields)
 	{
 		// manage the frame
 		this.setTitle("Matador");
@@ -120,50 +120,6 @@ public class GameGUI extends JFrame
 		this.setJMenuBar(menuBar);
 		
 		//manage the board
-		boardPanel = new BoardPanel();
-		boardPanel.setBounds(0, 0, (int) (this.getContentPane().getWidth() * 4.0 / 6.0), this.getContentPane().getHeight());
-
-		//manage the controller
-		controlPanel = new ControlPanel();
-		controlPanel.setBounds((int) (this.getContentPane().getWidth() * 4.0 / 6.0), 0, (int) (this.getContentPane().getWidth() * 2.0 / 6.0), this.getContentPane().getHeight());
-
-		// manage the background panel
-		backgroundPanel = new JPanel();
-		this.add(backgroundPanel);
-		backgroundPanel.setLayout(null);
-		backgroundPanel.setSize(this.getContentPane().getWidth(), this.getContentPane().getHeight());
-		backgroundPanel.add(boardPanel);
-		backgroundPanel.add(controlPanel);
-
-		//visibility and location
-		this.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (this.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (this.getHeight() / 2));
-		this.setVisible(true);
-	}
-
-	private GameGUI(FieldPanel[] fields)
-	{
-		// manage the frame
-		this.setTitle("Matador");
-		this.setPreferredSize(new Dimension(1244, 710));
-		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-
-		//add a windowlistener to manages what happens when the frame is closed.
-		this.addWindowListener(new WindowAdapter()
-		{
-			@Override
-			public void windowClosing(WindowEvent e) 
-			{	
-				new GameActionListener().windowClosingEvent();
-			}
-		});
-		//add a keylistener
-		KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
-		manager.addKeyEventDispatcher(new GameActionListener());
-
-		this.setResizable(false);
-		this.pack(); //pack here, so that .setBounds() works with the right size.
-
-		//manage the board
 		boardPanel = new BoardPanel(fields);
 		boardPanel.setBounds(0, 0, (int) (this.getContentPane().getWidth() * 4.0 / 6.0), this.getContentPane().getHeight());
 
@@ -184,13 +140,22 @@ public class GameGUI extends JFrame
 		this.setVisible(true);
 	}
 
-
 	//----------------------------------------------------------------------------------------------------------------------------
 	// interface to the rest of the GUI
 	//----------------------------------------------------------------------------------------------------------------------------
 	protected void setDisplayedText(String text)
 	{
 		this.boardPanel.setDisplayedText(text);
+	}
+	
+	protected void setButtonText(int i, String text)
+	{
+		this.controlPanel.setButtonText(i, text);
+	}
+	
+	protected void setActivePlayerName(String text)
+	{
+		this.controlPanel.setNameLabelText(text);
 	}
 	
 	protected void appendText(String str)

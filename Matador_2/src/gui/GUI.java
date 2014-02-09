@@ -25,8 +25,7 @@ public class GUI
 	{
 		GameGUI.getInstance();
 	}
-
-	//
+	
 	/**
 	 * Creates a GUI with the specified list of fields
 	 * @param fields The list of fields that the GUI should show
@@ -46,6 +45,16 @@ public class GUI
 	{
 		GameGUI.getInstance().setDice(i, j);
 	}
+	
+	/**
+	 * Displays a line of text at the top of the control area.
+	 * @param name The name to display
+	 */
+	public void setCurrentPlayerName(String name)
+	{
+		GameGUI.getInstance().setActivePlayerName(name);
+	}
+	
 	/**
 	 * adds a player to the field
 	 * @param playerName The Name of the player
@@ -86,6 +95,33 @@ public class GUI
 	public void setDisplayedText(String text)
 	{
 		GameGUI.getInstance().setDisplayedText(text);
+	}
+	
+	/**
+	 * changes the text of the Buy button
+	 * @param text The new text for the button
+	 */
+	public void setMainButtonText(String text)
+	{
+		GameGUI.getInstance().setButtonText(0, text);
+	}
+	
+	/**
+	 * changes the text of the Buy button
+	 * @param text The new text for the button
+	 */
+	public void setSellButtonText(String text)
+	{
+		GameGUI.getInstance().setButtonText(2, text);
+	}
+	
+	/**
+	 * changes the text of the Buy button
+	 * @param text The new text for the button
+	 */
+	public void setBuyButtonText(String text)
+	{
+		GameGUI.getInstance().setButtonText(1, text);
 	}
 	
 	/**
@@ -180,7 +216,7 @@ public class GUI
 	 * @param fieldNumber the integer specifying the field
 	 * @param owner The string specifying the new owners name
 	 */
-	public void setOwner(int fieldNumber, String owner)
+	public void setFieldOwner(int fieldNumber, String owner)
 	{
 		GameGUI.getInstance().setOwner(owner, fieldNumber);
 	}
@@ -190,7 +226,7 @@ public class GUI
 	 * @param fieldNumber the integer specifying the field
 	 * @param title The string specifying the new title of the field
 	 */
-	public void setTitle(int fieldNumber, String title)
+	public void setFieldTitle(int fieldNumber, String title)
 	{
 		GameGUI.getInstance().setTitle(title, fieldNumber);
 	}
@@ -200,7 +236,7 @@ public class GUI
 	 * @param fieldNumber the integer specifying the field
 	 * @param subText The string specifying the new subtext of the field
 	 */
-	public void setSubText(int fieldNumber, String subText)
+	public void setFieldSubText(int fieldNumber, String subText)
 	{
 		GameGUI.getInstance().setSubtext(subText, fieldNumber);
 	}
@@ -210,7 +246,7 @@ public class GUI
 	 * @param fieldNumber the integer specifying the field
 	 * @param price The string specifying the new price of the field
 	 */
-	protected void setPrice(int fieldNumber, String price)
+	protected void setFieldPrice(int fieldNumber, String price)
 	{
 		GameGUI.getInstance().setPrice(price, fieldNumber);
 	}
@@ -220,7 +256,7 @@ public class GUI
 	 * @param fieldNumber the integer specifying the field
 	 * @param price The integer specifying the new price of the field
 	 */
-	protected void setPrice(int fieldNumber, int price)
+	protected void setFieldPrice(int fieldNumber, int price)
 	{
 		GameGUI.getInstance().setPrice("" + price, fieldNumber);
 	}
@@ -230,7 +266,7 @@ public class GUI
 	 * @param fieldNumber the integer specifying the field
 	 * @param priceText The string specifying the new priceText of the field
 	 */
-	public void setPriceText(int fieldNumber, String priceText)
+	public void setFieldPriceText(int fieldNumber, String priceText)
 	{
 		GameGUI.getInstance().setPriceText(priceText, fieldNumber);
 	}
@@ -239,7 +275,7 @@ public class GUI
 	 * Appends a string to the games textArea
 	 * @param text the string to append
 	 */
-	public void appendText(String text)
+	public void appendTextToTextArea(String text)
 	{
 		GameGUI.getInstance().appendText(text);
 	}
@@ -247,7 +283,7 @@ public class GUI
 	/**
 	 * clears all text from the games textArea
 	 */
-	public void clearText()
+	public void clearTextFromTextArea()
 	{
 		GameGUI.getInstance().clearTextField();
 	}
