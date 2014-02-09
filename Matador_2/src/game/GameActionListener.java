@@ -8,7 +8,6 @@ import java.awt.event.KeyEvent;
 public class GameActionListener implements KeyEventDispatcher
 {
 	GUI gui = new GUI();
-
 	public GameActionListener(){}
 
 	//--------------------------------------------------------------
@@ -23,7 +22,7 @@ public class GameActionListener implements KeyEventDispatcher
 
 	public void mainButtonEvent()
 	{
-		// TODO Auto-generated method stub
+		GameController.getInstance().advanceGame();
 		
 	}
 
