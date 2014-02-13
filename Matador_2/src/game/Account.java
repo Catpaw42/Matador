@@ -2,7 +2,17 @@ package game;
 
 public class Account {
 	private int balance;
-	private int startbalance = 30000;
+	private final static int DEFAULT_START_BALANCE = 30000;
+	
+	public Account()
+	{
+		this(DEFAULT_START_BALANCE);
+	}
+	
+	public Account(int startBalance)
+	{
+		this.balance = startBalance;
+	}
 
 	//-----------------------------------------------------------------
 	//  Laver en forøgelse af en konto.
@@ -37,10 +47,11 @@ public class Account {
 	public int getBalance ()
 	{
 		return balance;
-	}	
-	public int setBalance (int k)
+	}
+	
+	public int setBalance (int newBalance)
 	{
-		balance = k;
+		balance = newBalance;
 
 		return balance;
 	}
