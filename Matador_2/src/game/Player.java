@@ -17,28 +17,28 @@ public class Player {
 	public int getPosition() {
 		return position;
 	}
-	public void setFieldPlace(int position) {
+	public void setPlayerPosition(int position) {
 		this.position = position;
 	}
-	public Account getAccountOb() {
+	public Account getAccount() {
 		return accountOb;
 	}
-	public void setAccountOb(Account accountOb) {
-		this.accountOb = accountOb;
+	public void setAccount(Account account) {
+		this.accountOb = account;
 	}
-	public String getcarColour() {
+	public String getCarColour() {
 		return carColour;
 	}
 	
-	public void setcarColour(String carColour) {
+	public void setCarColour(String carColour) {
 		this.carColour = carColour;
 	}
 	
-	public String getcarType() {
+	public String getCarType() {
 		return carType;
 	}
 	
-	public void setcarType(String carType) {
+	public void setCarType(String carType) {
 		this.carColour = carType;
 	}
 }
