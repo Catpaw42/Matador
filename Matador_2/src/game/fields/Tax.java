@@ -9,6 +9,10 @@ public class Tax extends Field {
 		super(nr);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public int getTaxRate() {
+		return TaxRate;
+	}
 
 	@Override
 	public void message() {
