@@ -13,7 +13,6 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	//Methods to handle Action events
 	//--------------------------------------------------------------
-
 	public void buyButtonEvent()
 	{
 		// TODO Auto-generated method stub
@@ -79,6 +78,8 @@ public class GameActionListener implements KeyEventDispatcher
 	{
 		System.exit(0);
 	}
+
+
 
 
 
