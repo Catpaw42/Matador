@@ -1,13 +1,11 @@
 package game.fields;
 
-import game.Account;
-
 public class Refuge extends Field {
 
 	private int bonus;
 	
-	public Refuge(int nr, int bonus) {
-		super(nr);
+	public Refuge(int nr, int bonus, String name) {
+		super(nr,name);
 		this.bonus = bonus;
 	}
 	
@@ -17,7 +15,7 @@ public class Refuge extends Field {
 	
 	@Override
 	public void message() {
-	System.out.println("You hale landed on a Refuge. You have earned a bouns of:" + bonus);
+	System.out.println("You have landed on a Refuge. You have earned a bouns of:" + bonus);
 	}
 
 }

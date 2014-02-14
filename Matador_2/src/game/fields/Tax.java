@@ -2,16 +2,25 @@ package game.fields;
 
 public class Tax extends Field {
 
-	private int TaxRate;
-	private boolean Choise;
+	private final int taxRate = 1/10;
+	private final int revenueRate = 4000;
+	private final int extraOrdinaryRate = 2000;
 	
-	public Tax(int nr) {
-		super(nr);
+	public Tax(int nr, String name) {
+		super(nr,name);
 		// TODO Auto-generated constructor stub
 	}
 	
 	public int getTaxRate() {
-		return TaxRate;
+		return taxRate;
+	}
+	
+	public int getRevenueRate() {
+		return revenueRate;
+	}
+	
+	public int getExtraOrdinaryRate() {
+		return extraOrdinaryRate;
 	}
 
 	@Override
