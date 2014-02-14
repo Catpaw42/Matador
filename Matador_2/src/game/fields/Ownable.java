@@ -1,5 +1,11 @@
 package game.fields;
 
-public class Ownable {
+public abstract class Ownable extends Field {
+
+	public Ownable(int nr)
+	{
+		super(nr);
+		// TODO Auto-generated constructor stub
+	}
 
 }

@@ -4,7 +4,7 @@ import game.Account;
 
 public class Refuge extends Field {
 
-	int bonus;
+	private int bonus;
 	
 	public Refuge(int nr, int bonus) {
 		super(nr);
