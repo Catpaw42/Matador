@@ -7,6 +7,12 @@ public class Player {
 	private String carType;
 	private int position;
 	private Account accountOb = new Account();
+	private boolean isBroke;
+	
+	public Player(String name)
+	{
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;
@@ -40,5 +46,14 @@ public class Player {
 	
 	public void setCarType(String carType) {
 		this.carColour = carType;
+	}
+	public void setBroke(boolean broke)
+	{
+		this.isBroke = broke;
+	}
+	
+	public boolean isBroke()
+	{
+		return isBroke;
 	}
 }

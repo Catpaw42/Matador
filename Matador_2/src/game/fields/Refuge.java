@@ -2,7 +2,7 @@ package game.fields;
 
 public class Refuge extends Field {
 
-	int bonus;
+	private int bonus;
 	
 	public Refuge(int nr) {
 		super(nr);
