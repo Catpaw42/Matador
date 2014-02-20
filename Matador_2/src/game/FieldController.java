@@ -4,6 +4,8 @@ import gui.GUI;
 import game.fields.*;
 
 public class FieldController {
+	
+	GUI gui = new GUI();
 
 	public void LandOnField(Player p, Field f)
 	{
@@ -21,7 +23,10 @@ public class FieldController {
 		if(p.getPosition() == 5) // hvis players position er 5, har han et valg. Ellers trÃ¦kkes der bare penge.
 		{
 		
-		int i = new GUI().getUserYesNoCancelChoise("You have to options: A pay 10% of your current Balnce or B pay 4000kr");	
+//		int i = gui.getUserYesNoCancelChoise("You have to options: A pay 10% of your current Balnce or B pay 4000kr");
+			
+		String[] options = {"Pay 10%", "Pay 4000kr."}; // array with the options thats should be on the buttons
+		int i = gui.getUserButtonPressed(options,"Choose Payment", "Tax"); //Added a method using buttons
 		// Menu hvor player vÃ¦lger om han vil betale et fast belÃ¸b, eller i procent.
 		
 		if(i==0){

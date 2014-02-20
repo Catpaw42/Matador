@@ -139,6 +139,20 @@ public class GUI
 	}
 	
 	/**
+	 * asks the user to select a button
+	 * @param options An array of string to chose from, the string at [0] will be used as the default choise
+	 * @param message The message accompanying this choise
+	 * @param title The title of the created Frame with the choise
+	 * @return An integer indicating what the user chose, corresponding to the position in the options array.
+	 */
+	public int getUserButtonPressed(String[] options, String message, String title)
+	{
+		return JOptionPane.showOptionDialog(null, message, title,
+				JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
+				null, options, options[0]);
+	}
+	
+	/**
 	 * asks the user to select from list of options
 	 * @param options options An array of string to chose from, the string at [0] will be used as the default choise
 	 * @param message message The message accompanying this choise
