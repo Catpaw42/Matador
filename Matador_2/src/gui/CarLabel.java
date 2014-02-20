@@ -2,10 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -18,52 +15,15 @@ public class CarLabel extends JLabel
 	
 	protected CarLabel()
 	{
-		carImages = new BufferedImage[4];
-		setupCarIcons();
+		carImages = ImageFactory.setupCarIcons();
 		this.setVisible(false);
 	}
-	//custom method to create the images of the cars
-	private void setupCarIcons()
-	{
-		try
-		{
-			//get the image from the folder
-			File f = new File("pics/cars.png");
-			BufferedImage image = ImageIO.read(f);
-			
-			//create an imageIcon for each face value of the Die
-			for (int value = 0; value < carImages.length; value++)
-			{
-				//keep the same y-value
-				int y = 0;
-				//increment with the size of the cars in the picture in the x direction
-				int x = 41 * value;
-				//"cut out" a sub-image equivalent to each car-type, and store them in the array.
-				this.carImages[value] = image.getSubimage(x, y, 40, 21);
-			}
-		} catch (IOException ex)
-		{
-			System.err.println("Error loading the car Icons");
-			ex.printStackTrace();
-		}
-	}
+	
 	protected void setCar(int i, Color c)
 	{
 		if(i <0 || i >= carImages.length)
 			throw new RuntimeException("the selected integer does not match a car");
-		this.setIcon(new ImageIcon(setCarColor(carImages[i], c)));
+		this.setIcon(new ImageIcon(ImageFactory.replaceColor(carImages[i], c, DEFAULTPRIMARYCOLOR)));
 	}
-	//method used to paint the cars in different colors, by replacing the Default_color
-	private BufferedImage setCarColor(BufferedImage img, Color c)
-	{
-		for (int y = 0; y < img.getHeight(); y++)
-        {
-            for (int x = 0; x < img.getWidth(); x++)
-            {
-                if (img.getRGB(x, y) == DEFAULTPRIMARYCOLOR)
-                    img.setRGB(x, y, c.getRGB());
-            }
-        }
-        return img;
-	}
+
 }

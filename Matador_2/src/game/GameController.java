@@ -2,6 +2,7 @@ package game;
 
 import gui.GUI;
 
+import java.awt.Color;
 import java.util.LinkedList;
 
 public class GameController {
@@ -31,10 +32,10 @@ public class GameController {
 	{
 		//get data on players somehow
 		Player[] players = new Player[4];
-		players[0] = new Player("cat");
-		players[1] = new Player("dog");
-		players[2] = new Player("weasel");
-		players[3] = new Player("ferret");
+		players[0] = new Player("cat", Color.RED,2);
+		players[1] = new Player("dog", Color.BLACK,1);
+		players[2] = new Player("weasel", Color.GREEN,0);
+		players[3] = new Player("ferret", Color.BLUE,3);
 		playerQueue = new LinkedList<Player>();
 		for (int i = 0; i < players.length; i++)
 		{

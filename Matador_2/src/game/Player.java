@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Color;
+
 public class Player {
 
 	private String name;
@@ -9,7 +11,7 @@ public class Player {
 	private Account accountOb = new Account();
 	private boolean isBroke;
 	
-	public Player(String name)
+	public Player(String name, Color carColor, int carType)
 	{
 		this.name = name;
 	}
