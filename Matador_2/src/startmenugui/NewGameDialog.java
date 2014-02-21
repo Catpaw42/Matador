@@ -1,6 +1,6 @@
 package startmenugui;
 
-import game.GameOptions;
+import game.Player;
 import gui.ImageFactory;
 
 import java.awt.Color;
@@ -30,7 +30,6 @@ import javax.swing.event.PopupMenuListener;
 @SuppressWarnings("serial")
 public class NewGameDialog extends JDialog implements ActionListener, PopupMenuListener
 {
-	private GameOptions options = null;
 	private JPanel panel;
 	private JTextField[] playerNames;
 	private BufferedImage[] carArray;
@@ -40,9 +39,8 @@ public class NewGameDialog extends JDialog implements ActionListener, PopupMenuL
 	private JCheckBox[] checkBoxArray;
 	private JButton okButton;
 	private JButton cancelButton;
-
 	
-
+	private boolean okTrue = false;
 
 	@SuppressWarnings("unchecked")
 	public NewGameDialog()
@@ -90,7 +88,7 @@ public class NewGameDialog extends JDialog implements ActionListener, PopupMenuL
 		
 		for (int i = 0; i < playerNames.length; i++)
 		{
-			playerNames[i] = new JTextField("Player" + i);
+			playerNames[i] = new JTextField("Player" + (1 + i));
 			playerNames[i].setBounds(40, 5 + i * 40, 120, 30);
 			colorComboBox[i] = new JComboBox<MyImageIcon>(colors);
 			colorComboBox[i].setSelectedIndex(i);
@@ -126,12 +124,14 @@ public class NewGameDialog extends JDialog implements ActionListener, PopupMenuL
 		panel.add(cancelButton);
 	}
 
-	public GameOptions showNewGameMenu()
+	public Player[] showNewGameMenu()
 	{
 		this.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (this.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (this.getHeight() / 2));
 		this.setVisible(true);
 
-		return options;
+		if(okTrue)
+			return generatePlayerArray();
+		return null;
 	}
 
 	@Override
@@ -155,10 +155,13 @@ public class NewGameDialog extends JDialog implements ActionListener, PopupMenuL
 		}
 		if (e.getSource() == okButton)
 		{
-			this.options = generateOptions(); 
+			okTrue = true;
+			this.setVisible(false);
+			this.dispose();
 		}
 		else if (e.getSource() == cancelButton)
 		{
+			okTrue = false;
 			this.setVisible(false);
 			this.dispose();
 		}
@@ -177,15 +180,23 @@ public class NewGameDialog extends JDialog implements ActionListener, PopupMenuL
 		((JComboBox<MyImageIcon>) e.getSource()).setModel(updateColorComboboxModel());
 	}
 
-	private GameOptions generateOptions()
+	private Player[] generatePlayerArray()
 	{
-		GameOptions newOptions = null;
-
-		for (int i = 0; i < 6 ; i++)
+		//hvow many players are there?
+		int numberOfPlayers = 0;
+		for (int i = 0; i < checkBoxArray.length; i++)
 		{
-
+			if (checkBoxArray[i].isSelected())
+			{
+				numberOfPlayers++;
+			}
 		}
-		return  newOptions;
+		Player[] players = new Player[numberOfPlayers];
+		for (int i = 0; i < players.length ; i++)
+		{
+			players[i] = new Player(playerNames[i].getText(), ((MyImageIcon)colorComboBox[i].getSelectedItem()).getColor(), carTypes[i].getSelectedIndex());
+		}
+		return  players;
 	}
 
 	private void setCheckBoxState(int line, boolean state)
