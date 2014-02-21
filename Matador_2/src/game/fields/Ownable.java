@@ -1,7 +1,6 @@
 package game.fields;
 
-import entity.Player;
-import field.Ownable;
+import game.Player;
 
 public abstract class Ownable extends Field {
 
