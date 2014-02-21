@@ -11,7 +11,7 @@ public abstract class Ownable extends Field {
 	protected int nr;
 
 	protected Ownable(String name, int price, int[] rent, int nr) {
-		super(name, true);
+		super(nr, name);
 		this.price = price;
 		this.rent = rent;
 	}
@@ -68,6 +68,6 @@ public abstract class Ownable extends Field {
 	
 	
 	public String toString() {
-		return string();
+		return toString();
 	}
 }

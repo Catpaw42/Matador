@@ -10,6 +10,7 @@ public class Player {
 	private int position;
 	private Account accountOb = new Account();
 	private boolean isBroke;
+	private boolean fængslet = false;
 	
 	public Player(String name, Color carColor, int carType)
 	{
@@ -57,5 +58,13 @@ public class Player {
 	public boolean isBroke()
 	{
 		return isBroke;
+	}
+
+	public boolean isFængslet() {
+		return fængslet;
+	}
+
+	public void setFængslet(boolean fængslet) {
+		this.fængslet = fængslet;
 	}
 }
