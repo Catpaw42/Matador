@@ -10,7 +10,9 @@ public class Main
 	public static void main(String[] args)
 	{	
 		System.out.println("Der går noget galt her.");
+
 		System.out.println("test nummer 2");
+
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			@Override
