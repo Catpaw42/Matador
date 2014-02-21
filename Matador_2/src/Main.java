@@ -10,6 +10,9 @@ public class Main
 	public static void main(String[] args)
 	{	
 		System.out.println("Der går noget galt her.");
+		
+		System.out.println("en nye linje");
+		
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			@Override
