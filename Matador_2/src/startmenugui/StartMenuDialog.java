@@ -1,5 +1,8 @@
 package startmenugui;
 
+import game.GameOptions;
+import game.Player;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
@@ -13,13 +16,13 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class StartMenuGUI extends JDialog implements ActionListener
+public class StartMenuDialog extends JDialog implements ActionListener
 {
-	private game.GameOptions options = null;
+	private game.GameOptions options = new GameOptions();
 	private JButton[] buttons;
 	private JPanel panel;
 	
-	public StartMenuGUI()
+	public StartMenuDialog()
 	{
 		this.setModalityType(ModalityType.APPLICATION_MODAL);
 		panel = new JPanel(new FlowLayout());
@@ -62,59 +65,6 @@ public class StartMenuGUI extends JDialog implements ActionListener
 		return options;
 	}
 	
-	
-	
-//	private void showLoadGameMenu()
-//	{
-//		final JDialog dialog = new JDialog(new JFrame(), true);
-//		JPanel panel = new JPanel();
-//		
-//		dialog.setPreferredSize(new Dimension(800,600));
-//		dialog.addWindowListener(new WindowAdapter() {
-//			@Override
-//			public void windowClosing(WindowEvent e)
-//			{
-//				dialog.setVisible(false);
-//				dialog.dispose();
-//			}
-//		});
-//		dialog.pack();
-//		dialog.add(panel);
-//		
-//		
-//		dialog.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (dialog.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (dialog.getHeight() / 2));
-//		dialog.setVisible(true);
-//	}
-//	
-//	private void showOptionsMenu()
-//	{
-//		final JDialog dialog = new JDialog(new JFrame(), true);
-//		JPanel panel = new JPanel();
-//		
-//		dialog.setPreferredSize(new Dimension(800,600));
-//		dialog.addWindowListener(new WindowAdapter() {
-//			@Override
-//			public void windowClosing(WindowEvent e)
-//			{
-//				dialog.setVisible(false);
-//				dialog.dispose();
-//			}
-//		});
-//		dialog.pack();
-//		dialog.add(panel);
-//		
-//		
-//		dialog.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (dialog.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (dialog.getHeight() / 2));
-//		dialog.setVisible(true);
-//	}
-	
-	
-
-	public static void main(String[] args)
-	{
-		game.GameOptions g = new StartMenuGUI().startDialog();
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -122,9 +72,10 @@ public class StartMenuGUI extends JDialog implements ActionListener
 		if(e.getSource() == buttons[0])
 		{
 			//show new frame to set options
-			options = new NewGameDialog().showNewGameMenu();
-			if(options != null)
+			Player[] players = new NewGameDialog().showNewGameMenu();
+			if(players != null)
 			{
+				options.setPlayers(players);
 				this.setVisible(false);
 				this.dispose();
 			}
@@ -147,6 +98,5 @@ public class StartMenuGUI extends JDialog implements ActionListener
 			System.out.println("Quit Game");
 			System.exit(0);
 		}
-		
 	}
 }

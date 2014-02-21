@@ -5,8 +5,8 @@ import java.awt.Color;
 public class Player {
 
 	private String name;
-	private String carColour;
-	private String carType;
+	private Color carColor;
+	private int carType;
 	private int position;
 	private Account accountOb = new Account();
 	private boolean isBroke;
@@ -15,6 +15,8 @@ public class Player {
 	public Player(String name, Color carColor, int carType)
 	{
 		this.name = name;
+		this.carColor = carColor;
+		this.carType = carType;
 	}
 
 	public String getName() {
@@ -35,20 +37,20 @@ public class Player {
 	public void setAccount(Account account) {
 		this.accountOb = account;
 	}
-	public String getCarColour() {
-		return carColour;
+	public Color getCarColour() {
+		return carColor;
 	}
 	
-	public void setCarColour(String carColour) {
-		this.carColour = carColour;
+	public void setCarColour(Color carColor) {
+		this.carColor = carColor;
 	}
 	
-	public String getCarType() {
+	public int getCarType() {
 		return carType;
 	}
 	
-	public void setCarType(String carType) {
-		this.carColour = carType;
+	public void setCarType(int carType) {
+		this.carType = carType;
 	}
 	public void setBroke(boolean broke)
 	{
