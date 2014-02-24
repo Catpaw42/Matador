@@ -7,12 +7,8 @@ public class Brewery extends Ownable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void message (){
-		if(getFieldNumber() == 12){
-			System.out.println("Du er landet på Tuborg");
-			
-		}
-		if(owner)
+	public String message (){
+		return "You have landed on " + this.getName();
 	}
 
 	@Override
