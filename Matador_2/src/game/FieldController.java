@@ -11,11 +11,8 @@ public class FieldController {
 
 	public void LandOnField(Player p, int nr)
 	{
-		//for all fields, do:
+		// TODO: for all fields, do:
 
-		//		if(f.getClass() == Refuge.class){
-		//			
-		//		}   Skal sansynligvis ikke bruges, men nu er den her, hvis det bliver nÃ¸dvendigt.
 
 		// Controller for Tax-feltet. //
 		// ------------------------- //
@@ -33,6 +30,7 @@ public class FieldController {
 
 		if(board.getField(nr).getClass() == Ownable.class){
 			Ownable o = (Ownable) board.getField(nr);
+			// TODO: create method for controller
 
 		}
 		// Controller for ownable-feltet SLUT //
@@ -45,7 +43,8 @@ public class FieldController {
 		// ------------------------- //
 		// Controller for Chance-feltet. //
 		if(board.getField(nr).getClass() == Chance.class){
-			Chance c = (Chance) board.getField(nr);	
+			Chance  	c = (Chance) board.getField(nr);
+			// TODO: create method for controller
 		}
 		// Controller for Chance-feltet SLUT //
 	}
