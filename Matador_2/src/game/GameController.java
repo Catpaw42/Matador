@@ -12,10 +12,28 @@ public class GameController {
 	//-----------------------------------------------------
 	private static GameController instance = null;
 
+	/**
+	 * Used to return the GameController object.
+	 * @return The Gamecontroller Instance.
+	 */
 	public static GameController getInstance()
 	{
 		if(instance == null)
 			instance = new GameController();
+		return instance;
+	}
+	/**
+	 * Creates a Gamecontroller with a specific options object, this MUST be called
+	 * before any calls to getInstance to have any effect.
+	 * @param options A GameOptions object containing startup data for the game.
+	 * @return The Gamecontroller Instance.
+	 */
+	public static GameController createInstance(GameOptions options)
+	{
+		if(instance == null)
+			instance = new GameController(options);
+		else
+			System.err.println("GameController instance already exists!!!");
 		return instance;
 	}
 	//-----------------------------------------------------
@@ -44,6 +62,10 @@ public class GameController {
 		currentPlayer = playerQueue.remove();
 	}
 
+	private GameController(GameOptions options)
+	{
+		// TODO Auto-generated constructor stub
+	}
 	public void advanceGame()
 	{
 		//This is playerturn
