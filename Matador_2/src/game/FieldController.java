@@ -58,7 +58,7 @@ public class FieldController {
 
 			//		int i = gui.getUserYesNoCancelChoise("You have to options: A pay 10% of your current Balnce or B pay 4000kr");
 
-			String[] options = {"Pay 10%", "Pay 4000kr."}; // array with the options thats should be on the buttons
+			String[] options = {"Pay 4000kr.", "Pay 10%"}; // array with the options thats should be on the buttons
 			int i = gui.getUserButtonPressed(options,"Choose Payment", "Tax"); //Added a method using buttons
 			// Menu hvor player vÃ¦lger om han vil betale et fast belÃ¸b, eller i procent.
 

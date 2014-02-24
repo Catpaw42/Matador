@@ -7,7 +7,7 @@ public class Jail extends Field {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	private int fængselstakst = 1000;
 	
 	@Override
 	public void message() {
@@ -18,4 +18,9 @@ public class Jail extends Field {
 		System.out.println("Du er på besøg i fængselet. Slikautomaten er i stykker, øv.");
 		}
 	}
+
+	public int getFængselstakst() {
+		return fængselstakst;
+	}
+
 }
