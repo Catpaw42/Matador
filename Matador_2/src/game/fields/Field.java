@@ -12,7 +12,7 @@ public abstract class Field
 	}
 	
 	
-	public abstract void message();
+	public abstract String message();
 
 
 	public int getFieldNumber() {

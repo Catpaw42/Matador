@@ -10,7 +10,7 @@ public abstract class Ownable extends Field {
 	protected Ownable[] serie;
 	protected int nr;
 
-	protected Ownable(String name, int price, int[] rent, int nr) {
+	protected Ownable(int nr, String name, int price, int[] rent) {
 		super(nr, name);
 		this.price = price;
 		this.rent = rent;

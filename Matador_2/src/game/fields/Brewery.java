@@ -2,8 +2,8 @@ package game.fields;
 
 public class Brewery extends Ownable{
 
-	protected Brewery(String name, int price, int[] rent, int nr) {
-		super(name, price, rent, nr);
+	protected Brewery(int nr, String name, int price, int[] rent) {
+		super(nr, name, price, rent);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -13,6 +13,20 @@ public class Brewery extends Ownable{
 			
 		}
 		if(owner)
+	}
+
+	@Override
+	public int getnr()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int rent(int number, int multiplier)
+	{
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 
