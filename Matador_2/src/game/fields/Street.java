@@ -9,10 +9,8 @@ public class Street extends Field {
 	}
 
 	@Override
-	public void message()
-	{
-		// TODO Auto-generated method stub
-		
+	public String message() {
+		return "You have landed on " + this.getName();
 	}
 
 }
