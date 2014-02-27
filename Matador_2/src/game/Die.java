@@ -6,8 +6,8 @@ import java.util.Random;
  * @author 
  *
  */
-public class Die {
-	
+public class Die
+{
 	private int faceValue;
 	private Random rand;
 	
@@ -21,7 +21,7 @@ public class Die {
 	// metode til at kaste terningen
 	public int roll()
 	{
-		//gets a number between 0 and 5, then offsets it by 1 to matcha  regular die.
+		//gets a number between 0 and 5, then offsets it by 1 to match a regular die.
 		this.faceValue = rand.nextInt(6) + 1;
 		return this.faceValue;
 	}
@@ -39,7 +39,6 @@ public class Die {
 	@Override
 	public String toString()
 	{
-		// TODO Auto-generated method stub
 		return "facevalue: " + this.faceValue;
 	}
 }

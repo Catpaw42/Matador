@@ -1,7 +1,5 @@
 package gui;
 
-import game.GameActionListener;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.KeyboardFocusManager;

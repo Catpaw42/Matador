@@ -1,76 +1,77 @@
 package game;
 
+import game.fields.Chance;
+import game.fields.Ownable;
+import game.fields.Tax;
 import gui.GUI;
-import game.fields.*;
 
-public class FieldController {
+public class FieldController
+{
 
 	GUI gui = new GUI();
 	Board board = new Board();
 
-
 	public void LandOnField(Player p, int nr)
 	{
-		// TODO: for all fields, do:
 
-
-		// Controller for Tax-feltet. //
-		// ------------------------- //
-		// Controller for Tax-feltet. //
-		if(board.getField(nr).getClass() == Tax.class){
+		if (board.getField(nr).getClass() == Tax.class)
+		{
 			taxController(p, nr);
-
 		}
-		// Controller for Tax-feltet SLUT //
 
-
-		// Controller for ownable-feltet. //
-		// ------------------------------ //
-		// Controller for ownable-feltet. //
-
-		if(board.getField(nr).getClass() == Ownable.class){
+		if (board.getField(nr).getClass() == Ownable.class)
+		{
 			Ownable o = (Ownable) board.getField(nr);
-			// TODO: create method for controller
+
+			// someone owns this field
+			if (o.getOwner() != null)
+			{
+				p.getAccount().withdraw(o.getRent());
+				o.getOwner().getAccount().deposit(o.getRent());
+			}
+			// nobody owns this field
+			else
+			{
+				String[] options = { "Buy (" + o.getPrice() + ")", "No" };
+				if (gui.getUserButtonPressed(options, "Nobody owns " + o.getName() + ". Would you like to buy it?", "Field for sale!") == 0)
+				{
+					p.getAccount().withdraw(o.getPrice());
+					o.setOwner(p);
+				} else
+				{
+
+				}
+
+			}
 
 		}
-		// Controller for ownable-feltet SLUT //
 
+		if (board.getField(nr).getClass() == Chance.class)
+		{
+			Chance c = (Chance) board.getField(nr);
 
-		// Controller for Jail-feltet ligger i PlayerTurnController//
-
-
-		// Controller for Chance-feltet. //
-		// ------------------------- //
-		// Controller for Chance-feltet. //
-		if(board.getField(nr).getClass() == Chance.class){
-			Chance  	c = (Chance) board.getField(nr);
-			// TODO: create method for controller
 		}
-		// Controller for Chance-feltet SLUT //
+
 	}
 
-
-	private void taxController(Player p, int nr) {
+	private void taxController(Player p, int nr)
+	{
 		Tax t = (Tax) board.getField(nr); // Type caster field til tax.
-		if(p.getPosition() == 5) // hvis players position er 5, har han et valg. Ellers trÃ¦kkes der bare penge.
+		if (p.getPosition() == 5) // hvis players position er 5, har han et valg. Ellers trækkes der bare penge.
 		{
+			String[] options = { "Pay 4000kr.", "Pay 10%" }; // array with the options thats should be on the buttons.
+			int i = gui.getUserButtonPressed(options, "Choose Payment", "Tax"); // show a choice menu, with the above options.
 
-			//		int i = gui.getUserYesNoCancelChoise("You have to options: A pay 10% of your current Balnce or B pay 4000kr");
-
-			String[] options = {"Pay 4000kr.", "Pay 10%"}; // array with the options thats should be on the buttons
-			int i = gui.getUserButtonPressed(options,"Choose Payment", "Tax"); //Added a method using buttons
-			// Menu hvor player vÃ¦lger om han vil betale et fast belÃ¸b, eller i procent.
-
-			if(i==0){
-				p.getAccount().setBalance(p.getAccount().getBalance() - t.getRevenueRate()); // Ã¦ndre balancen med fast belÃ¸b	
+			if (i == 0)
+			{
+				p.getAccount().setBalance(p.getAccount().getBalance() - t.getRevenueRate()); // update balance
+			} else
+			{
+				p.getAccount().setBalance(p.getAccount().getBalance() * t.getTaxRate()); // update balance
 			}
-			else {
-				p.getAccount().setBalance(p.getAccount().getBalance() * t.getTaxRate());	 // Ã¦ndre balancen med procent.
-			}
-
-		} // slut pÃ¥ position = 5
-		else{
+		} else
+		{
 			p.getAccount().setBalance(p.getAccount().getBalance() - t.getExtraOrdinaryRate());
-		} // trÃ¦kker penge, hvis feltet ikke er = 5
+		}
 	}
 }

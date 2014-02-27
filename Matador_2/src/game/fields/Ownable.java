@@ -4,13 +4,12 @@ import game.Player;
 
 public abstract class Ownable extends Field {
 
-	protected static int price;
-	protected static int[] rent;
-	protected Player owner = null;
-	protected Ownable[] serie;
-	protected int nr;
+	private int price;
+	private int rent;
+	private Player owner = null;
+	private Ownable[] serie;
 
-	protected Ownable(int nr, String name, int[] rent, int price) {
+	protected Ownable(int nr, String name, int rent, int price) {
 		super(nr, name);
 		
 		
@@ -33,22 +32,21 @@ public abstract class Ownable extends Field {
 		return false;
 	}
 
-	public void setOwner(Player ownerac) {
-		this.owner = ownerac;
+	public void setOwner(Player owner) {
+		this.owner = owner;
 	}
 
 
 	private int AntalGrunde() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
-	public abstract int rent(int number,  int multiplier);
 
-	public int getRent(int multiplier) {
-		return rent(AntalGrunde() ,  multiplier);
+	public abstract int getRent();
+
+	protected int getBaseRent()
+	{
+		return rent;
 	}
-
-
 
 	public String toString() {
 		return toString();

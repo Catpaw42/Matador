@@ -1,6 +1,6 @@
-package game;
+package gui;
 
-import gui.GUI;
+import game.GameController;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
@@ -68,7 +68,6 @@ public class GameActionListener implements KeyEventDispatcher
 	{
 		System.out.println("Source: field " + source);
 		System.out.println("data: " + data);
-
 	}
 
 	//--------------------------------------------------------------
@@ -78,12 +77,4 @@ public class GameActionListener implements KeyEventDispatcher
 	{
 		System.exit(0);
 	}
-
-
-
-
-
-
-
-
 }

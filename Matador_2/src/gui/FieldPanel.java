@@ -1,7 +1,5 @@
 package gui;
 
-import game.GameActionListener;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.MouseInfo;

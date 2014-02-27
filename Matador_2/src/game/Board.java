@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import game.fields.*;
 import gui.FieldPanel;
@@ -8,12 +9,10 @@ import gui.FieldPanel.Builder;
 
 public class Board
 {
-	private Field[] fields;
+	private static Field[] fields = new Field[40];;
 	
-	public Board ()
-	{	
-		fields = new Field[40];
-		
+	public Board()
+	{
 		fields[0]  = new Refuge		(1, "Start");
 		fields[1]  = new Street		(2, "Rødovrevej");
 		fields[2]  = new Chance		(3, "Prøv Lykken");
@@ -55,24 +54,44 @@ public class Board
 		fields[38] = new Tax		(39, "Extraordinær skat");
 		fields[39] = new Street		(40, "Rådhuspladsen");
 	}
-
-
-
-//			
-//			this.fields[39] = new FieldPanel.Builder()
-//			.setTitle("Rådhuspladsen")
-//			.setSubText("kr. 8000")
-//			.setBGColor(new Color(211, 0, 120)) //custom purple
-//			.build();
-//		}
 	
-	public Field getField(int nr){
+	/**
+	 * Gets all the fields owned by a given player.
+	 * @param p The player.
+	 * @return An array containing all fields that this player owns.
+	 */
+	public static Field[] getFieldsByPlayer(Player p)
+	{
+		ArrayList<Field> temp = new ArrayList<Field>();
 		
-		//find felt
+		for (int i = 0; i < fields.length; i++)
+		{
+			if(fields[i] instanceof Ownable)
+				if(((Ownable)fields[i]).getOwner() == p)
+					temp.add(fields[i]);
+		}
 		
-		return null; //return felt
+		Field[] tempArr = new Field[temp.size()];
+		for (int i = 0; i < temp.size(); i++)
+		{
+			tempArr[i] = temp.get(i);
+		}
+		return tempArr;
 	}
 	
+	/**
+	 * Return the field at position "nr"
+	 * @param nr The number of the field [1-40], this method manages the array offset.
+	 * @return The field at position "nr" on the board.
+	 */
+	public Field getField(int nr)
+	{
+		return fields[nr - 1];
+	}
+	/**
+	 * Returns all the fields.
+	 * @return An array containing all fields on the board.
+	 */
 	public Field[] getAllFields()
 	{
 		return fields;

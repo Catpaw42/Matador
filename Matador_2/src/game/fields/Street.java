@@ -1,46 +1,99 @@
 package game.fields;
 
-public class Street extends Ownable {
+import game.Board;
 
-	private int houses, number = 0;
+public class Street extends Ownable
+{
+	public enum Group
+	{
+		BLUE(2),
+		PINK(3),
+		GREEN(3),
+		GREY(3),
+		RED(3),
+		WHITE(3),
+		YELLOW(3),
+		PURPLE(2);
+
+		private int groupSize;
+		
+		Group(int size)	
+		{
+			this.groupSize = size;
+		}
+		
+		int getGroupSize()
+		{
+			return this.groupSize;
+		}
+	}
+	private Group group;
+
+	private int houses = 0;
+	private int number = 0;
 	private int housePrice;
-	
-	public Street(int nr, String name, int housePrice, int number)
+
+	public Street(int nr, String name, int housePrice, int rent, int price, Group group)
 	{
 		super(nr, name, rent, price);
-		// TODO Auto-generated constructor stub
+		this.group = group;
 		this.number = number;
 		this.housePrice = housePrice;
 	}
 
 	@Override
-	public String message() {
+	public String message()
+	{
 		return "You have landed on " + this.getName();
 	}
 
 	@Override
-	public int getnr() {
-		// TODO Auto-generated method stub
+	public int getnr()
+	{
 		return 0;
 	}
 
 	@Override
-	public int rent(int number, int multiplier) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getRent()
+	{
+		return getSeriesMultiplier() * getBaseRent();
 	}
-	public int getHouses(){
+
+	/**
+	 * Returns a multiplier 1 or 2 depending on how many fields of a color a player owns.
+	 * @return 2 if the player owns all fields in this color, 1 otherwise.
+	 */
+	private int getSeriesMultiplier()
+	{
+		int count = 0;
+		Field[] ownersFields = Board.getFieldsByPlayer(this.getOwner());
+		for (int i = 0; i < ownersFields.length; i++)
+		{
+			if(ownersFields[i].getClass() == Street.class)
+				if(((Street) ownersFields[i]).getGroup() == this.group)
+					count++;
+		}
+		return count == this.group.getGroupSize() ? 2 : 1;
+	}
+
+	private Group getGroup()
+	{
+		return this.group;
+	}
+
+	public int getHouses()
+	{
 		return houses;
 	}
-	
-	public void setHouses(int houses){
+
+	public void setHouses(int houses)
+	{
 		this.houses = houses;
 	}
-	
-	public int getHousePrice(){
+
+	public int getHousePrice()
+	{
 		return housePrice;
 	}
-	
-	
 
 }
