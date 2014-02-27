@@ -5,7 +5,8 @@ import gui.GUI;
 import java.awt.Color;
 import java.util.LinkedList;
 
-public class GameController {
+public class GameController
+{
 
 	//-----------------------------------------------------
 	//Singleton design pattern
@@ -45,6 +46,7 @@ public class GameController {
 	private PlayerTurnController turnCtrl = new PlayerTurnController();
 	private GUI gui = new GUI();
 	private LinkedList<Player> playerQueue;
+	private GameOptions options;
 
 	private GameController()
 	{
@@ -64,7 +66,14 @@ public class GameController {
 
 	private GameController(GameOptions options)
 	{
-		// TODO Auto-generated constructor stub
+		this.options = options;
+		
+		playerQueue = new LinkedList<Player>();
+		for (int i = 0; i < options.getPlayers().length; i++)
+		{
+			playerQueue.add(options.getPlayers()[i]);
+		}
+		currentPlayer = playerQueue.remove();
 	}
 	public void advanceGame()
 	{
@@ -91,5 +100,9 @@ public class GameController {
 			//pick next player from the queue
 			currentPlayer = playerQueue.remove();
 		}
+	}
+	public GameOptions getOptions()
+	{
+		return this.options;
 	}
 }

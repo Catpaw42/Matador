@@ -1,5 +1,8 @@
 package gui;
 
+import game.GameController;
+import game.GameOptions;
+
 import java.awt.Color;
 
 import javax.swing.ImageIcon;
@@ -24,6 +27,7 @@ public class GUI
 	public void create()
 	{
 		GameGUI.getInstance();
+		initialSetup();
 	}
 	
 	/**
@@ -33,7 +37,26 @@ public class GUI
 	public void create(FieldPanel[] fields)
 	{
 		GameGUI.createCustomGUI(fields);
+		initialSetup();
 	}
+	/**
+	 * Private method to do the initiation work on the GUI
+	 */
+	private void initialSetup()
+	{
+		GameOptions options = GameController.getInstance().getOptions();
+		//loop all players
+		for (int i = 0; i < options.getPlayers().length; i++)
+		{
+			//add players
+			addPlayer(options.getPlayers()[i].getName(),
+					options.getPlayers()[i].getCarType(),
+					options.getPlayers()[i].getCarColour());
+			//add cars
+			setCar(1, options.getPlayers()[i].getCarType(), i, options.getPlayers()[i].getCarColour());
+		}
+	}
+
 	
 	/**
 	 * sets the two dice of the game to the specified integers, then moves them to a random
