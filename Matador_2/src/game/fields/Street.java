@@ -30,7 +30,6 @@ public class Street extends Ownable
 	private Group group;
 
 	private int houses = 0;
-	private int number = 0;
 	private int housePrice;
 
 	public Street(int nr, String name, int housePrice, int rent, int price, Group group)
@@ -41,7 +40,7 @@ public class Street extends Ownable
 	}
 
 	@Override
-	public String message()
+	public String getMessage()
 	{
 		return "You have landed on " + this.getName();
 	}

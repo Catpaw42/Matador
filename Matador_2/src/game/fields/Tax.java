@@ -24,7 +24,7 @@ public class Tax extends Field {
 	}
 
 	@Override
-	public String message() {
+	public String getMessage() {
 		return "You have landed on " + this.getName();
 	}
 

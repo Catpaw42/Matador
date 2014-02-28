@@ -10,7 +10,7 @@ public class Brewery extends Ownable
 		super(nr, name, rent, price);
 	}
 
-	public String message()
+	public String getMessage()
 	{
 		return "You have landed on " + this.getName();
 	}

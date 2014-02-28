@@ -35,11 +35,6 @@ public abstract class Ownable extends Field {
 		this.owner = owner;
 	}
 
-
-	private int AntalGrunde() {
-		return 0;
-	}
-
 	public abstract int getRent();
 
 	protected int getBaseRent()

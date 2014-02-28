@@ -10,15 +10,9 @@ public class Shipping extends Ownable
 	}
 
 	@Override
-	public String message()
+	public String getMessage()
 	{
 		return "You have landed on " + this.getName();
-	}
-
-	@Override
-	public int getnr()
-	{
-		return 0;
 	}
 
 	@Override

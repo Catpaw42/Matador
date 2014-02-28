@@ -12,9 +12,8 @@ public abstract class Field
 		this.setName(name);
 	}
 
-	public abstract String message();
-
-
+	public abstract String getMessage();
+	
 	public int getFieldNumber() {
 		return fieldNumber;
 	}

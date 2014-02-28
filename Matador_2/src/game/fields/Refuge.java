@@ -2,15 +2,20 @@ package game.fields;
 
 public class Refuge extends Field
 {
-
+	private int fængselstakst = 1000;
+	
 	public Refuge(int nr, String name)
 	{
 		super(nr, name);
 	}
 
 	@Override
-	public String message()
+	public String getMessage()
 	{
 		return "You have landed on " + this.getName();
+	}
+	
+	public int getFængselstakst() {
+		return fængselstakst;
 	}
 }

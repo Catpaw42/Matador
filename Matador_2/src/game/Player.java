@@ -1,5 +1,7 @@
 package game;
 
+import game.fields.Ownable;
+
 import java.awt.Color;
 
 public class Player {
@@ -11,7 +13,7 @@ public class Player {
 	private Account accountOb = new Account();
 	private boolean isBroke;
 	private boolean fængslet = false;
-	
+
 	public Player(String name, Color carColor, int carType)
 	{
 		this.name = name;
@@ -40,15 +42,15 @@ public class Player {
 	public Color getCarColour() {
 		return carColor;
 	}
-	
+
 	public void setCarColour(Color carColor) {
 		this.carColor = carColor;
 	}
-	
+
 	public int getCarType() {
 		return carType;
 	}
-	
+
 	public void setCarType(int carType) {
 		this.carType = carType;
 	}
@@ -56,7 +58,7 @@ public class Player {
 	{
 		this.isBroke = broke;
 	}
-	
+
 	public boolean isBroke()
 	{
 		return isBroke;
@@ -68,5 +70,17 @@ public class Player {
 
 	public void setFængslet(boolean fængslet) {
 		this.fængslet = fængslet;
+	}
+
+	public int getTotaltAssets()
+	{
+		Ownable[] o = Board.getFieldsByPlayer(this);
+		int priceSum = 0;
+		for (int i = 0; i < o.length; i++) 
+		{
+			priceSum = priceSum + o[i].getPrice();
+		}
+
+		return getAccount().getBalance() + priceSum;
 	}
 }

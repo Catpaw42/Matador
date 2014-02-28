@@ -8,7 +8,7 @@ public class Chance extends Field
 	}
 
 	@Override
-	public String message()
+	public String getMessage()
 	{
 		return "You have landed on " + this.getName();
 	}

@@ -15,7 +15,12 @@ public class FieldController
 
 	public void LandOnField(Player p, int nr)
 	{
-
+		
+		gui.appendTextToTextArea(board.getField(nr).getMessage());
+		
+		
+		// consider printing an extra  message when landing on a refuge.
+		
 		if (board.getField(nr).getClass() == Tax.class)
 		{
 			taxHandler(p, nr);
@@ -101,14 +106,38 @@ public class FieldController
 
 			if (i == 0)
 			{
-				p.getAccount().setBalance(p.getAccount().getBalance() - t.getRevenueRate()); // update balance
+				try {
+					p.getAccount().withdraw(t.getRevenueRate());
+				} catch (InsufficientFundsException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAmountException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} // update balance
 			} else
 			{
-				p.getAccount().setBalance(p.getAccount().getBalance() * t.getTaxRate()); // update balance
-			}
+				try {
+					p.getAccount().withdraw((p.getTotaltAssets()) * t.getTaxRate());
+				} catch (InsufficientFundsException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAmountException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} // update balance
+			} // FÅ TIL AT PASSE MED AT MAN OGSÅ EJER HVAD ENS FELTER ER VÆRD.
 		} else
 		{
-			p.getAccount().setBalance(p.getAccount().getBalance() - t.getExtraOrdinaryRate());
+			try {
+				p.getAccount().withdraw(t.getExtraOrdinaryRate());
+			} catch (InsufficientFundsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAmountException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

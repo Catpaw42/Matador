@@ -1,4 +1,6 @@
 package game;
+import game.Account.IllegalAmountException;
+import game.Account.InsufficientFundsException;
 import game.fields.*;
 import gui.GUI;
 
@@ -23,10 +25,10 @@ public class PlayerTurnController
 		// TODO: Return TRUE if player is broke.
 
 		// If fængslet
-		Jail j = (Jail) fc.board.getField(12);
+		Refuge r = (Refuge) fc.board.getField(12);
 
 		if(currentPlayer.getPosition() == 12 &&  currentPlayer.isFængslet() == true)
-			inJail(currentPlayer, j);
+			inJail(currentPlayer, r);
 		else{
 			// moves the player
 			movePlayer(currentPlayer, dieSum);
@@ -35,7 +37,7 @@ public class PlayerTurnController
 		return false;
 	}
 
-	private void inJail(Player currentPlayer, Jail j) {
+	private void inJail(Player currentPlayer, Refuge r) {
 		{
 			System.out.println("Du er i fængsel.");
 
@@ -46,7 +48,15 @@ public class PlayerTurnController
 			if(i==0){
 				if(i==0){
 					// Withdraws 1000 kr from currentPlayer
-					currentPlayer.getAccount().setBalance(currentPlayer.getAccount().getBalance() - j.getFængselstakst());
+					try {
+						currentPlayer.getAccount().withdraw(r.getFængselstakst());
+					} catch (InsufficientFundsException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IllegalAmountException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					currentPlayer.setFængslet(false);
 					movePlayer(currentPlayer, dieSum);
 				}
@@ -88,7 +98,12 @@ public class PlayerTurnController
 		die2.roll();
 		if (currentPlayer.getPosition() + dieSum > 40) {
 			currentPlayer.setPlayerPosition(currentPlayer.getPosition() + dieSum - 40); 
-			currentPlayer.getAccount().setBalance(currentPlayer.getAccount().getBalance() + START_BONUS);
+			try {
+				currentPlayer.getAccount().deposit(START_BONUS);
+			} catch (IllegalAmountException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else {
 			currentPlayer.setPlayerPosition(currentPlayer.getPosition() + dieSum);

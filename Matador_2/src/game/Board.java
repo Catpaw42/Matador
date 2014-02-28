@@ -60,18 +60,18 @@ public class Board
 	 * @param p The player.
 	 * @return An array containing all fields that this player owns.
 	 */
-	public static Field[] getFieldsByPlayer(Player p)
+	public static Ownable[] getFieldsByPlayer(Player p)
 	{
-		ArrayList<Field> temp = new ArrayList<Field>();
+		ArrayList<Ownable> temp = new ArrayList<Ownable>();
 		
 		for (int i = 0; i < fields.length; i++)
 		{
 			if(fields[i] instanceof Ownable)
 				if(((Ownable)fields[i]).getOwner() == p)
-					temp.add(fields[i]);
+					temp.add((Ownable) fields[i]);
 		}
 		
-		Field[] tempArr = new Field[temp.size()];
+		Ownable[] tempArr = new Ownable[temp.size()];
 		for (int i = 0; i < temp.size(); i++)
 		{
 			tempArr[i] = temp.get(i);
