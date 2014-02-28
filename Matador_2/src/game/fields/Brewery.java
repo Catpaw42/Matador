@@ -16,14 +16,8 @@ public class Brewery extends Ownable
 	}
 
 	@Override
-	public int getnr()
-	{
-		return 0;
-	}
-
-	@Override
 	public int getRent()
 	{
-		return getRent() * DiceCup.getInstance().getSum();
+		return getBaseRent() * DiceCup.getInstance().getSum();
 	}
 }

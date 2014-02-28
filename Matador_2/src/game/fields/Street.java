@@ -37,7 +37,6 @@ public class Street extends Ownable
 	{
 		super(nr, name, rent, price);
 		this.group = group;
-		this.number = number;
 		this.housePrice = housePrice;
 	}
 
@@ -45,12 +44,6 @@ public class Street extends Ownable
 	public String message()
 	{
 		return "You have landed on " + this.getName();
-	}
-
-	@Override
-	public int getnr()
-	{
-		return 0;
 	}
 
 	@Override

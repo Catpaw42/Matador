@@ -14,7 +14,6 @@ public abstract class Ownable extends Field {
 		
 		
 	}
-	public abstract int getnr();
 
 	public Ownable[] getSerie() {
 		return serie;
