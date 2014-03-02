@@ -1,117 +1,117 @@
 package game;
+
 import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
-import game.fields.*;
 import gui.GUI;
 
 public class PlayerTurnController
 {
-	/**
-
-	 * @param currentPlayer The active player
-	 * @return true if the player has gone broke, false othervice
-	 */
-	private Die die1 = new Die();
-	private Die die2 = new Die();
-	private int dieSum = die1.roll() + die2.roll();
-	private FieldController fc = new FieldController();
-	private GUI gui = new GUI();
+	private DiceCup diceCup;
+	private FieldController fieldController;
+	private GUI gui;
 	private final int START_BONUS = 4000;
 
+	public PlayerTurnController(DiceCup dice)
+	{
+		diceCup = dice;
+		fieldController = new FieldController(dice);
+		gui = new GUI();
+	}
+	
+	/**
+	 * @param currentPlayer The active player.
+	 * @return true if the player has gone broke, false otherwise.
+	 */
 	public boolean playerTurn(Player currentPlayer)
 	{
-
-		// TODO: Method that sends player to jail if the roll the same eyes three rounds in a row.
-		// TODO: Return TRUE if player is broke.
-
-		// If fængslet
-		Refuge r = (Refuge) fc.board.getField(12);
-
-		if(currentPlayer.getPosition() == 12 &&  currentPlayer.isFængslet() == true)
-			inJail(currentPlayer, r);
-		else{
-			// moves the player
-			movePlayer(currentPlayer, dieSum);
-		}
-		//return
-		return false;
-	}
-
-	private void inJail(Player currentPlayer, Refuge r) {
+		boolean isBroke = false;
+		
+		//Check if player is in prison
+		if (currentPlayer.isInPrisson() == true)
 		{
-			System.out.println("Du er i fængsel.");
+			//try to get him out (cards and cash)
+			jailOptions(currentPlayer);
+		}
+		//then roll some dice
+		diceCup.rollDice();
+		
+		//Check again, did he get out?
+		if (currentPlayer.isInPrisson() == false)
+		{
+			//If he did, move his ass.
+			movePlayer(currentPlayer);
+			//and then land him on the new field.
+			isBroke = fieldController.LandOnField(currentPlayer, currentPlayer.getPosition());
+		}
+		return isBroke;	
+	}
 
-			String[] options1 = {"Pay 1000kr", "Use Chance Card", "Roll dices"}; // array with the options thats should be on the buttons
-			int i = gui.getUserButtonPressed(options1,"You're in jail. Choose between these three options", "Jail Options"); //Added a method using buttons
-			// Menu hvor player vÃ¦lger om han vil betale et fast belÃ¸b, eller i procent.
+	private void jailOptions(Player currentPlayer)
+	{
+		{
+			String[] options1 = { "Roll dices", "Pay 1000kr", "Use Chance Card"};
+			
+			int nrOfOptions = 1;
+			if (currentPlayer.getAccount().getBalance() >= 1000)
+				nrOfOptions++;
+			if(currentPlayer.getGetOutOfJailCards() > 0)
+				nrOfOptions++;
+			
+			String[] options = new String[nrOfOptions];
+			for (int i = 0; i < options.length; i++)
+			{
+				options[i] = options1[i];
+			}
 
-			if(i==0){
-				if(i==0){
-					// Withdraws 1000 kr from currentPlayer
-					try {
-						currentPlayer.getAccount().withdraw(r.getFængselstakst());
-					} catch (InsufficientFundsException e) {
-						// TODO Auto-generated catch block
+			int choise = -1;
+			String message = "You're in jail. Choose between these " + options.length + " options";
+			while((choise = gui.getUserButtonPressed(options, message, "Jail Options")) == -1);
+
+			if (choise == 0)
+			{
+				if (choise == 1)
+				{
+					// Withdraws 1000 from currentPlayer
+					try
+					{
+						currentPlayer.getAccount().withdraw(1000);
+						currentPlayer.setInPrisson(false);
+					} 
+					catch (InsufficientFundsException e)
+					{
+						//should not be possible
+					} 
+					catch (IllegalAmountException e)
+					{
+						System.err.println(e.getMessage());
 						e.printStackTrace();
-					} catch (IllegalAmountException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.exit(0);
 					}
-					currentPlayer.setFængslet(false);
-					movePlayer(currentPlayer, dieSum);
 				}
-				if(i==1){
-					// TODO: method to verify that use has chance card
-					currentPlayer.setFængslet(false);
-					movePlayer(currentPlayer, dieSum);
-				}
-
-				if(i==2) {
-					// Player chooses to rolls dices.
-					prisonerRollsDices(currentPlayer);
-				}
-			}
-
-		}
-	}
-
-	private void prisonerRollsDices(Player currentPlayer) {
-		die1.roll();
-		die2.roll();
-		if(die1.roll() == die2.roll()){
-			// affængsler player
-			currentPlayer.setFængslet(false);
-
-			// moves the player
-			movePlayer(currentPlayer, dieSum);
-		}
-		else {
-			if (true){
-				// TODO: method that forces player to pay if player hasn't rolled the smae eyes in three rounds.
+				
+				if (choise == 2)
+					currentPlayer.setInPrisson(false);
 			}
 		}
 	}
 
-	private void movePlayer(Player currentPlayer, int dieSum) {
-		this.dieSum = dieSum;
-		die1.roll();
-		die2.roll();
-		if (currentPlayer.getPosition() + dieSum > 40) {
-			currentPlayer.setPlayerPosition(currentPlayer.getPosition() + dieSum - 40); 
-			try {
+	private void movePlayer(Player currentPlayer)
+	{
+		if (currentPlayer.getPosition() + diceCup.getSum() > 40)
+		{
+			currentPlayer.setPlayerPosition(currentPlayer.getPosition() + diceCup.getSum() - 40);
+			try
+			{
 				currentPlayer.getAccount().deposit(START_BONUS);
-			} catch (IllegalAmountException e) {
-				// TODO Auto-generated catch block
+			}
+			catch (IllegalAmountException e)
+			{
+				System.err.println(e.getMessage());
 				e.printStackTrace();
+				System.exit(0);
 			}
 		}
-		else {
-			currentPlayer.setPlayerPosition(currentPlayer.getPosition() + dieSum);
-		}
-
-		// do land on field
-		fc.LandOnField(currentPlayer, currentPlayer.getPosition());
-
+		else
+			currentPlayer.setPlayerPosition(currentPlayer.getPosition() + diceCup.getSum());
 	}
-
 }

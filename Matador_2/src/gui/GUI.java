@@ -53,7 +53,7 @@ public class GUI
 					options.getPlayers()[i].getCarType(),
 					options.getPlayers()[i].getCarColour());
 			//add cars
-			setCar(1, options.getPlayers()[i].getCarType(), i, options.getPlayers()[i].getCarColour());
+			setCar(1, options.getPlayers()[i].getCarType(), i + 1, options.getPlayers()[i].getCarColour());
 		}
 	}
 

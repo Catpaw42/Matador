@@ -1,7 +1,5 @@
 package game;
 
-import gui.GUI;
-
 import java.awt.Color;
 import java.util.LinkedList;
 
@@ -39,12 +37,12 @@ public class GameController
 	}
 	//-----------------------------------------------------
 
-	private final int BEFORE_TURN_STATE = 0;
-	private final int INSIDE_TURN_STATE = 1;
-	private int currentState = 0;
+	private DiceCup dice = new DiceCup();
+	private final int ROLL_STATE = 0;
+	private final int END_TURN_STATE = 1;
+	private int mainButtonState = 0;
 	private Player currentPlayer;
-	private PlayerTurnController turnCtrl = new PlayerTurnController();
-	private GUI gui = new GUI();
+	private PlayerTurnController turnCtrl = new PlayerTurnController(dice);
 	private LinkedList<Player> playerQueue;
 	private GameOptions options;
 
@@ -77,21 +75,16 @@ public class GameController
 	}
 	public void advanceGame()
 	{
-		//This is playerturn
-		if (currentState == BEFORE_TURN_STATE)
+		if (mainButtonState == ROLL_STATE)
 		{
-			currentState = INSIDE_TURN_STATE;
-			gui.setMainButtonText("End turn");
-			gui.appendTextToTextArea("now in " + currentPlayer.getName() + "'s turn");
 			currentPlayer.setBroke(turnCtrl.playerTurn(currentPlayer));
+			
+			if(dice.getTwoOfAKind() == 0 || currentPlayer.isBroke())
+				mainButtonState = END_TURN_STATE;
 		}
 		//This runs when the player end his turn
-		else if(currentState == INSIDE_TURN_STATE)
+		else if(mainButtonState == END_TURN_STATE)
 		{
-			currentState = BEFORE_TURN_STATE;
-			gui.setMainButtonText("Begin turn (Roll)");
-			gui.appendTextToTextArea("Now outside of player turn");
-
 			if (!currentPlayer.isBroke())
 			{
 				//add player back to the queue
@@ -99,6 +92,8 @@ public class GameController
 			}
 			//pick next player from the queue
 			currentPlayer = playerQueue.remove();
+			currentPlayer.setTwoOfAKindRollCount(0);
+			mainButtonState = ROLL_STATE;
 		}
 	}
 	public GameOptions getOptions()

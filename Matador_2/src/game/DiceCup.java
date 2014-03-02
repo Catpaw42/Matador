@@ -1,21 +1,12 @@
 package game;
 
 public class DiceCup
-{
-	private static DiceCup instance;
-
-	public static DiceCup getInstance()
-	{
-		if (instance == null)
-			instance = new DiceCup();
-		return instance;
-	}
-	
+{	
 	private Die die1;
 	private Die die2;
-	private int sum;
+	private int dieSum;
 
-	private DiceCup()
+	public DiceCup()
 	{
 		die1 = new Die();
 		die2 = new Die();
@@ -27,8 +18,8 @@ public class DiceCup
 	 */
 	public int rollDice()
 	{
-		sum = (die1.roll() + die2.roll());
-		return sum;
+		dieSum = (die1.roll() + die2.roll());
+		return dieSum;
 	}
 
 	/**
@@ -37,7 +28,7 @@ public class DiceCup
 	 */
 	public int getSum()
 	{
-		return sum;
+		return dieSum;
 	}
 
 	/**

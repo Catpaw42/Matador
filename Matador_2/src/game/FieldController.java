@@ -9,37 +9,33 @@ import gui.GUI;
 
 public class FieldController
 {
-
 	GUI gui = new GUI();
-	Board board = new Board();
+	Board board;
 
-	public void LandOnField(Player p, int nr)
+	public FieldController(DiceCup dice)
 	{
-		
-		gui.appendTextToTextArea(board.getField(nr).getMessage());
-		
-		
-		// consider printing an extra  message when landing on a refuge.
-		
-		if (board.getField(nr).getClass() == Tax.class)
-		{
-			taxHandler(p, nr);
-		}
-
-		if (board.getField(nr).getClass() == Ownable.class)
-		{
-			ownableHandler(p, nr);
-		}
-
-		if (board.getField(nr).getClass() == Chance.class)
-		{
-			Chance c = (Chance) board.getField(nr);
-
-		}
-
+		board = new Board(dice);
 	}
 
-	private void ownableHandler(Player p, int nr)
+	public boolean LandOnField(Player p, int fieldNr)
+	{
+		gui.appendTextToTextArea(board.getField(fieldNr).getMessage());
+
+		if (board.getField(fieldNr).getClass() == Tax.class)
+			return taxHandler(p, fieldNr);
+
+		if (board.getField(fieldNr).getClass() == Ownable.class)
+			return ownableHandler(p, fieldNr);
+
+		if (board.getField(fieldNr).getClass() == Chance.class)
+		{
+			Chance c = (Chance) board.getField(fieldNr);
+		}
+
+		return false;
+	}
+
+	private boolean ownableHandler(Player p, int nr)
 	{
 		Ownable o = (Ownable) board.getField(nr);
 
@@ -50,20 +46,20 @@ public class FieldController
 			{
 				p.getAccount().withdraw(o.getRent());
 				o.getOwner().getAccount().deposit(o.getRent());
-			}
+			} 
 			catch (InsufficientFundsException e)
 			{
-				//we end here if the player does'nt have enough money to pay rent
-				
-			}
+				// we end here if the player does'nt have enough money to pay rent
+
+			} 
 			catch (IllegalAmountException e)
 			{
-				//A real error happened, stop execution
+				// A real error happened, stop execution
 				System.err.println(e.getMessage());
 				e.printStackTrace();
 				System.exit(0);
 			}
-			
+
 		}
 		// nobody owns this field
 		else
@@ -75,69 +71,94 @@ public class FieldController
 				{
 					p.getAccount().withdraw(o.getPrice());
 					o.setOwner(p);
-				}
+				} 
 				catch (InsufficientFundsException e)
 				{
-					//we end here if the player does'nt have enough money to buy the field.
-					//maybe this should be checked before the option is given.
-				}
+					// we end here if the player does'nt have enough money to buy the field.
+					// maybe this should be checked before the option is given.
+				} 
 				catch (IllegalAmountException e)
 				{
-					//A real error happened, stop execution
+					// A real error happened, stop execution
 					System.err.println(e.getMessage());
 					e.printStackTrace();
 					System.exit(0);
 				}
-				
+
 			} else
 			{
-				//if player chooses not to buy the field.
+				// if player chooses not to buy the field.
 			}
 		}
+		return false;
 	}
 
-	private void taxHandler(Player p, int nr)
+	private boolean taxHandler(Player p, int nr)
 	{
-		Tax t = (Tax) board.getField(nr); // Type caster field til tax.
-		if (p.getPosition() == 5) // hvis players position er 5, har han et valg. Ellers trækkes der bare penge.
+		//Cast field to tax
+		Tax t = (Tax) board.getField(nr); 
+		
+		// if we're at field 5 we have a choice, else we just withdraw cash.
+		if (p.getPosition() == 5) 
 		{
-			String[] options = { "Pay 4000kr.", "Pay 10%" }; // array with the options thats should be on the buttons.
-			int i = gui.getUserButtonPressed(options, "Choose Payment", "Tax"); // show a choice menu, with the above options.
+			 // array with the options thats should be on the buttons.
+			String[] options = { "Pay 4000kr.", "Pay 10%" };
+			// show a choice menu, with the above options.
+			int i = -1;
+			while((i = gui.getUserButtonPressed(options, "Choose Payment", "Tax")) == -1); 
 
 			if (i == 0)
 			{
-				try {
+				try
+				{
 					p.getAccount().withdraw(t.getRevenueRate());
-				} catch (InsufficientFundsException e) {
-					// TODO Auto-generated catch block
+				} 
+				catch (InsufficientFundsException e)
+				{
+					return true;
+				} 
+				catch (IllegalAmountException e)
+				{
+					System.err.println(e.getMessage());
 					e.printStackTrace();
-				} catch (IllegalAmountException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} // update balance
-			} else
+					System.exit(0);
+				}
+			}
+			else
 			{
-				try {
+				try
+				{
 					p.getAccount().withdraw((p.getTotaltAssets()) * t.getTaxRate());
-				} catch (InsufficientFundsException e) {
-					// TODO Auto-generated catch block
+				} 
+				catch (InsufficientFundsException e)
+				{
+					return true;
+				} 
+				catch (IllegalAmountException e)
+				{
+					System.err.println(e.getMessage());
 					e.printStackTrace();
-				} catch (IllegalAmountException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} // update balance
-			} // FÅ TIL AT PASSE MED AT MAN OGSÅ EJER HVAD ENS FELTER ER VÆRD.
-		} else
-		{
-			try {
-				p.getAccount().withdraw(t.getExtraOrdinaryRate());
-			} catch (InsufficientFundsException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAmountException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+					System.exit(0);
+				}
 			}
 		}
+		else
+		{
+			try
+			{
+				p.getAccount().withdraw(t.getExtraOrdinaryRate());
+			} 
+			catch (InsufficientFundsException e)
+			{
+				return true;
+			} 
+			catch (IllegalAmountException e)
+			{
+				System.err.println(e.getMessage());
+				e.printStackTrace();
+				System.exit(0);
+			}
+		}
+		return false;
 	}
 }

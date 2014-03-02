@@ -2,36 +2,43 @@ package game.fields;
 
 import game.Player;
 
-public abstract class Ownable extends Field {
+public abstract class Ownable extends Field
+{
 
 	private int price;
 	private int rent;
 	private Player owner = null;
 	private Ownable[] serie;
 
-	protected Ownable(int nr, String name, int rent, int price) {
+	protected Ownable(int nr, String name, int rent, int price)
+	{
 		super(nr, name);
-		
-		
+		this.rent = rent;
+		this.price = price;
 	}
 
-	public Ownable[] getSerie() {
+	public Ownable[] getSerie()
+	{
 		return serie;
 	}
 
-	public Player getOwner() {
+	public Player getOwner()
+	{
 		return owner;
 	}
 
-	public int getPrice() {
+	public int getPrice()
+	{
 		return price;
 	}
 
-	public boolean getStreet() {
+	public boolean getStreet()
+	{
 		return false;
 	}
 
-	public void setOwner(Player owner) {
+	public void setOwner(Player owner)
+	{
 		this.owner = owner;
 	}
 
@@ -42,7 +49,8 @@ public abstract class Ownable extends Field {
 		return rent;
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return toString();
 	}
 }

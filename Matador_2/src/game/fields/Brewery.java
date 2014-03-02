@@ -4,10 +4,11 @@ import game.DiceCup;
 
 public class Brewery extends Ownable
 {
-
-	protected Brewery(int nr, String name, int rent, int price)
+	DiceCup diceCup;
+	public Brewery(int nr, String name, int rent, int price, DiceCup dice)
 	{
 		super(nr, name, rent, price);
+		diceCup = dice;
 	}
 
 	public String getMessage()
@@ -18,6 +19,6 @@ public class Brewery extends Ownable
 	@Override
 	public int getRent()
 	{
-		return getBaseRent() * DiceCup.getInstance().getSum();
+		return getBaseRent() * diceCup.getSum();
 	}
 }

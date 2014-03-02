@@ -27,16 +27,14 @@ public class Street extends Ownable
 			return this.groupSize;
 		}
 	}
+	
 	private Group group;
-
 	private int houses = 0;
-	private int housePrice;
 
-	public Street(int nr, String name, int housePrice, int rent, int price, Group group)
+	public Street(int nr, String name, int rent, int price, Group group)
 	{
 		super(nr, name, rent, price);
 		this.group = group;
-		this.housePrice = housePrice;
 	}
 
 	@Override
@@ -82,10 +80,4 @@ public class Street extends Ownable
 	{
 		this.houses = houses;
 	}
-
-	public int getHousePrice()
-	{
-		return housePrice;
-	}
-
 }
