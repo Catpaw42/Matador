@@ -1,6 +1,5 @@
 package game;
 
-import java.awt.Color;
 import java.util.LinkedList;
 
 public class GameController
@@ -18,7 +17,7 @@ public class GameController
 	public static GameController getInstance()
 	{
 		if(instance == null)
-			instance = new GameController();
+			System.err.println("Error no instance exists");
 		return instance;
 	}
 	/**
@@ -45,22 +44,6 @@ public class GameController
 	private PlayerTurnController turnCtrl = new PlayerTurnController(dice);
 	private LinkedList<Player> playerQueue;
 	private GameOptions options;
-
-	private GameController()
-	{
-		//get data on players somehow
-		Player[] players = new Player[4];
-		players[0] = new Player("cat", Color.RED,2);
-		players[1] = new Player("dog", Color.BLACK,1);
-		players[2] = new Player("weasel", Color.GREEN,0);
-		players[3] = new Player("ferret", Color.BLUE,3);
-		playerQueue = new LinkedList<Player>();
-		for (int i = 0; i < players.length; i++)
-		{
-			playerQueue.add(players[i]);
-		}
-		currentPlayer = playerQueue.remove();
-	}
 
 	private GameController(GameOptions options)
 	{

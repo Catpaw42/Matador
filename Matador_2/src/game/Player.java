@@ -9,7 +9,7 @@ public class Player
 	private String name;
 	private Color carColor;
 	private int carType;
-	private int position;
+	private int position = 1;
 	private Account accountOb = new Account();
 	private boolean isBroke;
 	private boolean inPrisson = false;

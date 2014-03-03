@@ -95,7 +95,7 @@ public class GameActionListener implements KeyEventDispatcher
 	private void updateGUI()
 	{
 		Player currentPlayer = GameController.getInstance().getCurentPlayer();
-		//gui.removeAllCars(currentPlayer.getName());
+		gui.removeAllCars(currentPlayer.getName());
 		gui.setCar(currentPlayer.getPosition(), currentPlayer.getName());
 	}
 

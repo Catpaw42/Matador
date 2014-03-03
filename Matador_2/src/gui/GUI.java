@@ -16,9 +16,6 @@ import javax.swing.JOptionPane;
  */
 public class GUI
 {
-
-	private GameOptions options;
-
 	public GUI(){}
 
 	/**
@@ -44,7 +41,7 @@ public class GUI
 	 */
 	private void initialSetup()
 	{
-		this.options = GameController.getInstance().getOptions();
+		GameOptions options = GameController.getInstance().getOptions();
 		//loop all players
 		for (int i = 0; i < options.getPlayers().length; i++)
 		{
@@ -326,9 +323,10 @@ public class GUI
 	 */
 	public void setCar(int fieldNumber, String playerName)
 	{
+		GameOptions options = GameController.getInstance().getOptions();
 		for (int i = 0; i < options.getPlayers().length; i++)
 		{
-			if(options.getPlayers()[i].getName() == playerName)
+			if(options.getPlayers()[i].getName().equals(playerName))
 				GameGUI.getInstance().setCar(fieldNumber, options.getPlayers()[i].getCarType(), i + 1, options.getPlayers()[i].getCarColour());
 		}
 	}
@@ -345,6 +343,7 @@ public class GUI
 
 	public void removeAllCars(String name)
 	{
+		GameOptions options = GameController.getInstance().getOptions();
 		for (int i = 0; i < options.getPlayers().length; i++)
 		{
 			if(options.getPlayers()[i].getName().equals(name))
