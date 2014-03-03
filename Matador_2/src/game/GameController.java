@@ -38,8 +38,8 @@ public class GameController
 	//-----------------------------------------------------
 
 	private DiceCup dice = new DiceCup();
-	private final int ROLL_STATE = 0;
-	private final int END_TURN_STATE = 1;
+	public static final int ROLL_STATE = 0;
+	public static final int END_TURN_STATE = 1;
 	private int mainButtonState = 0;
 	private Player currentPlayer;
 	private PlayerTurnController turnCtrl = new PlayerTurnController(dice);
@@ -99,5 +99,13 @@ public class GameController
 	public GameOptions getOptions()
 	{
 		return this.options;
+	}
+	public Player getCurentPlayer()
+	{
+		return currentPlayer;
+	}
+	public int getCurrentState()
+	{
+		return mainButtonState;
 	}
 }

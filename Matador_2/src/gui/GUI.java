@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class GUI
 {
-	
-	private static int numberOfActivePlayers = 0;
-	
+
+	private GameOptions options;
+
 	public GUI(){}
 
 	/**
@@ -29,7 +29,7 @@ public class GUI
 		GameGUI.getInstance();
 		initialSetup();
 	}
-	
+
 	/**
 	 * Creates a GUI with the specified list of fields
 	 * @param fields The list of fields that the GUI should show
@@ -44,7 +44,7 @@ public class GUI
 	 */
 	private void initialSetup()
 	{
-		GameOptions options = GameController.getInstance().getOptions();
+		this.options = GameController.getInstance().getOptions();
 		//loop all players
 		for (int i = 0; i < options.getPlayers().length; i++)
 		{
@@ -53,11 +53,11 @@ public class GUI
 					options.getPlayers()[i].getCarType(),
 					options.getPlayers()[i].getCarColour());
 			//add cars
-			setCar(1, options.getPlayers()[i].getCarType(), i + 1, options.getPlayers()[i].getCarColour());
+			setCar(1, options.getPlayers()[i].getName());
 		}
 	}
 
-	
+
 	/**
 	 * sets the two dice of the game to the specified integers, then moves them to a random
 	 * place on the board, and rotates them at random.
@@ -68,7 +68,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setDice(i, j);
 	}
-	
+
 	/**
 	 * Displays a line of text at the top of the control area.
 	 * @param name The name to display
@@ -77,7 +77,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setActivePlayerName(name);
 	}
-	
+
 	/**
 	 * adds a player to the field
 	 * @param playerName The Name of the player
@@ -87,15 +87,12 @@ public class GUI
 	 */
 	public boolean addPlayer(String playerName, int carType, Color carColor)
 	{
-		if (numberOfActivePlayers >= 6)
-			return false;
 		if (carType > 3)
 			return false;
 		GameGUI.getInstance().addPlayer(playerName, carType, carColor);
-		numberOfActivePlayers ++;
 		return true;
 	}
-	
+
 	/**
 	 * Removes a given player from the board.
 	 * @param playerName the name of the player to remove.
@@ -103,14 +100,9 @@ public class GUI
 	 */
 	public boolean removePlayer(String playerName)
 	{
-		if(GameGUI.getInstance().removePlayer(playerName))
-		{
-			numberOfActivePlayers--;
-			return true;
-		}
-		return false;
+		return GameGUI.getInstance().removePlayer(playerName);
 	}
-	
+
 	/**
 	 * displays a text-string on the board
 	 * @param text the String to display
@@ -119,7 +111,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setDisplayedText(text);
 	}
-	
+
 	/**
 	 * changes the text of the Buy button
 	 * @param text The new text for the button
@@ -128,7 +120,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setButtonText(0, text);
 	}
-	
+
 	/**
 	 * changes the text of the Buy button
 	 * @param text The new text for the button
@@ -137,7 +129,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setButtonText(2, text);
 	}
-	
+
 	/**
 	 * changes the text of the Buy button
 	 * @param text The new text for the button
@@ -146,7 +138,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setButtonText(1, text);
 	}
-	
+
 	/**
 	 * asks the user to select from list of options
 	 * @param options An array of string to chose from, the string at [0] will be used as the default choise
@@ -160,7 +152,7 @@ public class GUI
 				message, title, JOptionPane.PLAIN_MESSAGE, null,
 				options, options[0]);
 	}
-	
+
 	/**
 	 * asks the user to select a button
 	 * @param options An array of string to chose from, the string at [0] will be used as the default choise
@@ -174,7 +166,7 @@ public class GUI
 				JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
 				null, options, options[0]);
 	}
-	
+
 	/**
 	 * asks the user to select from list of options
 	 * @param options options An array of string to chose from, the string at [0] will be used as the default choise
@@ -189,7 +181,7 @@ public class GUI
 				message, title, JOptionPane.QUESTION_MESSAGE, new ImageIcon(ImageFactory.CreateImage(imagePath)),
 				options, options[0]);
 	}
-	
+
 	/**
 	 * Asks the user to answer yes / no / cancel
 	 * @param message The message accompanying this choise
@@ -199,7 +191,7 @@ public class GUI
 	{
 		return JOptionPane.showConfirmDialog(new JFrame(), message);
 	}
-	
+
 	/**
 	 * Asks the user to answer yes / no / cancel
 	 * @param message The message accompanying this choise
@@ -213,7 +205,7 @@ public class GUI
 				message, title, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.YES_NO_CANCEL_OPTION,
 				new ImageIcon(ImageFactory.CreateImage(imagePath)));
 	}
-	
+
 	/**
 	 * Asks the user to input a textString
 	 * @param message The message accompanying this choise
@@ -224,7 +216,7 @@ public class GUI
 	{
 		return JOptionPane.showInputDialog(message, initialValue);
 	}
-	
+
 	/**
 	 * Asks the user to input a textString
 	 * @param message The message accompanying this choise
@@ -239,7 +231,7 @@ public class GUI
 				message, title, JOptionPane.QUESTION_MESSAGE, new ImageIcon(ImageFactory.CreateImage(imagePath)),
 				null, initialValue);
 	}
-	
+
 	/**
 	 * Disposes of the GUI, and sets the singleton instance to null, enabling the creation of a new GUI
 	 */
@@ -247,7 +239,7 @@ public class GUI
 	{
 		GameGUI.getInstance().destroyGUI();
 	}
-	
+
 	/**
 	 * Sets the owner of a given field
 	 * @param fieldNumber the integer specifying the field
@@ -257,7 +249,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setOwner(owner, fieldNumber);
 	}
-	
+
 	/**
 	 * Sets the title of a given field
 	 * @param fieldNumber the integer specifying the field
@@ -267,7 +259,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setTitle(title, fieldNumber);
 	}
-	
+
 	/**
 	 * Sets the subtext of a given field
 	 * @param fieldNumber the integer specifying the field
@@ -277,7 +269,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setSubtext(subText, fieldNumber);
 	}
-	
+
 	/**
 	 * Sets the price of a given field
 	 * @param fieldNumber the integer specifying the field
@@ -287,7 +279,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setPrice(price, fieldNumber);
 	}
-	
+
 	/**
 	 * Sets the price of a given field
 	 * @param fieldNumber the integer specifying the field
@@ -297,7 +289,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setPrice("" + price, fieldNumber);
 	}
-	
+
 	/**
 	 * Sets the priceText of a given field, example "price" when not owned versus "rent" when someone owns the field
 	 * @param fieldNumber the integer specifying the field
@@ -307,7 +299,7 @@ public class GUI
 	{
 		GameGUI.getInstance().setPriceText(priceText, fieldNumber);
 	}
-	
+
 	/**
 	 * Appends a string to the games textArea
 	 * @param text the string to append
@@ -316,7 +308,7 @@ public class GUI
 	{
 		GameGUI.getInstance().appendText(text);
 	}
-	
+
 	/**
 	 * clears all text from the games textArea
 	 */
@@ -324,7 +316,7 @@ public class GUI
 	{
 		GameGUI.getInstance().clearTextField();
 	}
-	
+
 	/**
 	 * Adds a car to the given field
 	 * @param fieldNumber the number of the field
@@ -332,11 +324,15 @@ public class GUI
 	 * @param carNr a number 1-6(inclusive) specifying the layer the car should be at
 	 * @param color The Color of the car
 	 */
-	public void setCar(int fieldNumber, int cartype, int carNr, Color color)
+	public void setCar(int fieldNumber, String playerName)
 	{
-		GameGUI.getInstance().setCar(fieldNumber, cartype, carNr, color);
+		for (int i = 0; i < options.getPlayers().length; i++)
+		{
+			if(options.getPlayers()[i].getName() == playerName)
+				GameGUI.getInstance().setCar(fieldNumber, options.getPlayers()[i].getCarType(), i + 1, options.getPlayers()[i].getCarColour());
+		}
 	}
-	
+
 	/**
 	 * Removes a given car from the given field
 	 * @param fieldNumber  the number of the field
@@ -345,5 +341,20 @@ public class GUI
 	public void removeCar(int fieldNumber, int carNr)
 	{
 		GameGUI.getInstance().removeCar(fieldNumber, carNr);
+	}
+
+	public void removeAllCars(String name)
+	{
+		for (int i = 0; i < options.getPlayers().length; i++)
+		{
+			if(options.getPlayers()[i].getName().equals(name))
+			{
+				for (int j = 1; j <= 40; j++)
+				{
+					removeCar(j, i + 1);
+				}
+			}
+		}
+
 	}
 }

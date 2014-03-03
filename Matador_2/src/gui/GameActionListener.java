@@ -1,6 +1,7 @@
 package gui;
 
 import game.GameController;
+import game.Player;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
@@ -22,8 +23,18 @@ public class GameActionListener implements KeyEventDispatcher
 	public void mainButtonEvent()
 	{
 		GameController.getInstance().advanceGame();
+		this.updateGUI();
+		if(GameController.getInstance().getCurrentState() == GameController.ROLL_STATE)
+		{
+			gui.setMainButtonText("Roll Dice");
+		}
+		if(GameController.getInstance().getCurrentState() == GameController.END_TURN_STATE)
+		{
+			gui.setMainButtonText("End Turn");
+		}
 		
 	}
+
 
 	public void sellButtonEvent()
 	{
@@ -77,4 +88,15 @@ public class GameActionListener implements KeyEventDispatcher
 	{
 		System.exit(0);
 	}
+
+	//--------------------------------------------------------------
+	//Method to update the gui after each "main button" event.
+	//--------------------------------------------------------------
+	private void updateGUI()
+	{
+		Player currentPlayer = GameController.getInstance().getCurentPlayer();
+		//gui.removeAllCars(currentPlayer.getName());
+		gui.setCar(currentPlayer.getPosition(), currentPlayer.getName());
+	}
+
 }
