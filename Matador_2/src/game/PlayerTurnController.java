@@ -35,6 +35,16 @@ public class PlayerTurnController
 		//then roll some dice
 		diceCup.rollDice();
 		
+		if (diceCup.getTwoOfAKind() > 0 ) 
+		{currentPlayer.setTwoOfAKindRollCount(currentPlayer.getTwoOfAKindRollCount() + 1);
+		}
+		
+		if(currentPlayer.getTwoOfAKindRollCount() == 3) {
+		currentPlayer.setPlayerPosition(11);
+		currentPlayer.setInPrisson(true);
+		return false;
+		}
+		
 		//Check again, did he get out?
 		if (currentPlayer.isInPrisson() == false)
 		{

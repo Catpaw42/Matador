@@ -53,5 +53,5 @@ public class DiceCup
 		if (die1.getFaceValue() == die2.getFaceValue())
 			twoOfaKind = die1.getFaceValue();
 		return twoOfaKind;
-	}
+	} // Consider making boolean
 }
