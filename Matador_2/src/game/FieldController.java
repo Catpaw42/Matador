@@ -24,7 +24,7 @@ public class FieldController
 		if (board.getField(fieldNr).getClass() == Tax.class)
 			return taxHandler(p, fieldNr);
 
-		if (board.getField(fieldNr).getClass() == Ownable.class)
+		if (board.getField(fieldNr) instanceof Ownable)
 			return ownableHandler(p, fieldNr);
 
 		if (board.getField(fieldNr).getClass() == Chance.class)

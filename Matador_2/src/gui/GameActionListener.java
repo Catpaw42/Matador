@@ -5,6 +5,7 @@ import game.Player;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
+import java.util.LinkedList;
 
 public class GameActionListener implements KeyEventDispatcher
 {
@@ -94,6 +95,12 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	private void updateGUI()
 	{
+		LinkedList<Player> queue = GameController.getInstance().getPlayerQueue();
+		for (int i = 0; i < queue.size(); i++)
+		{
+			gui.removeAllCars(queue.get(i).getName());
+			gui.setCar(queue.get(i).getPosition(), queue.get(i).getName());
+		}
 		Player currentPlayer = GameController.getInstance().getCurentPlayer();
 		gui.removeAllCars(currentPlayer.getName());
 		gui.setCar(currentPlayer.getPosition(), currentPlayer.getName());

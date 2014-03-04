@@ -83,6 +83,11 @@ public class GameController
 	{
 		return this.options;
 	}
+	public LinkedList<Player> getPlayerQueue()
+	{
+		return this.playerQueue;
+	}
+	
 	public Player getCurentPlayer()
 	{
 		return currentPlayer;
