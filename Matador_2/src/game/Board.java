@@ -12,9 +12,12 @@ import game.fields.Tax;
 
 import java.util.ArrayList;
 
+import chance.cards.*;
+
 public class Board
 {
-	private static Field[] fields = new Field[40];;
+	private static Field[] fields = new Field[40];
+	private static ChanceCard[] chanceCards = new ChanceCard[33];
 	
 	public Board(DiceCup dice)
 	{//					 --TYPE--  	--NR--	--NAME--			--BASE RENT--	--PRICE--	--GROUP--
@@ -46,7 +49,7 @@ public class Board
 		fields[25] = new Shipping	(26, 	"ColorLine", 			250, 		4000);
 		fields[26] = new Street		(27, 	"Bredgade", 			450, 		5200, 		Group.WHITE);
 		fields[27] = new Street		(28, 	"Kgs. Nytorv", 			450, 		5200, 		Group.WHITE);
-		fields[28] = new Brewery	(13, 	"Coca Cola", 			100, 		3000,		dice);
+		fields[28] = new Brewery	(29, 	"Coca Cola", 			100, 		3000,		dice);
 		fields[29] = new Street		(30, 	"Østergade", 			500, 		5600, 		Group.WHITE);
 		fields[30] = new Refuge		(31, 	"Gå i fængsel");
 		fields[31] = new Street		(32, 	"Amagertorv", 			550, 		6000, 		Group.YELLOW);
@@ -58,6 +61,50 @@ public class Board
 		fields[37] = new Street		(38, 	"Frederiksberg gade", 	700, 		7000, 		Group.PURPLE);
 		fields[38] = new Tax		(39, 	"Extraordinær skat");
 		fields[39] = new Street		(40, 	"Rådhuspladsen", 		1000, 		8000, 		Group.PURPLE);
+	
+		chanceCards[0] = new MoneyGift 		(1,	"De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ", 1000);
+		chanceCards[1] = new MovedToField 	(2, "De rykkes til start", 1);
+		chanceCards[2] = new GoToJail		(3, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
+				+ " indkassere de ikke kr. 4000 ");
+		chanceCards[3] = new GoToJail		(4, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
+				+ " indkassere de ikke kr. 4000 ");
+		chanceCards[4] = new Fine 			(5, "De har været en tur i udlandet og haft for mange cigaretter med "
+				+ "hjem. Betal told kr. 200", 200);
+		chanceCards[5] = new Fine			(6, "De har modtaget Deres tandlægeregning. Betal kr. 2000", 2000);
+		chanceCards[6] = new MoneyGift		(7, "De havde en række med elleve rigtige i tipning. Modtag kr. 1000", 1000);
+		chanceCards[7] = new MoneyGift		(8, "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000);
+		chanceCards[8] = new MoneyGift		(9, "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000);
+		chanceCards[9] = new MoneyGift		(10, "Det er Deres fødselsdag. Modtag af hver medspiller kr. 200", 0);
+		chanceCards[10] = new MoneyGift		(11, "Værdien af egen avl fra nyttehaven udgør kr. 200, som De modtager af banken. ", 200);
+		chanceCards[11] = new Fine			(12, "Betal Deres bilforsikring kr. 1000" , 1000);
+		chanceCards[12] = new Fine			(13, "Ejendomsskatterne er steget, ekstraudgifterne er: kr 800 pr. hus, kr 2300 pr. hotel.", 0);
+		chanceCards[13] = new MovedToField	(14, "Ryk frem til Grønningen. Hvis De passerer Start inkassér da kr. 4000 ", 25 );
+		chanceCards[14] = new MovedToField 	(15, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
+				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
+		chanceCards[15] = new MovedToField 	(16, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
+				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
+		chanceCards[16] = new MovedToField	(17, "Tag med LB-færgerne --- flyt brikken frem, og hvis De passerer Start"
+				+ " inkassér da kr. 4000 ", 0);
+		chanceCards[17] = new JailSafed 	(18, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
+				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
+		chanceCards[18] = new JailSafed 	(19, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
+				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
+		chanceCards[19] = new MoneyGift 	(20, "Grundet dyrtiden har De fået gageforhøjelse. Modtag kr. 1000 ", 1000);
+		chanceCards[20] = new MovedToField	(21, "Ryk frem til Frederiksberg Allé. Hvis De passerer Start inkassér kr. 4000 ", 12);
+		chanceCards[21] = new MoneyGift		(22, "De har vundet i Klasselotteriet. Modtag kr. 500 ", 500);
+		chanceCards[22] = new MovedToField	(23, "Tag ind på Rådhuspladsen.", 40 );
+		chanceCards[23] = new MovedToField	(24, "Ryk tre felter tilbage.", -3);
+		chanceCards[24] = new Fine			(25, "Oliepriserne er steget, og De skal betale: kr. 500 pr. hus,  kr. 2000 pr. hotel.", 0);
+		chanceCards[25] = new Fine			(26, "Betal kr. 3000 for reparation af Deres vogn. ", 3000);
+		chanceCards[26] = new Fine			(27, "Betal kr. 3000 for reparation af Deres vogn. ", 3000);
+		chanceCards[27] = new MoneyGift		(28, "De modtager Matador-legatet for værdigt trængende, "
+				+ "stort kr. 40000 Ved værdigt trængende forstås, at Deres formue, "
+				+ "d.v.s. Deres kontante penge + skøder + bygninger ikke overstiger kr. 15000 ", 0);
+		chanceCards[28] = new Fine			(29, "Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000 ", 3000);
+		chanceCards[29] = new MoneyGift		(30, "Modtag udbytte af Deres aktier kr. 1000", 1000);
+		chanceCards[30] = new MoneyGift		(31, "Modtag udbytte af Deres aktier kr. 1000", 1000);
+		chanceCards[31] = new Fine			(32, "De har kørt frem for Fuld Stop. Betal kr. 1000 i bøde. ", 1000);
+		chanceCards[32] = new Fine			(33, "De har måttet vedtage en parkeringsbøde. Betal kr. 200 i bøde.", 200);
 	}
 	
 	/**
@@ -101,5 +148,34 @@ public class Board
 	{
 		return fields;
 	}
+	
+	public ChanceCard getChanceCard(int nr)
+	{
+		return chanceCards[nr - 1];
+	}
+	
+	public ChanceCard[] getAllChanceCards()
+	{
+		return chanceCards;
+	}
+	
+	public static ChanceCard[] getChanceCardsByPlayer(Player p)
+	{
+		ArrayList<ChanceCard> temp = new ArrayList<ChanceCard>();
+		
+		for (int i = 0; i < fields.length; i++)
+		{
+			if(((ChanceCard)chanceCards[i]).getHolder() == p)
+				temp.add((ChanceCard) chanceCards[i]);
+		}
+		
+		ChanceCard[] tempArr = new ChanceCard[temp.size()];
+		for (int i = 0; i < temp.size(); i++)
+		{
+			tempArr[i] = temp.get(i);
+		}
+		return tempArr;
+	}
+	
 }
 	
