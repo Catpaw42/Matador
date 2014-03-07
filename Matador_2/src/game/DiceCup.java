@@ -8,8 +8,8 @@ public class DiceCup
 
 	public DiceCup()
 	{
-		die1 = new Die();
-		die2 = new Die();
+		this.die1 = new Die();
+		this.die2 = new Die();
 	}
 
 	/**
@@ -47,11 +47,11 @@ public class DiceCup
 	 * Checks if the current roll is a two of a kind roll.
 	 * @return An integer equal to the facevalue [1-6] of the dice IF they are the same, or 0 if they are not the same.
 	 */
-	public int getTwoOfAKind()
+	public boolean getTwoOfAKind()
 	{
 		int twoOfaKind = 0;
 		if (die1.getFaceValue() == die2.getFaceValue())
 			twoOfaKind = die1.getFaceValue();
-		return twoOfaKind;
+		return (twoOfaKind > 0);
 	} // Consider making boolean
 }

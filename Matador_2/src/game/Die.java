@@ -15,7 +15,8 @@ public class Die
 	public Die()
 	{
 		//creates a random object with the seed 42.
-		rand = new Random(42);
+		rand = new Random();
+		this.roll();
 	}
 
 	// metode til at kaste terningen

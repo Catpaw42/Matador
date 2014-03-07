@@ -24,6 +24,7 @@ public class CarLabel extends JLabel
 		if(i <0 || i >= carImages.length)
 			throw new RuntimeException("the selected integer does not match a car");
 		this.setIcon(new ImageIcon(ImageFactory.replaceColor(carImages[i], c, DEFAULTPRIMARYCOLOR)));
+		this.setVisible(true);
 	}
 
 }

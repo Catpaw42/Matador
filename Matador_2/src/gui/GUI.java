@@ -52,6 +52,7 @@ public class GUI
 			//add cars
 			setCar(1, options.getPlayers()[i].getName());
 		}
+		setCurrentPlayerName(options.getPlayers()[0].getName());
 	}
 
 

@@ -66,8 +66,9 @@ public class GameActionListener implements KeyEventDispatcher
 	{
 		if (e.getID() == KeyEvent.KEY_RELEASED)
 		{
-			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				//do stuff here
+			if (e.getKeyCode() == KeyEvent.VK_ENTER)
+			{
+				mainButtonEvent(); //redirects "return key" to main button
 			}
 		}
 		return false;
@@ -104,6 +105,9 @@ public class GameActionListener implements KeyEventDispatcher
 		Player currentPlayer = GameController.getInstance().getCurentPlayer();
 		gui.removeAllCars(currentPlayer.getName());
 		gui.setCar(currentPlayer.getPosition(), currentPlayer.getName());
+		gui.setCurrentPlayerName(currentPlayer.getName());
+		
+		gui.setDice(GameController.getInstance().getDiceCup().getDiceFaceValues()[0], GameController.getInstance().getDiceCup().getDiceFaceValues()[1]);
 	}
 
 }
