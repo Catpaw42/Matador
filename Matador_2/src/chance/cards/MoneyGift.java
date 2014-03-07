@@ -6,8 +6,16 @@ public class MoneyGift extends ChanceCard{
 
 	public MoneyGift(int nr, String name, int reward) {
 		super(nr, name);
-		this.reward = reward;
+		this.setReward(reward);
 		// TODO Auto-generated constructor stub
+	}
+
+	public int getReward() {
+		return reward;
+	}
+
+	public void setReward(int reward) {
+		this.reward = reward;
 	}
 
 }

@@ -83,8 +83,8 @@ public class Board
 				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
 		chanceCards[15] = new MovedToField 	(16, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
 				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
-		chanceCards[16] = new MovedToField	(17, "Tag med LB-færgerne --- flyt brikken frem, og hvis De passerer Start"
-				+ " inkassér da kr. 4000 ", 0);
+		chanceCards[16] = new MovedToField	(17, "Tag med Mols-Linjen --- flyt brikken frem, og hvis De passerer Start"
+				+ " inkassér da kr. 4000 ", 16);
 		chanceCards[17] = new JailSafed 	(18, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
 				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
 		chanceCards[18] = new JailSafed 	(19, "I anledning af kongens fødselsdag benådes De herved for fængsel. "

@@ -43,6 +43,11 @@ public abstract class Ownable extends Field
 	}
 
 	public abstract int getRent();
+	
+	public int setRent(int rent){
+		this.rent = rent;
+		return rent;
+	}
 
 	protected int getBaseRent()
 	{

@@ -6,8 +6,16 @@ public class Fine extends ChanceCard {
 
 	public Fine(int nr, String name, int fine) {
 		super(nr, name);
-		this.fine = fine;
+		this.setFine(fine);
 		// TODO Auto-generated constructor stub
+	}
+
+	public int getFine() {
+		return fine;
+	}
+
+	public void setFine(int fine) {
+		this.fine = fine;
 	}
 
 }
