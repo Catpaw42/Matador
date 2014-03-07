@@ -13,7 +13,7 @@ public class Brewery extends Ownable
 
 	public String getMessage()
 	{
-		return "You have landed on " + this.getName();
+		return "have landed on " + this.getName();
 	}
 
 	@Override

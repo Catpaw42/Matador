@@ -1,5 +1,8 @@
 package game;
 
+import java.util.LinkedList;
+
+import chance.cards.ChanceCard;
 import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
 import game.fields.Chance;
@@ -11,6 +14,8 @@ public class FieldController
 {
 	GUI gui = new GUI();
 	Board board;
+	private ChanceCard chanceCard;
+	private LinkedList<ChanceCard> chanceQue;
 
 	public FieldController(DiceCup dice)
 	{
@@ -19,20 +24,32 @@ public class FieldController
 
 	public boolean LandOnField(Player p, int fieldNr)
 	{
-		gui.appendTextToTextArea(board.getField(fieldNr).getMessage());
+		gui.appendTextToTextArea(p.getName() +  " " + board.getField(fieldNr).getMessage());
 
-		if (board.getField(fieldNr).getClass() == Tax.class)
+		if (board.getField(fieldNr) instanceof Tax)
 			return taxHandler(p, fieldNr);
 
 		if (board.getField(fieldNr) instanceof Ownable)
 			return ownableHandler(p, fieldNr);
 
-		if (board.getField(fieldNr).getClass() == Chance.class)
+		if (board.getField(fieldNr) instanceof Chance)
 		{
-			Chance c = (Chance) board.getField(fieldNr);
+			chanceHandler(p, fieldNr);
 		}
 
 		return false;
+	}
+
+	private void chanceHandler(Player p, int nr) {
+		Chance c = (Chance) board.getField(nr);
+			
+			chanceQue = new LinkedList<ChanceCard>();
+			for (int i = 0; i < board.getAllChanceCards().length; i++)
+			{
+				chanceQue.add(board.getChanceCard(i));
+			}
+			chanceCard = chanceQue.remove();
+		
 	}
 
 	private boolean ownableHandler(Player p, int nr)
