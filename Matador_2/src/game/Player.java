@@ -11,7 +11,7 @@ public class Player
 	private int carType;
 	private int position = 1;
 	private Account accountOb = new Account();
-	private boolean isBroke;
+	private boolean isBroke = false;
 	private boolean inPrisson = false;
 	private int twoOfAKindRollCount = 0;
 	private int prisonTurnCount = 0;

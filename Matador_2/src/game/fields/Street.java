@@ -40,7 +40,7 @@ public class Street extends Ownable
 	@Override
 	public String getMessage()
 	{
-		return "have landed on " + this.getName();
+		return "have landed on field " + this.getFieldNumber() + "  " + this.getName();
 	}
 
 	@Override

@@ -67,6 +67,8 @@ public class FieldController
 		if(chanceCard instanceof JailSafed)
 		{
 			// Remember to not put card back into que.	
+			p.setGetOutOfJailCards(p.getGetOutOfJailCards() + 1);
+			
 		}
 
 		// Controller for chance cards that gives money to the player [done]

@@ -111,7 +111,7 @@ public class ControlPanel extends JPanel
 					{
 						g.buyButtonEvent();
 					}
-					else if (e.getSource().equals(buttons[1]))
+					else if (e.getSource().equals(buttons[1])) // Hvorfor står der ikke 2 her?
 					{
 						g.sellButtonEvent();
 					}

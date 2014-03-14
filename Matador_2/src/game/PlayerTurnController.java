@@ -105,6 +105,7 @@ public class PlayerTurnController
 				
 				if (choise == 2)
 					currentPlayer.setInPrisson(false);
+					currentPlayer.setGetOutOfJailCards(currentPlayer.getGetOutOfJailCards() - 1);
 			}
 		}
 	}

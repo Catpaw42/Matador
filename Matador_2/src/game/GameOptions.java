@@ -15,4 +15,13 @@ public class GameOptions
 	{
 		this.players = players;
 	}
+
+	public int amountNotBroke(){
+		int sum = 0;
+		for (int i = 0; i < players.length; i++) {
+			if(!players[i].isBroke())
+				sum++;
+		}
+		return sum;
+	}
 }
