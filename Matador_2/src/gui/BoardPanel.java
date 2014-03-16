@@ -155,6 +155,11 @@ public class BoardPanel extends JPanel
 	{
 		this.fields[fieldNr - 1].removeCar(carNr);
 	}
+	
+	protected void setPlayerMoney(int player, int amount)
+	{
+		this.playerFields[player].setPlayerMoney(amount);
+	}
 
 	//Board generator
 	private void setupFields(FieldPanel[] fields)

@@ -51,6 +51,9 @@ public class GUI
 					options.getPlayers()[i].getCarColour());
 			//add cars
 			setCar(1, options.getPlayers()[i].getName());
+			
+			//add money
+			this.setPlayerMoney(options.getPlayers()[i].getName(), options.getPlayers()[i].getAccount().getBalance());
 		}
 		setCurrentPlayerName(options.getPlayers()[0].getName());
 	}
@@ -65,6 +68,17 @@ public class GUI
 	public void setDice(int i, int j)
 	{
 		GameGUI.getInstance().setDice(i, j);
+	}
+	
+	public void setPlayerMoney(String playerName, int amount)
+	{
+		GameOptions options = GameController.getInstance().getOptions();
+		for (int i = 0; i < options.getPlayers().length; i++)
+		{
+			if(options.getPlayers()[i].getName().equals(playerName))
+				GameGUI.getInstance().setPlayerMoney(i, amount);
+		}
+		
 	}
 
 	/**

@@ -1,15 +1,11 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.MouseInfo;
 import java.awt.Point;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.dnd.DropTargetDropEvent;
-import java.awt.dnd.DropTargetEvent;
-import java.awt.dnd.DropTargetListener;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -24,7 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 
 @SuppressWarnings("serial")
-public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener, DropTargetListener
+public class FieldPanel extends JPanel implements MouseMotionListener , MouseListener
 {
 	protected JLabel subTextLabel;
 	protected JLabel titleLabel;
@@ -51,7 +47,6 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		this.addMouseMotionListener(this);
 		this.setTransferHandler(new TransferHandler("text"));
 		this.setBackground(b.bgColor);
-		new DropTarget(this, this); //makes this a possible target for drop-events
 
 		//add a label for the title
 		titleLabel = new JLabel("<html>" +  b.title + "</html>",SwingConstants.CENTER);
@@ -59,7 +54,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		titleLabel.setBounds(0, 0, this.getWidth(), this.getSize().height * 4 / 12);
 		this.add(titleLabel);
 
-		//add a title for the subText
+		//add a label for the subText
 		subTextLabel = new JLabel("<html>" +  b.subText + "</html>",SwingConstants.CENTER);
 		subTextLabel.setFont(new Font(Font.SERIF, Font.PLAIN, 10));
 		subTextLabel.setBounds(0, this.getSize().height * 9/ 12, this.getWidth(), this.getSize().height * 3 / 12);
@@ -177,8 +172,15 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	@Override
 	public void mouseEntered(MouseEvent e)
 	{
+		Dimension screenDim = Toolkit.getDefaultToolkit().getScreenSize();
 		Point p = MouseInfo.getPointerInfo().getLocation();
-		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 250, 260);
+		int x = 20;
+		int y = 20;
+		if((p.getX() + x + 250) > screenDim.getWidth())
+			x = -270;
+		if((p.getY() + y + 260) > screenDim.getHeight())
+			y = -280;
+		this.popUpField.setBounds((int) p.getX() + x, (int) p.getY() + y, 250, 260);
 		this.popUpField.setVisible(true);
 	}
 
@@ -191,25 +193,15 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	@Override
 	public void mouseMoved(MouseEvent e)
 	{
+		Dimension screenDim = Toolkit.getDefaultToolkit().getScreenSize();
 		Point p = MouseInfo.getPointerInfo().getLocation();
-		this.popUpField.setBounds((int) p.getX() +20, (int) p.getY() + 20, 250, 260);
-	}
-
-	@Override
-	public void drop(DropTargetDropEvent dtde)
-	{
-		try
-		{
-			String s = (String) dtde.getTransferable().getTransferData(
-					new DataFlavor("application/x-java-jvm-local-objectref; class=java.lang.String"));
-
-			new GameActionListener().dropEvent(this.fieldNumber, s);
-		} catch (Exception e)
-		{
-			System.err.println("Something went terribly wrong with DnD events");
-			e.printStackTrace();
-		}
-
+		int x = 20;
+		int y = 20;
+		if((p.getX() + x + 250) > screenDim.getWidth())
+			x = -270;
+		if((p.getY() + y + 260) > screenDim.getHeight())
+			y = -280;
+		this.popUpField.setBounds((int) p.getX() + x, (int) p.getY() + y, 250, 260);
 	}
 
 	//---------------------------------------------------------------------------------------------
@@ -244,31 +236,4 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 
 	}
 
-	@Override
-	public void dragEnter(DropTargetDragEvent dtde)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void dragExit(DropTargetEvent dte)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void dragOver(DropTargetDragEvent dtde)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void dropActionChanged(DropTargetDragEvent dtde)
-	{
-		// TODO Auto-generated method stub
-
-	}
 }

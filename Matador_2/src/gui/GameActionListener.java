@@ -17,14 +17,16 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	public void buyButtonEvent()
 	{
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void mainButtonEvent()
 	{
+		int oldState = GameController.getInstance().getCurrentState();
 		GameController.getInstance().advanceGame();
-		this.updateGUI();
+		this.updateCars();
+		this.updateDice(oldState);
+		this.updatePlayers();
 		if(GameController.getInstance().getCurrentState() == GameController.ROLL_STATE)
 		{
 			gui.setMainButtonText("Roll Dice");
@@ -33,25 +35,20 @@ public class GameActionListener implements KeyEventDispatcher
 		{
 			gui.setMainButtonText("End Turn");
 		}
-		
 	}
-
 
 	public void sellButtonEvent()
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	public void menuOneEvent()
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	public void menuTwoEvent()
 	{
-		// TODO Auto-generated method stub
 
 	}
 
@@ -75,15 +72,6 @@ public class GameActionListener implements KeyEventDispatcher
 	}
 
 	//--------------------------------------------------------------
-	//Method to handle drop events
-	//--------------------------------------------------------------
-	public void dropEvent(int source, String data)
-	{
-		System.out.println("Source: field " + source);
-		System.out.println("data: " + data);
-	}
-
-	//--------------------------------------------------------------
 	//Method to handle window closing events
 	//--------------------------------------------------------------
 	public void windowClosingEvent()
@@ -92,9 +80,10 @@ public class GameActionListener implements KeyEventDispatcher
 	}
 
 	//--------------------------------------------------------------
-	//Method to update the gui after each "main button" event.
+	//Methods to update the GUI after each "main button" event.
 	//--------------------------------------------------------------
-	private void updateGUI()
+	
+	private void updateCars()
 	{
 		LinkedList<Player> queue = GameController.getInstance().getPlayerQueue();
 		for (int i = 0; i < queue.size(); i++)
@@ -106,8 +95,27 @@ public class GameActionListener implements KeyEventDispatcher
 		gui.removeAllCars(currentPlayer.getName());
 		gui.setCar(currentPlayer.getPosition(), currentPlayer.getName());
 		gui.setCurrentPlayerName(currentPlayer.getName());
-		
-		gui.setDice(GameController.getInstance().getDiceCup().getDiceFaceValues()[0], GameController.getInstance().getDiceCup().getDiceFaceValues()[1]);
 	}
-
+	
+	private void updateFields()
+	{
+		
+	}
+	
+	private void updatePlayers()
+	{
+		LinkedList<Player> queue = GameController.getInstance().getPlayerQueue();
+		for (int i = 0; i < queue.size(); i++)
+		{
+			gui.setPlayerMoney(queue.get(i).getName(), queue.get(i).getAccount().getBalance());
+		}
+		Player currentPlayer = GameController.getInstance().getCurentPlayer();
+		gui.setPlayerMoney(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
+	}
+	
+	private void updateDice(int state)
+	{
+		if(state == GameController.ROLL_STATE)
+			gui.setDice(GameController.getInstance().getDiceCup().getDiceFaceValues()[0], GameController.getInstance().getDiceCup().getDiceFaceValues()[1]);
+	}
 }
