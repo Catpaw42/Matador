@@ -17,7 +17,7 @@ public class PlayerTurnController
 		fieldController = new FieldController(dice);
 		gui = new GUI();
 	}
-	
+
 	/**
 	 * @param currentPlayer The active player.
 	 * @return true if the player has gone broke, false otherwise.
@@ -25,7 +25,7 @@ public class PlayerTurnController
 	public boolean playerTurn(Player currentPlayer)
 	{
 		boolean isBroke = false;
-		
+
 		//Check if player is in prison
 		if (currentPlayer.isInPrisson() == true)
 		{
@@ -34,13 +34,15 @@ public class PlayerTurnController
 		}
 		//then roll some dice
 		diceCup.rollDice();
-		
+
 		//did he roll two of a kind?
 		if (diceCup.getTwoOfAKind()) 
 		{
 			currentPlayer.setTwoOfAKindRollCount(currentPlayer.getTwoOfAKindRollCount() + 1);
+			if(currentPlayer.isInPrisson())
+				currentPlayer.setInPrisson(false);
 		}
-		
+
 		//how many times did he roll two of a kind?
 		if(currentPlayer.getTwoOfAKindRollCount() == 3)
 		{
@@ -48,7 +50,7 @@ public class PlayerTurnController
 			currentPlayer.setInPrisson(true);
 			return false;
 		}
-		
+
 		//Check again, did he get out?
 		if (currentPlayer.isInPrisson() == false)
 		{
@@ -64,13 +66,13 @@ public class PlayerTurnController
 	{
 		{
 			String[] options1 = { "Roll dices", "Pay 1000kr", "Use Chance Card"};
-			
+
 			int nrOfOptions = 1;
 			if (currentPlayer.getAccount().getBalance() >= 1000)
 				nrOfOptions++;
 			if(currentPlayer.getGetOutOfJailCards() > 0)
 				nrOfOptions++;
-			
+
 			String[] options = new String[nrOfOptions];
 			for (int i = 0; i < options.length; i++)
 			{
@@ -81,31 +83,30 @@ public class PlayerTurnController
 			String message = "You're in jail. Choose between these " + options.length + " options";
 			while((choise = gui.getUserButtonPressed(options, message, "Jail Options")) == -1);
 
-			if (choise == 0)
+			if (choise == 1)
 			{
-				if (choise == 1)
+				// Withdraws 1000 from currentPlayer
+				try
 				{
-					// Withdraws 1000 from currentPlayer
-					try
-					{
-						currentPlayer.getAccount().withdraw(1000);
-						currentPlayer.setInPrisson(false);
-					} 
-					catch (InsufficientFundsException e)
-					{
-						//should not be possible
-					} 
-					catch (IllegalAmountException e)
-					{
-						System.err.println(e.getMessage());
-						e.printStackTrace();
-						System.exit(0);
-					}
-				}
-				
-				if (choise == 2)
+					currentPlayer.getAccount().withdraw(1000);
 					currentPlayer.setInPrisson(false);
-					currentPlayer.setGetOutOfJailCards(currentPlayer.getGetOutOfJailCards() - 1);
+				} 
+				catch (InsufficientFundsException e)
+				{
+					//should not be possible
+				} 
+				catch (IllegalAmountException e)
+				{
+					System.err.println(e.getMessage());
+					e.printStackTrace();
+					System.exit(0);
+				}
+			}
+
+			if (choise == 2)
+			{
+				currentPlayer.setInPrisson(false);
+				currentPlayer.setGetOutOfJailCards(currentPlayer.getGetOutOfJailCards() - 1);
 			}
 		}
 	}
