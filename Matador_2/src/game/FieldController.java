@@ -118,7 +118,7 @@ public class FieldController
 					catch (InsufficientFundsException e)
 					{
 						// we end here if the player does'nt have enough money to pay rent
-
+						return true;
 					} 
 					catch (IllegalAmountException e)
 					{
@@ -191,7 +191,7 @@ public class FieldController
 			catch (InsufficientFundsException e)
 			{
 				// we end here if the player does'nt have enough money to pay rent
-
+				return true;
 			} 
 			catch (IllegalAmountException e)
 			{
@@ -217,6 +217,7 @@ public class FieldController
 				{
 					// we end here if the player does'nt have enough money to buy the field.
 					// maybe this should be checked before the option is given.
+					return true;
 				} 
 				catch (IllegalAmountException e)
 				{
