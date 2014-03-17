@@ -67,7 +67,6 @@ public class GameController
 				mainButtonState = GAME_OVER_STATE;
 			}
 			
-			currentPlayer.getAccount().setBalance(100);
 			if (mainButtonState == ROLL_STATE)
 			{
 				currentPlayer.setBroke(turnCtrl.playerTurn(currentPlayer));

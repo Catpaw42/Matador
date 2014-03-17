@@ -11,13 +11,14 @@ import game.fields.Street.Group;
 import game.fields.Tax;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import chance.cards.*;
 
 public class Board
 {
 	private static Field[] fields = new Field[40];
-	private static ChanceCard[] chanceCards = new ChanceCard[33];
+	private static LinkedList<ChanceCard> chanceCards = new LinkedList<ChanceCard>();
 	
 	public Board(DiceCup dice)
 	{//					 --TYPE--  	--NR--	--NAME--			--BASE RENT--	--PRICE--	--GROUP--
@@ -62,7 +63,7 @@ public class Board
 		fields[38] = new Tax		(39, 	"Extraordinær skat");
 		fields[39] = new Street		(40, 	"Rådhuspladsen", 		1000, 		8000, 		Group.PURPLE);
 	
-		chanceCards[0] = new MoneyGift 		(1,	"De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ", 1000);
+		chanceCards.add(new MoneyGift 		(1,	"De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ", 1000));
 		chanceCards[1] = new MovedToField 	(2, "De rykkes til start", 1);
 		chanceCards[2] = new GoToJail		(3, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
 				+ " indkassere de ikke kr. 4000 ");
@@ -148,34 +149,27 @@ public class Board
 	{
 		return fields;
 	}
-	
-	public ChanceCard getChanceCard(int nr)
+	/**
+	 * Removes the first element in the list and returns it.
+	 * @return The first card in the list.
+	 */
+	public ChanceCard getChanceCard()
 	{
-		return chanceCards[nr - 1];
+		return chanceCards.remove();
 	}
 	
-	public ChanceCard[] getAllChanceCards()
+	/**
+	 * Appends the given card to the end of the list
+	 * @param card The card to append.
+	 */
+	public void appendChanceCard(ChanceCard card)
+	{
+		chanceCards.add(card);
+	}
+	
+	public LinkedList<ChanceCard> getAllChanceCards()
 	{
 		return chanceCards;
 	}
-	
-	public static ChanceCard[] getChanceCardsByPlayer(Player p)
-	{
-		ArrayList<ChanceCard> temp = new ArrayList<ChanceCard>();
-		
-		for (int i = 0; i < fields.length; i++)
-		{
-			if(((ChanceCard)chanceCards[i]).getHolder() == p)
-				temp.add((ChanceCard) chanceCards[i]);
-		}
-		
-		ChanceCard[] tempArr = new ChanceCard[temp.size()];
-		for (int i = 0; i < temp.size(); i++)
-		{
-			tempArr[i] = temp.get(i);
-		}
-		return tempArr;
-	}
-	
 }
 	
