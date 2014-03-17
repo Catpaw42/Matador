@@ -64,48 +64,48 @@ public class Board
 		fields[39] = new Street		(40, 	"Rådhuspladsen", 		1000, 		8000, 		Group.PURPLE);
 	
 		chanceCards.add(new MoneyGift 		(1,	"De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ", 1000));
-		chanceCards[1] = new MovedToField 	(2, "De rykkes til start", 1);
-		chanceCards[2] = new GoToJail		(3, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
-				+ " indkassere de ikke kr. 4000 ");
-		chanceCards[3] = new GoToJail		(4, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
-				+ " indkassere de ikke kr. 4000 ");
-		chanceCards[4] = new Fine 			(5, "De har været en tur i udlandet og haft for mange cigaretter med "
-				+ "hjem. Betal told kr. 200", 200);
-		chanceCards[5] = new Fine			(6, "De har modtaget Deres tandlægeregning. Betal kr. 2000", 2000);
-		chanceCards[6] = new MoneyGift		(7, "De havde en række med elleve rigtige i tipning. Modtag kr. 1000", 1000);
-		chanceCards[7] = new MoneyGift		(8, "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000);
-		chanceCards[8] = new MoneyGift		(9, "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000);
-		chanceCards[9] = new MoneyGift		(10, "Det er Deres fødselsdag. Modtag af hver medspiller kr. 200", 0);
-		chanceCards[10] = new MoneyGift		(11, "Værdien af egen avl fra nyttehaven udgør kr. 200, som De modtager af banken. ", 200);
-		chanceCards[11] = new Fine			(12, "Betal Deres bilforsikring kr. 1000" , 1000);
-		chanceCards[12] = new Fine			(13, "Ejendomsskatterne er steget, ekstraudgifterne er: kr 800 pr. hus, kr 2300 pr. hotel.", 0);
-		chanceCards[13] = new MovedToField	(14, "Ryk frem til Grønningen. Hvis De passerer Start inkassér da kr. 4000 ", 25 );
-		chanceCards[14] = new MovedToField 	(15, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
-				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
-		chanceCards[15] = new MovedToField 	(16, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
-				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
-		chanceCards[16] = new MovedToField	(17, "Tag med Mols-Linjen --- flyt brikken frem, og hvis De passerer Start"
-				+ " inkassér da kr. 4000 ", 16);
-		chanceCards[17] = new JailSafed 	(18, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
-				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
-		chanceCards[18] = new JailSafed 	(19, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
-				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
-		chanceCards[19] = new MoneyGift 	(20, "Grundet dyrtiden har De fået gageforhøjelse. Modtag kr. 1000 ", 1000);
-		chanceCards[20] = new MovedToField	(21, "Ryk frem til Frederiksberg Allé. Hvis De passerer Start inkassér kr. 4000 ", 12);
-		chanceCards[21] = new MoneyGift		(22, "De har vundet i Klasselotteriet. Modtag kr. 500 ", 500);
-		chanceCards[22] = new MovedToField	(23, "Tag ind på Rådhuspladsen.", 40 );
-		chanceCards[23] = new MovedToField	(24, "Ryk tre felter tilbage.", -3);
-		chanceCards[24] = new Fine			(25, "Oliepriserne er steget, og De skal betale: kr. 500 pr. hus,  kr. 2000 pr. hotel.", 0);
-		chanceCards[25] = new Fine			(26, "Betal kr. 3000 for reparation af Deres vogn. ", 3000);
-		chanceCards[26] = new Fine			(27, "Betal kr. 3000 for reparation af Deres vogn. ", 3000);
-		chanceCards[27] = new MoneyGift		(28, "De modtager Matador-legatet for værdigt trængende, "
+		chanceCards.add(new MovedToField 	(2, "De rykkes til start", 1));
+		chanceCards.add( new GoToJail		(3, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
+				+ " indkassere de ikke kr. 4000 "));
+		chanceCards.add(new GoToJail		(4, "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
+				+ " indkassere de ikke kr. 4000 "));
+		chanceCards.add( new Fine 			(5, "De har været en tur i udlandet og haft for mange cigaretter med "
+				+ "hjem. Betal told kr. 200", 200));
+		chanceCards.add( new Fine			(6, "De har modtaget Deres tandlægeregning. Betal kr. 2000", 2000));
+		chanceCards.add( new MoneyGift		(7, "De havde en række med elleve rigtige i tipning. Modtag kr. 1000", 1000));
+		chanceCards.add( new MoneyGift		(8, "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000));
+		chanceCards.add( new MoneyGift		(9, "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000));
+		chanceCards.add( new MoneyGift		(10, "Det er Deres fødselsdag. Modtag af hver medspiller kr. 200", 0));
+		chanceCards.add( new MoneyGift		(11, "Værdien af egen avl fra nyttehaven udgør kr. 200, som De modtager af banken. ", 200));
+		chanceCards.add( new Fine			(12, "Betal Deres bilforsikring kr. 1000" , 1000));
+		chanceCards.add( new Fine			(13, "Ejendomsskatterne er steget, ekstraudgifterne er: kr 800 pr. hus, kr 2300 pr. hotel.", 0));
+		chanceCards.add( new MovedToField	(14, "Ryk frem til Grønningen. Hvis De passerer Start inkassér da kr. 4000 ", 25 ));
+		chanceCards.add( new MovedToField 	(15, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
+				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0));
+		chanceCards.add( new MovedToField 	(16, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
+				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0));
+		chanceCards.add( new MovedToField	(17, "Tag med Mols-Linjen --- flyt brikken frem, og hvis De passerer Start"
+				+ " inkassér da kr. 4000 ", 16));
+		chanceCards.add( new JailSafed 	(18, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
+				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det."));
+		chanceCards.add( new JailSafed 	(19, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
+				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det"));
+		chanceCards.add( new MoneyGift 	(20, "Grundet dyrtiden har De fået gageforhøjelse. Modtag kr. 1000 ", 1000));
+		chanceCards.add( new MovedToField	(21, "Ryk frem til Frederiksberg Allé. Hvis De passerer Start inkassér kr. 4000 ", 12));
+		chanceCards.add( new MoneyGift		(22, "De har vundet i Klasselotteriet. Modtag kr. 500 ", 500));
+		chanceCards.add( new MovedToField	(23, "Tag ind på Rådhuspladsen.", 40 ));
+		chanceCards.add( new MovedToField	(24, "Ryk tre felter tilbage.", -3));
+		chanceCards.add( new Fine			(25, "Oliepriserne er steget, og De skal betale: kr. 500 pr. hus,  kr. 2000 pr. hotel.", 0));
+		chanceCards.add( new Fine			(26, "Betal kr. 3000 for reparation af Deres vogn. ", 3000));
+		chanceCards.add( new Fine			(27, "Betal kr. 3000 for reparation af Deres vogn. ", 3000));
+		chanceCards.add( new MoneyGift		(28, "De modtager Matador-legatet for værdigt trængende, "
 				+ "stort kr. 40000 Ved værdigt trængende forstås, at Deres formue, "
-				+ "d.v.s. Deres kontante penge + skøder + bygninger ikke overstiger kr. 15000 ", 0);
-		chanceCards[28] = new Fine			(29, "Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000 ", 3000);
-		chanceCards[29] = new MoneyGift		(30, "Modtag udbytte af Deres aktier kr. 1000", 1000);
-		chanceCards[30] = new MoneyGift		(31, "Modtag udbytte af Deres aktier kr. 1000", 1000);
-		chanceCards[31] = new Fine			(32, "De har kørt frem for Fuld Stop. Betal kr. 1000 i bøde. ", 1000);
-		chanceCards[32] = new Fine			(33, "De har måttet vedtage en parkeringsbøde. Betal kr. 200 i bøde.", 200);
+				+ "d.v.s. Deres kontante penge + skøder + bygninger ikke overstiger kr. 15000 ", 0));
+		chanceCards.add( new Fine			(29, "Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000 ", 3000));
+		chanceCards.add( new MoneyGift		(30, "Modtag udbytte af Deres aktier kr. 1000", 1000));
+		chanceCards.add( new MoneyGift		(31, "Modtag udbytte af Deres aktier kr. 1000", 1000));
+		chanceCards.add( new Fine			(32, "De har kørt frem for Fuld Stop. Betal kr. 1000 i bøde. ", 1000));
+		chanceCards.add( new Fine			(33, "De har måttet vedtage en parkeringsbøde. Betal kr. 200 i bøde.", 200));
 	}
 	
 	/**

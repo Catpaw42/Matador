@@ -7,6 +7,7 @@ import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
 import game.fields.Chance;
 import game.fields.Ownable;
+import game.fields.Street;
 import game.fields.Tax;
 import gui.GUI;
 import game.GameOptions;
@@ -85,12 +86,80 @@ public class FieldController
 
 	private boolean fineHandler(Player p, int nr)
 	{
+		Fine F = (Fine) board.getChanceCard();	
+		if(chanceCard.getCardNumber() == 13 || chanceCard.getCardNumber() == 25)
+		{
+			if(chanceCard.getCardNumber() == 13)
+			{
+				//Card number == 13
+
+				try {
+					p.getAccount().withdraw(calculateTotalFine(p,800,2300));
+				} catch (InsufficientFundsException e) {
+					e.printStackTrace();
+					return true;
+				} catch (IllegalAmountException e) {
+					e.printStackTrace();
+				}	
+			}
+			else
+			{
+				// Card number == 27
+				try {
+					p.getAccount().withdraw(calculateTotalFine(p,500,2000));
+				} catch (InsufficientFundsException e) {
+					e.printStackTrace();
+					return true;
+				} catch (IllegalAmountException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		// All other Fine Chancecards
+		else {
+			try {
+				p.getAccount().withdraw(F.getFine());
+			} 
+			catch (InsufficientFundsException e) 
+			{
+				e.printStackTrace();
+				return true;
+			} 
+
+			catch (IllegalAmountException e)
+			{
+				e.printStackTrace();
+			}	
+
+		}
 		return false;
 	}
 
+	private int calculateTotalFine(Player p, int houseFine, int hotelFine) {
+		Ownable[] fields = Board.getFieldsByPlayer(p);
+		int totalFine = 0;
+		for (int i = 0; i < fields.length; i++)
+		{
+			if(fields[i] instanceof Street){
+				if(((Street) fields[i]).getHouses() > 4)
+					totalFine = totalFine + hotelFine;
+				else
+				{
+					totalFine = totalFine + (((Street) fields[i]).getHouses() * houseFine);	
+				}
+			}
+
+
+		}
+		return totalFine;
+	}
+
+
+
+
 	private boolean chanceMoveToFieldHandler(Player p, int nr)
 	{
-		MovedToField Mtf = (MovedToField) board.getChanceCard(chanceCard.getCardNumber());	
+		MovedToField Mtf = (MovedToField) board.getChanceCard();	
 		if(chanceCard.getCardNumber() == 24)
 		{
 			p.setPlayerPosition(p.getPosition() - 3);
@@ -145,7 +214,7 @@ public class FieldController
 	}
 	private void chanceMoneyGiftHandler(Player p)
 	{
-		MoneyGift M = (MoneyGift) board.getChanceCard(chanceCard.getCardNumber());	
+		MoneyGift M = (MoneyGift) board.getChanceCard();	
 		if(chanceCard.getCardNumber() == 10 || chanceCard.getCardNumber() == 27)
 		{
 			if(chanceCard.getCardNumber() == 10)
@@ -156,7 +225,6 @@ public class FieldController
 					p.getAccount().deposit(200*gameO.getPlayers().length); // Depositing 200 times the amount of players in game
 				} catch (IllegalAmountException e)
 				{
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -176,7 +244,6 @@ public class FieldController
 					}
 					catch (IllegalAmountException e) 
 					{
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
