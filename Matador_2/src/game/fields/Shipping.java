@@ -6,7 +6,7 @@ public class Shipping extends Ownable
 {	
 	public Shipping(int nr, String name, int rent, int price)
 	{
-		super(nr, name, rent, nr);;
+		super(nr, name, rent, price);
 	}
 
 	@Override
