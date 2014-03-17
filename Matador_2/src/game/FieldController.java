@@ -16,8 +16,6 @@ public class FieldController
 {
 	private GUI gui = new GUI();
 	private Board board;
-	private ChanceCard chanceCard;
-	private LinkedList<ChanceCard> chanceQue;
 	private GameOptions gameO;
 
 	public FieldController(DiceCup dice)
@@ -45,13 +43,14 @@ public class FieldController
 
 	private boolean chanceHandler(Player p, int nr)
 	{
-		chanceCard = chanceQue.remove();
+		ChanceCard chanceCard = board.getChanceCard();
 
 		// Controller for chance cards that sends player to jail.
 		if(chanceCard instanceof GoToJail)
 		{
 			p.setPlayerPosition(11);
-			p.setInPrisson(true);	
+			p.setInPrisson(true);
+			board.appendChanceCard(chanceCard);
 		}
 
 		// Controller for chance cards that saves player from jail.
@@ -59,34 +58,33 @@ public class FieldController
 		{
 			// Remember to not put card back into queue.
 			p.setGetOutOfJailCards(p.getGetOutOfJailCards() + 1);
-
 		}
 
 		// Controller for chance cards that gives money to the player.
 		if(chanceCard instanceof MoneyGift)
 		{
-			chanceMoneyGiftHandler(p);
-
+			chanceMoneyGiftHandler(p, (MoneyGift) chanceCard);
+			board.appendChanceCard(chanceCard);
 		}
 
-		// Controller for chance cards that moves player an fixed amount or to an specific field [done]
+		// Controller for chance cards that moves player an fixed amount or to a specific field.
 		if(chanceCard instanceof MovedToField)
 		{
-			return chanceMoveToFieldHandler(p, nr);
+			board.appendChanceCard(chanceCard);
+			return chanceMoveToFieldHandler(p, (MovedToField) chanceCard);
 		}
 
 		//Handler for chance cards that costs money.
 		if(chanceCard instanceof Fine)
 		{
-			return fineHandler(p, nr);
+			board.appendChanceCard(chanceCard);
+			return fineHandler(p, ((Fine) chanceCard));
 		}
-
 		return false;
 	}
 
-	private boolean fineHandler(Player p, int nr)
+	private boolean fineHandler(Player p, Fine chanceCard)
 	{
-		Fine F = (Fine) board.getChanceCard();	
 		if(chanceCard.getCardNumber() == 13 || chanceCard.getCardNumber() == 25)
 		{
 			if(chanceCard.getCardNumber() == 13)
@@ -118,7 +116,7 @@ public class FieldController
 		// All other Fine Chancecards
 		else {
 			try {
-				p.getAccount().withdraw(F.getFine());
+				p.getAccount().withdraw(chanceCard.getFine());
 			} 
 			catch (InsufficientFundsException e) 
 			{
@@ -157,9 +155,8 @@ public class FieldController
 
 
 
-	private boolean chanceMoveToFieldHandler(Player p, int nr)
+	private boolean chanceMoveToFieldHandler(Player p, MovedToField chanceCard)
 	{
-		MovedToField Mtf = (MovedToField) board.getChanceCard();	
 		if(chanceCard.getCardNumber() == 24)
 		{
 			p.setPlayerPosition(p.getPosition() - 3);
@@ -171,7 +168,7 @@ public class FieldController
 			{
 				// move player to nearest Shipping and withdraw double rent if owned.¨
 				// Shipping numbers are: 5, 15, 25, 35
-				Ownable o = (Ownable) board.getField(nr);
+				Ownable o = (Ownable) board.getField(p.getPosition());
 
 				int n =-1;
 				if(p.getPosition() > 35 && p.getPosition() < 5) 	{ n = 0;}
@@ -201,20 +198,17 @@ public class FieldController
 						e.printStackTrace();
 						System.exit(0);
 					}
-
-
 				}
 				else
 				{
-					p.setPlayerPosition(Mtf.getMoveAmount());
+					p.setPlayerPosition(chanceCard.getMoveAmount());
 				}
 			}
 		}
 		return false;
 	}
-	private void chanceMoneyGiftHandler(Player p)
+	private void chanceMoneyGiftHandler(Player p, MoneyGift chanceCard)
 	{
-		MoneyGift M = (MoneyGift) board.getChanceCard();	
 		if(chanceCard.getCardNumber() == 10 || chanceCard.getCardNumber() == 27)
 		{
 			if(chanceCard.getCardNumber() == 10)
@@ -231,7 +225,6 @@ public class FieldController
 			else
 			{
 				// Card number == 27
-
 				if(p.getAccount().getBalance() > 15000)
 				{
 					// do nothing
@@ -251,7 +244,7 @@ public class FieldController
 			// All other MoneyGift Chancecards
 			try
 			{
-				p.getAccount().deposit(M.getReward());
+				p.getAccount().deposit(chanceCard.getReward());
 			} 
 			catch (IllegalAmountException e)
 			{
