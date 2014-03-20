@@ -45,8 +45,20 @@ public class DBTest {
 			conn.close();
 
 		}
-
+		catch (FileNotFoundException ex) {
+            System.err.println("File Not Found Exception\n" + ex.getMessage());
+        }
+		catch (IOException ex) {
+            System.err.println("Input Output Exception\n" + ex.getMessage());
+        }
+        catch (ClassNotFoundException ex) {
+            System.err.println("Class Not Found Exception\n" + ex.getMessage());
+        }
+        catch (SQLException ex) {
+            System.err.println("SQL Exception\n" + ex.getMessage());
+        }
 	}
+	
 }
 
 
