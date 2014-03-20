@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 //Building a connection to database
-public class Connecter {
+public class DBConnectionBuilder {
 
 	//Klassevariabler
 	private static String driver;
@@ -19,7 +19,7 @@ public class Connecter {
 	private static String username;
 	private static String password;
 
-	public static Connection.getConnection()
+	public static Connection getConnection()
 			throws FileNotFoundException, IOException, ClassNotFoundException, SQLException
 			{
 				setConnectionProperties("DBConnection.properties");
@@ -32,7 +32,7 @@ public class Connecter {
 				
 			}
 
-	private static void setConnectonProperties(String propertyFileName)
+	private static void setConnectionProperties(String propertyFileName)
 			throws FileNotFoundException, IOException
 			{
 		//Indlæs properties fil
@@ -49,4 +49,7 @@ public class Connecter {
 		password = prop.getProperty("password");
 
 			}
-}
+
+	
+	}
+
