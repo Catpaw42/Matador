@@ -36,7 +36,7 @@ public class PlayerTurnController
 		diceCup.rollDice();
 
 		//did he roll two of a kind?
-		if (diceCup.getTwoOfAKind()) 
+		if (diceCup.isTwoOfAKind()) 
 		{
 			currentPlayer.setTwoOfAKindRollCount(currentPlayer.getTwoOfAKindRollCount() + 1);
 			if(currentPlayer.isInPrisson())

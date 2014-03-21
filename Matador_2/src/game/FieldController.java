@@ -1,8 +1,5 @@
 package game;
 
-import java.util.LinkedList;
-
-import chance.cards.*;
 import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
 import game.fields.Chance;
@@ -10,7 +7,12 @@ import game.fields.Ownable;
 import game.fields.Street;
 import game.fields.Tax;
 import gui.GUI;
-import game.GameOptions;
+import chance.cards.ChanceCard;
+import chance.cards.Fine;
+import chance.cards.GoToJail;
+import chance.cards.JailSafed;
+import chance.cards.MoneyGift;
+import chance.cards.MovedToField;
 
 public class FieldController
 {

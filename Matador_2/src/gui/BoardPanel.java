@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Random;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -40,7 +39,6 @@ public class BoardPanel extends JPanel
 
 		//create a label to show text
 		displayTextLabel = new JLabel();
-		displayTextLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.add(displayTextLabel);
 		displayTextLabel.setBounds(fieldDimension.width, fieldDimension.height, 9 * fieldDimension.width, 2 * fieldDimension.height);
 		displayTextLabel.setHorizontalAlignment(SwingConstants.CENTER);

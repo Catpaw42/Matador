@@ -12,7 +12,7 @@ public class Test2
 		{
 			dice.rollDice();
 			System.out.println(dice.getDiceFaceValues()[0] + " ," + dice.getDiceFaceValues()[1]);
-			System.out.println(dice.getTwoOfAKind());
+			System.out.println(dice.isTwoOfAKind());
 		}
 	}
 }

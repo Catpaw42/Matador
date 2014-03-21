@@ -47,7 +47,7 @@ public class DiceCup
 	 * Checks if the current roll is a two of a kind roll.
 	 * @return An integer equal to the facevalue [1-6] of the dice IF they are the same, or 0 if they are not the same.
 	 */
-	public boolean getTwoOfAKind()
+	public boolean isTwoOfAKind()
 	{
 		int twoOfaKind = 0;
 		if (die1.getFaceValue() == die2.getFaceValue())

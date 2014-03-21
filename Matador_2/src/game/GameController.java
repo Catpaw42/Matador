@@ -71,7 +71,7 @@ public class GameController
 			{
 				currentPlayer.setBroke(turnCtrl.playerTurn(currentPlayer));
 
-				if(!dice.getTwoOfAKind() || currentPlayer.isBroke() || currentPlayer.isInPrisson())
+				if(!dice.isTwoOfAKind() || currentPlayer.isBroke() || currentPlayer.isInPrisson())
 					mainButtonState = END_TURN_STATE;
 			}
 			//This runs when the player end his turn
