@@ -1,4 +1,4 @@
-package db.connecter;
+package db_connecter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

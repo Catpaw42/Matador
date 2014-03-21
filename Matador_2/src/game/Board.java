@@ -1,5 +1,6 @@
 package game;
 
+import game.chance_cards.*;
 import game.fields.Brewery;
 import game.fields.Chance;
 import game.fields.Field;
@@ -12,8 +13,6 @@ import game.fields.Tax;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
-import chance.cards.*;
 
 public class Board
 {

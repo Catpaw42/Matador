@@ -1,4 +1,4 @@
-package db.connecter;
+package db_connecter;
 
 import java.sql.Connection;
 import java.io.FileInputStream;

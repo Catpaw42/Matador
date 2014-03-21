@@ -1,4 +1,4 @@
-package chance.cards;
+package game.chance_cards;
 
 public class GoToJail extends ChanceCard{
 

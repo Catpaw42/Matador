@@ -2,17 +2,17 @@ package game;
 
 import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
+import game.chance_cards.ChanceCard;
+import game.chance_cards.Fine;
+import game.chance_cards.GoToJail;
+import game.chance_cards.JailSafed;
+import game.chance_cards.MoneyGift;
+import game.chance_cards.MovedToField;
 import game.fields.Chance;
 import game.fields.Ownable;
 import game.fields.Street;
 import game.fields.Tax;
 import gui.GUI;
-import chance.cards.ChanceCard;
-import chance.cards.Fine;
-import chance.cards.GoToJail;
-import chance.cards.JailSafed;
-import chance.cards.MoneyGift;
-import chance.cards.MovedToField;
 
 public class FieldController
 {
