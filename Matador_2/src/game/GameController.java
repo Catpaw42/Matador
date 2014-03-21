@@ -69,7 +69,8 @@ public class GameController
 			
 			if (mainButtonState == ROLL_STATE)
 			{
-				currentPlayer.setBroke(turnCtrl.playerTurn(currentPlayer));
+				boolean playerBroke = turnCtrl.playerTurn(currentPlayer);
+				currentPlayer.setBroke(playerBroke);
 
 				if(!dice.isTwoOfAKind() || currentPlayer.isBroke() || currentPlayer.isInPrisson())
 					mainButtonState = END_TURN_STATE;
