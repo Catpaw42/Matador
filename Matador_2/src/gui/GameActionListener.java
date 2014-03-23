@@ -2,6 +2,8 @@ package gui;
 
 import game.GameController;
 import game.Player;
+import game.fields.Field;
+import game.fields.Ownable;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
@@ -27,6 +29,7 @@ public class GameActionListener implements KeyEventDispatcher
 		this.updateCars();
 		this.updateDice(oldState);
 		this.updatePlayers();
+		this.updateFields();
 		if(GameController.getInstance().getCurrentState() == GameController.ROLL_STATE)
 		{
 			gui.setMainButtonText("Roll Dice");
@@ -99,7 +102,12 @@ public class GameActionListener implements KeyEventDispatcher
 	
 	private void updateFields()
 	{
-		
+		Field[] fields = GameController.getInstance().getFields();
+		for (int i = 0; i < fields.length; i++)
+		{
+			if(fields[i] instanceof Ownable)
+			gui.setFieldOwner(i, ((Ownable) fields[i]).getOwner().getName());
+		}
 	}
 	
 	private void updatePlayers()

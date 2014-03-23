@@ -1,6 +1,6 @@
 package startmenugui;
 
-import game.GameOptions;
+import game.GameData;
 import game.Player;
 
 import java.awt.Dimension;
@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class StartMenuDialog extends JDialog implements ActionListener
 {
-	private game.GameOptions options = new GameOptions();
+	private game.GameData options = new GameData();
 	private JButton[] buttons;
 	private JPanel panel;
 	
@@ -57,7 +57,7 @@ public class StartMenuDialog extends JDialog implements ActionListener
 		});
 	}
 	
-	public game.GameOptions startDialog()
+	public game.GameData startDialog()
 	{		  
 		this.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width / 2) - (this.getWidth() / 2), (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - (this.getHeight() / 2));
 		this.setVisible(true);

@@ -73,7 +73,7 @@ public class Street extends Ownable
 
 	public int getHouses()
 	{
-		return houses;
+		return this.houses;
 	}
 
 	public void setHouses(int houses)

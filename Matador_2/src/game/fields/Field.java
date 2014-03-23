@@ -4,36 +4,33 @@ public abstract class Field
 {
 	private int fieldNumber;
 	private String name;
-	protected boolean Ownable = false;
 
 	public Field(int nr, String name)
 	{
 		this.fieldNumber = nr;
-		this.setName(name);
+		this.name = name;
 	}
 
 	public abstract String getMessage();
 	
-	public int getFieldNumber() {
-		return fieldNumber;
+	public int getFieldNumber()
+	{
+		return this.fieldNumber;
 	}
 
-	public void setFieldNumber(int fieldNumber) {
+	public void setFieldNumber(int fieldNumber)
+	{
 		this.fieldNumber = fieldNumber;
 	}
 
 
-	public String getName() {
-		return name;
+	public String getName()
+	{
+		return this.name;
 	}
 
-	//Metode til at se om et felt er ledigt, js
-	protected Field(String name, boolean isOwnable){
-		this.name = name;
-		Ownable = isOwnable;
-	}
-
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 }

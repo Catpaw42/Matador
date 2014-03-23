@@ -9,6 +9,7 @@ import game.chance_cards.JailSafed;
 import game.chance_cards.MoneyGift;
 import game.chance_cards.MovedToField;
 import game.fields.Chance;
+import game.fields.Field;
 import game.fields.Ownable;
 import game.fields.Street;
 import game.fields.Tax;
@@ -18,11 +19,10 @@ public class FieldController
 {
 	private GUI gui = new GUI();
 	private Board board;
-	private GameOptions gameO;
 
-	public FieldController(DiceCup dice)
+	public FieldController(Field[] fields, ChanceCard[] cards)
 	{
-		board = new Board(dice);
+		this.board = new Board(fields, cards);
 	}
 
 	public boolean LandOnField(Player p, int fieldNr)
@@ -218,7 +218,7 @@ public class FieldController
 				//Card number == 10
 				try
 				{
-					p.getAccount().deposit(200*gameO.getPlayers().length); // Depositing 200 times the amount of players in game
+					p.getAccount().deposit(200*GameController.getInstance().getAllPlayers().length); // Depositing 200 times the amount of players in game
 				} catch (IllegalAmountException e)
 				{
 					e.printStackTrace();

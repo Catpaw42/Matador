@@ -10,7 +10,7 @@ public class Player
 	private Color carColor;
 	private int carType;
 	private int position = 1;
-	private Account accountOb = new Account();
+	private Account account = new Account();
 	private boolean isBroke = false;
 	private boolean inPrisson = false;
 	private int twoOfAKindRollCount = 0;
@@ -46,12 +46,12 @@ public class Player
 
 	public Account getAccount()
 	{
-		return accountOb;
+		return account;
 	}
 
 	public void setAccount(Account account)
 	{
-		this.accountOb = account;
+		this.account = account;
 	}
 
 	public Color getCarColour()

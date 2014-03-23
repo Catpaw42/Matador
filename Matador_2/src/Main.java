@@ -1,5 +1,5 @@
 import game.GameController;
-import game.GameOptions;
+import game.GameData;
 import gui.GUI;
 
 import javax.swing.SwingUtilities;
@@ -18,7 +18,7 @@ public class Main
 				//Do everything in here, this means everything is on the EDT-thread
 				//if large tasks are required they should be dispatched in another thread
 				//to not block the EDT (Blocked EDT = frozen GUI).
-				GameOptions options = new StartMenuDialog().startDialog();
+				GameData options = new StartMenuDialog().startDialog();
 				GameController.createInstance(options);
 				new GUI().create();
 			}

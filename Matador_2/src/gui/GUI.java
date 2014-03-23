@@ -1,7 +1,7 @@
 package gui;
 
 import game.GameController;
-import game.GameOptions;
+import game.Player;
 
 import java.awt.Color;
 
@@ -41,21 +41,21 @@ public class GUI
 	 */
 	private void initialSetup()
 	{
-		GameOptions options = GameController.getInstance().getOptions();
+		Player[] players = GameController.getInstance().getAllPlayers();
 		//loop all players
-		for (int i = 0; i < options.getPlayers().length; i++)
+		for (int i = 0; i < players.length; i++)
 		{
 			//add players
-			addPlayer(options.getPlayers()[i].getName(),
-					options.getPlayers()[i].getCarType(),
-					options.getPlayers()[i].getCarColour());
+			addPlayer(players[i].getName(),
+					players[i].getCarType(),
+					players[i].getCarColour());
 			//add cars
-			setCar(1, options.getPlayers()[i].getName());
+			setCar(1, players[i].getName());
 			
 			//add money
-			this.setPlayerMoney(options.getPlayers()[i].getName(), options.getPlayers()[i].getAccount().getBalance());
+			this.setPlayerMoney(players[i].getName(), players[i].getAccount().getBalance());
 		}
-		setCurrentPlayerName(options.getPlayers()[0].getName());
+		setCurrentPlayerName(players[0].getName());
 	}
 
 
@@ -72,15 +72,14 @@ public class GUI
 	
 	public void setPlayerMoney(String playerName, int amount)
 	{
-		GameOptions options = GameController.getInstance().getOptions();
-		for (int i = 0; i < options.getPlayers().length; i++)
+		Player[] players = GameController.getInstance().getAllPlayers();
+		for (int i = 0; i < players.length; i++)
 		{
-			if(options.getPlayers()[i].getName().equals(playerName))
+			if(players[i].getName().equals(playerName))
 				GameGUI.getInstance().setPlayerMoney(i, amount);
-		}
-		
+		}	
 	}
-
+	
 	/**
 	 * Displays a line of text at the top of the control area.
 	 * @param name The name to display
@@ -338,11 +337,11 @@ public class GUI
 	 */
 	public void setCar(int fieldNumber, String playerName)
 	{
-		GameOptions options = GameController.getInstance().getOptions();
-		for (int i = 0; i < options.getPlayers().length; i++)
+		Player[] players = GameController.getInstance().getAllPlayers();
+		for (int i = 0; i < players.length; i++)
 		{
-			if(options.getPlayers()[i].getName().equals(playerName))
-				GameGUI.getInstance().setCar(fieldNumber, options.getPlayers()[i].getCarType(), i + 1, options.getPlayers()[i].getCarColour());
+			if(players[i].getName().equals(playerName))
+				GameGUI.getInstance().setCar(fieldNumber, players[i].getCarType(), i + 1, players[i].getCarColour());
 		}
 	}
 
@@ -358,10 +357,10 @@ public class GUI
 
 	public void removeAllCars(String name)
 	{
-		GameOptions options = GameController.getInstance().getOptions();
-		for (int i = 0; i < options.getPlayers().length; i++)
+		Player[] players = GameController.getInstance().getAllPlayers();
+		for (int i = 0; i < players.length; i++)
 		{
-			if(options.getPlayers()[i].getName().equals(name))
+			if(players[i].getName().equals(name))
 			{
 				for (int j = 1; j <= 40; j++)
 				{
@@ -369,6 +368,5 @@ public class GUI
 				}
 			}
 		}
-
 	}
 }

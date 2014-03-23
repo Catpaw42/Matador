@@ -1,10 +1,12 @@
 package game;
 
+import game.chance_cards.ChanceCard;
+import game.fields.Field;
+
 import java.util.LinkedList;
 
 public class GameController
 {
-
 	//-----------------------------------------------------
 	//Singleton design pattern
 	//-----------------------------------------------------
@@ -26,7 +28,7 @@ public class GameController
 	 * @param options A GameOptions object containing startup data for the game.
 	 * @return The Gamecontroller Instance.
 	 */
-	public static GameController createInstance(GameOptions options)
+	public static GameController createInstance(GameData options)
 	{
 		if(instance == null)
 			instance = new GameController(options);
@@ -36,24 +38,29 @@ public class GameController
 	}
 	//-----------------------------------------------------
 
-	private DiceCup dice = new DiceCup();
 	public static final int ROLL_STATE = 0;
 	public static final int END_TURN_STATE = 1;
 	public static final int GAME_OVER_STATE = 2;
 	private int mainButtonState = 0;
+	
+	private DiceCup dice;
+	private Field[] fields;
+	private ChanceCard[] cards;
 	private Player currentPlayer;
-	private PlayerTurnController turnCtrl = new PlayerTurnController(dice);
+	private PlayerTurnController turnCtrl;
 	private LinkedList<Player> playerQueue;
-	private GameOptions options;
 
-	private GameController(GameOptions options)
+	private GameController(GameData data)
 	{
-		this.options = options;
-
+		this.dice = data.getDice();
+		this.turnCtrl = new PlayerTurnController(data.getDice(), data.getFields(), data.getCards());
+		this.fields = data.getFields();
+		this.cards = data.getCards();
+		
 		playerQueue = new LinkedList<Player>();
-		for (int i = 0; i < options.getPlayers().length; i++)
+		for (int i = 0; i < data.getPlayers().length; i++)
 		{
-			playerQueue.add(options.getPlayers()[i]);
+			playerQueue.add(data.getPlayers()[i]);
 		}
 		currentPlayer = playerQueue.remove();
 	}
@@ -62,7 +69,7 @@ public class GameController
 
 		if(mainButtonState != GAME_OVER_STATE) 
 		{
-			if(options.amountNotBroke() == 1) // virker ikke.. Tror ikke vores spillere bliver sat ordenligt broke.
+			if(amountNotBroke() == 1) // virker ikke.. Tror ikke vores spillere bliver sat ordenligt broke.
 			{
 				mainButtonState = GAME_OVER_STATE;
 			}
@@ -91,10 +98,19 @@ public class GameController
 		}
 		// slut spillet her	
 	}
-	public GameOptions getOptions()
+	
+	private int amountNotBroke()
 	{
-		return this.options;
+		int sum = 0;
+		Player[] players = getAllPlayers();
+		for (int i = 0; i <players.length; i++)
+		{
+			if(!players[i].isBroke())
+				sum++;
+		}
+		return sum;
 	}
+	
 	public LinkedList<Player> getPlayerQueue()
 	{
 		return this.playerQueue;
@@ -104,13 +120,37 @@ public class GameController
 	{
 		return currentPlayer;
 	}
+	
+	public Player[] getAllPlayers()
+	{
+		Player[] players = new Player[this.playerQueue.size() + 1];
+		
+		players[0] = currentPlayer;
+	
+		for (int i = 1; i < this.playerQueue.size(); i++)
+		{
+			players[i] = playerQueue.get(i);
+		}
+		return players;
+	}
+	
 	public int getCurrentState()
 	{
 		return mainButtonState;
 	}
+	
 	public DiceCup getDiceCup()
 	{
-		return dice;
+		return this.dice;
 	}
-
+	
+	public Field[] getFields()
+	{
+		return fields;
+	}
+	
+	public ChanceCard[] getChanceCards()
+	{
+		return this.cards;
+	}
 }

@@ -2,8 +2,6 @@ package game.fields;
 
 public class Refuge extends Field
 {
-	private int fængselstakst = 1000;
-	
 	public Refuge(int nr, String name)
 	{
 		super(nr, name);
@@ -13,9 +11,5 @@ public class Refuge extends Field
 	public String getMessage()
 	{
 		return "have landed on field " + this.getFieldNumber() + "  " + this.getName();
-	}
-	
-	public int getFængselstakst() {
-		return fængselstakst;
 	}
 }

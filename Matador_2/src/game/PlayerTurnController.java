@@ -2,19 +2,21 @@ package game;
 
 import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
+import game.chance_cards.ChanceCard;
+import game.fields.Field;
 import gui.GUI;
 
 public class PlayerTurnController
 {
 	private DiceCup diceCup;
-	private FieldController fieldController;
+	protected FieldController fieldController;
 	private GUI gui;
 	private final int START_BONUS = 4000;
 
-	public PlayerTurnController(DiceCup dice)
+	public PlayerTurnController(DiceCup dice, Field[] fields, ChanceCard[] cards)
 	{
 		diceCup = dice;
-		fieldController = new FieldController(dice);
+		fieldController = new FieldController(fields, cards);
 		gui = new GUI();
 	}
 
