@@ -47,13 +47,15 @@ public class GameController
 	private Field[] fields;
 	private ChanceCard[] cards;
 	private Player currentPlayer;
-	private PlayerTurnController turnCtrl;
+	private MoveController turnCtrl;
+	private FieldController fieldController;
 	private LinkedList<Player> playerQueue;
 
 	private GameController(GameData data)
 	{
 		this.dice = data.getDice();
-		this.turnCtrl = new PlayerTurnController(data.getDice(), data.getFields(), data.getCards());
+		this.turnCtrl = new MoveController(data.getDice(), data.getFields(), data.getCards());
+		this.fieldController = new FieldController(data.getFields(), data.getCards());
 		this.fields = data.getFields();
 		this.cards = data.getCards();
 		
@@ -77,6 +79,10 @@ public class GameController
 			if (mainButtonState == ROLL_STATE)
 			{
 				boolean playerBroke = turnCtrl.playerTurn(currentPlayer);
+				
+				if(!playerBroke)
+					playerBroke = fieldController.LandOnField(currentPlayer, currentPlayer.getPosition());
+				
 				currentPlayer.setBroke(playerBroke);
 
 				if(!dice.isTwoOfAKind() || currentPlayer.isBroke() || currentPlayer.isInPrisson())

@@ -6,17 +6,15 @@ import game.chance_cards.ChanceCard;
 import game.fields.Field;
 import gui.GUI;
 
-public class PlayerTurnController
+public class MoveController
 {
 	private DiceCup diceCup;
-	protected FieldController fieldController;
 	private GUI gui;
 	private final int START_BONUS = 4000;
 
-	public PlayerTurnController(DiceCup dice, Field[] fields, ChanceCard[] cards)
+	public MoveController(DiceCup dice, Field[] fields, ChanceCard[] cards)
 	{
 		diceCup = dice;
-		fieldController = new FieldController(fields, cards);
 		gui = new GUI();
 	}
 
@@ -26,8 +24,6 @@ public class PlayerTurnController
 	 */
 	public boolean playerTurn(Player currentPlayer)
 	{
-		boolean isBroke = false;
-
 		//Check if player is in prison
 		if (currentPlayer.isInPrisson() == true)
 		{
@@ -59,9 +55,8 @@ public class PlayerTurnController
 			//If he did, move his ass.
 			movePlayer(currentPlayer);
 			//and then land him on the new field.
-			isBroke = fieldController.LandOnField(currentPlayer, currentPlayer.getPosition());
 		}
-		return isBroke;	
+		return false;	
 	}
 
 	private void jailOptions(Player currentPlayer)
