@@ -29,6 +29,13 @@ public class FieldController
 	{
 		gui.appendTextToTextArea(p.getName() +  " " + board.getField(fieldNr).getMessage());
 
+		//The "Go to Jail" field
+		if(fieldNr == 31) //should be a Refuge type field, thus avoiding all other "if's"
+		{
+			p.setPlayerPosition(11);
+			p.setInPrisson(true);
+		}
+
 		if (board.getField(fieldNr) instanceof Tax)
 			return taxHandler(p, fieldNr);
 
@@ -285,7 +292,11 @@ public class FieldController
 		else
 		{
 			String[] options = { "Buy (" + o.getPrice() + ")", "No" };
-			if (gui.getUserButtonPressed(options, "Nobody owns " + o.getName() + ". Would you like to buy it?", "Field for sale!") == 0)
+			int choise = -1;
+			//loops the choice if the "close window-X" is pressed
+			while((choise = gui.getUserButtonPressed(options, "Nobody owns " + o.getName() + ". Would you like to buy it?", "Field for sale!")) == -1);
+
+			if (choise == 0)
 			{
 				try
 				{
@@ -305,10 +316,6 @@ public class FieldController
 					e.printStackTrace();
 					System.exit(0);
 				}
-
-			} else
-			{
-				// if player chooses not to buy the field.
 			}
 		}
 		return false;

@@ -11,6 +11,7 @@ public class MoveController
 	private DiceCup diceCup;
 	private GUI gui;
 	private final int START_BONUS = 4000;
+	private final int BAIL_PRICE = 1000;
 
 	public MoveController(DiceCup dice, Field[] fields, ChanceCard[] cards)
 	{
@@ -65,7 +66,7 @@ public class MoveController
 			String[] options1 = { "Roll dices", "Pay 1000kr", "Use Chance Card"};
 
 			int nrOfOptions = 1;
-			if (currentPlayer.getAccount().getBalance() >= 1000)
+			if (currentPlayer.getAccount().getBalance() >= BAIL_PRICE)
 				nrOfOptions++;
 			if(currentPlayer.getGetOutOfJailCards() > 0)
 				nrOfOptions++;

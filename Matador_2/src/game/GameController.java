@@ -47,14 +47,14 @@ public class GameController
 	private Field[] fields;
 	private ChanceCard[] cards;
 	private Player currentPlayer;
-	private MoveController turnCtrl;
+	private MoveController moveController;
 	private FieldController fieldController;
 	private LinkedList<Player> playerQueue;
 
 	private GameController(GameData data)
 	{
 		this.dice = data.getDice();
-		this.turnCtrl = new MoveController(data.getDice(), data.getFields(), data.getCards());
+		this.moveController = new MoveController(data.getDice(), data.getFields(), data.getCards());
 		this.fieldController = new FieldController(data.getFields(), data.getCards());
 		this.fields = data.getFields();
 		this.cards = data.getCards();
@@ -78,7 +78,7 @@ public class GameController
 			
 			if (mainButtonState == ROLL_STATE)
 			{
-				boolean playerBroke = turnCtrl.playerTurn(currentPlayer);
+				boolean playerBroke = moveController.playerTurn(currentPlayer);
 				
 				if(!playerBroke)
 					playerBroke = fieldController.LandOnField(currentPlayer, currentPlayer.getPosition());
@@ -130,13 +130,13 @@ public class GameController
 	public Player[] getAllPlayers()
 	{
 		Player[] players = new Player[this.playerQueue.size() + 1];
-		
-		players[0] = currentPlayer;
 	
-		for (int i = 1; i < this.playerQueue.size(); i++)
+		for (int i = 0; i < this.playerQueue.size(); i++)
 		{
 			players[i] = playerQueue.get(i);
 		}
+		players[players.length - 1] = currentPlayer;
+		
 		return players;
 	}
 	
