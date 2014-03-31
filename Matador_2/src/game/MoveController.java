@@ -66,7 +66,7 @@ public class MoveController
 			String[] options1 = { "Roll dices", "Pay 1000kr", "Use Chance Card"};
 
 			int nrOfOptions = 1;
-			if (currentPlayer.getAccount().getBalance() >= BAIL_PRICE)
+			if (currentPlayer.getAccount().getBalance() > BAIL_PRICE) // Changed from >= to >, shouldn't it be like that?
 				nrOfOptions++;
 			if(currentPlayer.getGetOutOfJailCards() > 0)
 				nrOfOptions++;
