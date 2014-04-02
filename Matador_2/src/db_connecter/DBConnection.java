@@ -25,23 +25,24 @@ public class DBConnection {
 
 	}
 	public void getData(){
-try{
-	
-	String query = "SELECT * FROM player";
-	rs = st.executeQuery(query);
-	System.out.println("Oprettede spillere");
-	while(rs.next()){
-		String player_name = rs.getString("player_name");
-		String account_balance = rs.getString("account_balance");
-		System.out.println("Name: " + player_name + " " + "Balance: " + account_balance);
-		
-		
+		try{
+
+			String query = "SELECT * FROM player";
+			rs = st.executeQuery(query);
+			System.out.println("Oprettede spillere");
+			while(rs.next()){
+				String player_name = rs.getString("player_name");
+				String account_balance = rs.getString("account_balance");
+				System.out.println("Name: " + player_name + " " + "Balance: " + account_balance);
+
+
+			}
+
+		}catch(Exception ex){
+			System.out.println(ex);
+		}
 	}
 
-}catch(Exception ex){
-	System.out.println(ex);
 }
-	}
 
-}
 
