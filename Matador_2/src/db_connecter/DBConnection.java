@@ -1,6 +1,9 @@
 package db_connecter;
 
 import java.sql.*;
+
+
+
 //Building a connection to database
 public class DBConnection {
 
@@ -24,22 +27,51 @@ public class DBConnection {
 
 
 	}
-	public void getData(){
-		try{
+	
+	
+	public static ResultSet doQuery(String cmd) throws Exception {
+		Statement st = null;
+		try {
+			st = DBConnection().createStatement();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			return st.executeQuery(cmd);
+		} catch (SQLException e) {
+			throw new Exception(e);
+		}
+	}
 
-			String query = "SELECT * FROM player";
-			rs = st.executeQuery(query);
-			System.out.println("Oprettede spillere");
-			while(rs.next()){
-				String player_name = rs.getString("player_name");
-				String account_balance = rs.getString("account_balance");
-				System.out.println("Name: " + player_name + " " + "Balance: " + account_balance);
+	private static Connection DBConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public static int doUpdate(String cmd) throws Exception {
+		Statement st = null;
+		try {
+			st = DBConnection().createStatement();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			return st.executeUpdate(cmd);
+		} catch (SQLException e) {
+			throw new Exception(e);
+		}
+	}
 
-
-			}
-
-		}catch(Exception ex){
-			System.out.println(ex);
+	public static int doDelete(String cmd) throws Exception {
+		Statement st = null;
+		try {
+			st = DBConnection().createStatement();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			return st.executeUpdate(cmd);
+		} catch (SQLException e) {
+			throw new Exception(e);
 		}
 	}
 
