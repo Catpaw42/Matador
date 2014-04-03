@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class Board
 {
-	private static Field[] fields = new Field[40];
+	private static Field[] fields;
 	private LinkedList<ChanceCard> chanceCards = new LinkedList<ChanceCard>();
 	
 	public Board(Field[] fields, ChanceCard[] cards)
@@ -18,6 +18,8 @@ public class Board
 		{
 			chanceCards.add(cards[i]);
 		}
+		
+		Board.fields = fields;
 	}
 	
 	/**

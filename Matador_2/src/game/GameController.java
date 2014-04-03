@@ -1,6 +1,5 @@
 package game;
 
-import game.chance_cards.ChanceCard;
 import game.fields.Field;
 
 import java.util.LinkedList;
@@ -44,8 +43,7 @@ public class GameController
 	private int mainButtonState = 0;
 	
 	private DiceCup dice;
-	private Field[] fields;
-	private ChanceCard[] cards;
+	private Board board;
 	private Player currentPlayer;
 	private MoveController moveController;
 	private FieldController fieldController;
@@ -54,17 +52,17 @@ public class GameController
 	private GameController(GameData data)
 	{
 		this.dice = data.getDice();
-		this.moveController = new MoveController(data.getDice(), data.getFields(), data.getCards());
-		this.fieldController = new FieldController(data.getFields(), data.getCards());
-		this.fields = data.getFields();
-		this.cards = data.getCards();
+		this.board = new Board(data.getFields(), data.getCards());
+		this.moveController = new MoveController(data.getDice());
+		this.fieldController = new FieldController(board);
 		
-		playerQueue = new LinkedList<Player>();
+		
+		this.playerQueue = new LinkedList<Player>();
 		for (int i = 0; i < data.getPlayers().length; i++)
 		{
 			playerQueue.add(data.getPlayers()[i]);
 		}
-		currentPlayer = playerQueue.remove();
+		this.currentPlayer = playerQueue.remove();
 	}
 	public void advanceGame()
 	{
@@ -117,11 +115,6 @@ public class GameController
 		return sum;
 	}
 	
-	public LinkedList<Player> getPlayerQueue()
-	{
-		return this.playerQueue;
-	}
-
 	public Player getCurentPlayer()
 	{
 		return currentPlayer;
@@ -152,11 +145,6 @@ public class GameController
 	
 	public Field[] getFields()
 	{
-		return fields;
-	}
-	
-	public ChanceCard[] getChanceCards()
-	{
-		return this.cards;
+		return this.board.getAllFields();
 	}
 }

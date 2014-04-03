@@ -9,7 +9,6 @@ import game.chance_cards.JailSafed;
 import game.chance_cards.MoneyGift;
 import game.chance_cards.MovedToField;
 import game.fields.Chance;
-import game.fields.Field;
 import game.fields.Ownable;
 import game.fields.Street;
 import game.fields.Tax;
@@ -24,9 +23,9 @@ public class FieldController
 	// fx START_BONUS = 4000;. Er det noget vi burde gør her, eller i hvert fald overveje noget smartere?
 	// Lige nu er der i hvert fald utrolig mange.
 
-	public FieldController(Field[] fields, ChanceCard[] cards)
+	public FieldController(Board board)
 	{
-		this.board = new Board(fields, cards);
+		this.board = board;
 	}
 
 	public boolean LandOnField(Player p, int fieldNr)

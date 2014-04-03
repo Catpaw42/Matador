@@ -2,8 +2,6 @@ package game;
 
 import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
-import game.chance_cards.ChanceCard;
-import game.fields.Field;
 import gui.GUI;
 
 public class MoveController
@@ -13,7 +11,7 @@ public class MoveController
 	private final int START_BONUS = 4000;
 	private final int BAIL_PRICE = 1000;
 
-	public MoveController(DiceCup dice, Field[] fields, ChanceCard[] cards)
+	public MoveController(DiceCup dice)
 	{
 		diceCup = dice;
 		gui = new GUI();

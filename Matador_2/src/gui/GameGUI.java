@@ -90,26 +90,26 @@ public class GameGUI extends JFrame
 			{
 				if(e.getSource().equals(menuItems[0]))
 				{
-					new GameActionListener().menuOneEvent();
+					new GameActionListener().saveGameEvent();
 				}
 				else if (e.getSource().equals(menuItems[1]))
 				{
-					new GameActionListener().menuTwoEvent();
+					new GameActionListener().loadGameEvent();
 				}
 				
 			}
 		};
 		menuItems = new JMenuItem[3];
-		menuItems[0] = new JMenuItem("text goes here", KeyEvent.VK_T);
+		menuItems[0] = new JMenuItem("Save Game", KeyEvent.VK_S);
 		menuItems[0].setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
 		menuItems[0].addActionListener(listener);
-		menuItems[1] = new JMenuItem("Nothing here", KeyEvent.VK_N);
+		menuItems[1] = new JMenuItem("Load Game", KeyEvent.VK_L);
 		menuItems[1].setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
 		menuItems[1].addActionListener(listener);
 		
 		menu = new JMenu[1];
-		menu[0] = new JMenu("Files");
-		menu[0].setMnemonic(KeyEvent.VK_F);
+		menu[0] = new JMenu("Save/Load");
+		menu[0].setMnemonic(KeyEvent.VK_S);
 		menu[0].add(menuItems[0]);
 		menu[0].add(menuItems[1]);
 
