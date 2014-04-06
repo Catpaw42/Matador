@@ -1,7 +1,5 @@
 package db_connecter;
 
-import db_communication.WriteToDB;
-
 public class DBTest {
 
 	public static void main(String[] args) {

@@ -128,7 +128,7 @@ public class GameController
 		{
 			players[i] = playerQueue.get(i);
 		}
-		players[players.length - 1] = currentPlayer;
+		players[this.playerQueue.size()] = currentPlayer;
 		
 		return players;
 	}

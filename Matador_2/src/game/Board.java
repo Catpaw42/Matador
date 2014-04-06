@@ -6,6 +6,7 @@ import game.fields.Ownable;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Board
 {
@@ -14,12 +15,31 @@ public class Board
 	
 	public Board(Field[] fields, ChanceCard[] cards)
 	{
-		for (int i = 0; i < cards.length; i++)
+		ChanceCard[] shuffledCards = ShuffleCards(cards);
+		for (int i = 0; i < shuffledCards.length; i++)
 		{
-			chanceCards.add(cards[i]);
+			chanceCards.add(shuffledCards[i]);
 		}
-		
 		Board.fields = fields;
+	}
+	
+	/**
+	 * Private method to shuffle the array of cards using Durstenfeld's algorithm
+	 * @param cardArray the list of cards to shuffle
+	 * @return the same list of cards, but now in random order.
+	 */
+	private ChanceCard[] ShuffleCards(ChanceCard[] cardArray)
+	{
+		Random rand = new Random();
+		for (int i = 0; i < cardArray.length; i++)
+		{
+			int randomPosition = rand.nextInt(cardArray.length);
+			// swap objects at i and randomPosition
+			ChanceCard temp = cardArray[i];
+			cardArray[i] = cardArray[randomPosition];
+			cardArray[randomPosition] = temp;
+		}
+		return cardArray;
 	}
 	
 	/**

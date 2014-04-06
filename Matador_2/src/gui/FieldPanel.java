@@ -36,8 +36,8 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	@SuppressWarnings("static-access")
 	private FieldPanel(Builder b) 
 	{
-		this.fieldNumber = b.fieldNumber; //store and increment the field-number
-		b.fieldNumber++;
+		this.fieldNumber = Builder.fieldNumber; //store and increment the field-number
+		Builder.fieldNumber++;
 
 		//manage this panel
 		this.setLayout(null);

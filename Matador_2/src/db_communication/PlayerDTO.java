@@ -2,10 +2,6 @@ package db_communication;
 
 import java.awt.Color;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
-
 public class PlayerDTO {
 	@Min(1)
 	@Max(6)
@@ -68,6 +64,7 @@ public class PlayerDTO {
 		this.carType = carType;
 	}
 	
+	@Override
 	public String toString() {
 		return id + "\t" + name + "\n" ;
 	}

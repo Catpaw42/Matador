@@ -1,7 +1,6 @@
 package db_communication;
 
 import db_connecter.DBConnection;
-import Exceptions.DALException;
 
 public class PlayerDAOImpl implements PlayerDAO 
 {
