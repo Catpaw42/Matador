@@ -3,6 +3,7 @@ package game;
 import game.chance_cards.ChanceCard;
 import game.fields.Field;
 
+
 import java.util.LinkedList;
 
 public class GameController
@@ -64,6 +65,7 @@ public class GameController
 		{
 			playerQueue.add(data.getPlayers()[i]);
 		}
+	
 		currentPlayer = playerQueue.remove();
 	}
 	public void advanceGame()
