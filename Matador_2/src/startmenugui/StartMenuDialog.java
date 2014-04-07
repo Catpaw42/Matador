@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class StartMenuDialog extends JDialog implements ActionListener
 {
-	private game.GameData options = new GameData();
+	private game.GameData options = new GameData(); // Hvorfor bliver denne oprettet her?
 	private JButton[] buttons;
 	private JPanel panel;
 	
@@ -98,5 +98,10 @@ public class StartMenuDialog extends JDialog implements ActionListener
 			System.out.println("Quit Game");
 			System.exit(0);
 		}
+	}
+	
+	public game.GameData getgamedata()
+	{
+		return options;
 	}
 }
