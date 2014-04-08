@@ -23,7 +23,7 @@ public class Player
 		this.name = name;
 		this.carColor = carColor;
 		this.carType = carType;
-		for()
+		
 	}
 
 	public int getid()

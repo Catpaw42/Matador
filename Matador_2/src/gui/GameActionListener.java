@@ -7,7 +7,6 @@ import game.fields.Ownable;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
-import java.util.LinkedList;
 
 public class GameActionListener implements KeyEventDispatcher
 {
@@ -45,14 +44,14 @@ public class GameActionListener implements KeyEventDispatcher
 
 	}
 
-	public void menuOneEvent()
+	public void saveGameEvent()
 	{
-
+		System.out.println("Save game event");
 	}
 
-	public void menuTwoEvent()
+	public void loadGameEvent()
 	{
-
+		System.out.println("Load game event");
 	}
 
 	//--------------------------------------------------------------
@@ -68,7 +67,7 @@ public class GameActionListener implements KeyEventDispatcher
 		{
 			if (e.getKeyCode() == KeyEvent.VK_ENTER)
 			{
-				mainButtonEvent(); //redirects "return key" to main button
+				
 			}
 		}
 		return false;
@@ -88,16 +87,14 @@ public class GameActionListener implements KeyEventDispatcher
 	
 	private void updateCars()
 	{
-		LinkedList<Player> queue = GameController.getInstance().getPlayerQueue();
-		for (int i = 0; i < queue.size(); i++)
+		Player[] players = GameController.getInstance().getAllPlayers();
+		for (int i = 0; i < players.length; i++)
 		{
-			gui.removeAllCars(queue.get(i).getName());
-			gui.setCar(queue.get(i).getPosition(), queue.get(i).getName());
+			gui.removeAllCars(players[i].getName());
+			gui.setCar(players[i].getPosition(), players[i].getName());
 		}
-		Player currentPlayer = GameController.getInstance().getCurentPlayer();
-		gui.removeAllCars(currentPlayer.getName());
-		gui.setCar(currentPlayer.getPosition(), currentPlayer.getName());
-		gui.setCurrentPlayerName(currentPlayer.getName());
+		
+		gui.setCurrentPlayerName(GameController.getInstance().getCurentPlayer().getName());
 	}
 	
 	private void updateFields()
@@ -112,13 +109,11 @@ public class GameActionListener implements KeyEventDispatcher
 	
 	private void updatePlayers()
 	{
-		LinkedList<Player> queue = GameController.getInstance().getPlayerQueue();
-		for (int i = 0; i < queue.size(); i++)
+		Player[] players = GameController.getInstance().getAllPlayers();
+		for (int i = 0; i < players.length; i++)
 		{
-			gui.setPlayerMoney(queue.get(i).getName(), queue.get(i).getAccount().getBalance());
+			gui.setPlayerMoney(players[i].getName(), players[i].getAccount().getBalance());
 		}
-		Player currentPlayer = GameController.getInstance().getCurentPlayer();
-		gui.setPlayerMoney(currentPlayer.getName(), currentPlayer.getAccount().getBalance());
 	}
 	
 	private void updateDice(int state)
