@@ -18,7 +18,7 @@ public class FieldController
 {
 	private GUI gui = new GUI();
 	private Board board;
-	
+
 	//Normalt er man ikke glad for "løse tal" i koden, og laver variable som vi har gjort i Movecontroller:
 	// fx START_BONUS = 4000;. Er det noget vi burde gør her, eller i hvert fald overveje noget smartere?
 	// Lige nu er der i hvert fald utrolig mange.

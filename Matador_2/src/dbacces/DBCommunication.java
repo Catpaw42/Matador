@@ -37,10 +37,13 @@ public class DBCommunication
 		
 		Ownable o;
 		Street s;
+		GameData g = new GameData();
 		Board b = new Board(g.getFields(),g.getCards());
 		for (int j = 0; j < GameController.getInstance().getFields().length ; j++)
 		{
 			b.getField(j);
+			o = (Ownable) b.getField(j);
+			s = (Street) b.getField(j);
 			String sql = "UPDATE fields (field_owner, number_of_houses) VALUES ("+o.getOwner()+", "+s.getHouses()+" )";
 			try {
 				da.executeUpdate(sql);
