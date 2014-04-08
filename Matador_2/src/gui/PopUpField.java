@@ -3,8 +3,6 @@ package gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
-
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -82,7 +80,7 @@ public class PopUpField extends JFrame
 					super.paintComponent(g);
 					if (fp.picture != null)
 					{
-						g.drawImage((Image)fp.picture, 0, 0, fp.picture.getWidth() * 2, fp.picture.getHeight() * 2, null);
+						g.drawImage(fp.picture, 0, 0, fp.picture.getWidth() * 2, fp.picture.getHeight() * 2, null);
 					}
 				}
 			};

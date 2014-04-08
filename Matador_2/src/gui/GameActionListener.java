@@ -102,8 +102,8 @@ public class GameActionListener implements KeyEventDispatcher
 		Field[] fields = GameController.getInstance().getFields();
 		for (int i = 0; i < fields.length; i++)
 		{
-			if(fields[i] instanceof Ownable)
-			gui.setFieldOwner(i, ((Ownable) fields[i]).getOwner().getName());
+			if(fields[i] instanceof Ownable && ((Ownable)fields[i]).getOwner() != null)
+				gui.setFieldOwner(i + 1, ((Ownable) fields[i]).getOwner().getName());
 		}
 	}
 	

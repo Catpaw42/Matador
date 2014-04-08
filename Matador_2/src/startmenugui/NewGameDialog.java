@@ -78,9 +78,9 @@ public class NewGameDialog extends JDialog implements ActionListener, PopupMenuL
 		colors[11] = createColorIcon(new Color(0x009999)); //lyseblå?
 		
 		carArray = ImageFactory.setupCarIcons();
-		carTypes = (JComboBox<Icon>[]) new JComboBox[6];
+		carTypes = new JComboBox[6];
 		checkBoxArray = new JCheckBox[6];
-		colorComboBox = (JComboBox<MyImageIcon>[]) new JComboBox[6];
+		colorComboBox = new JComboBox[6];
 
 		//trash data for first setup
 		JLabel[] arr = new JLabel[1];

@@ -1,18 +1,19 @@
 package test;
 
-import game.DiceCup;
+import game.GameController;
+import game.Player;
+import startmenugui.StartMenuDialog;
 
 public class Test2
 {
 	public static void main(String[] args)
 	{
-		DiceCup dice = new DiceCup();
+		GameController.createInstance(new StartMenuDialog().startDialog());
+		Player[] players = GameController.getInstance().getAllPlayers();
 		
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < players.length; i++)
 		{
-			dice.rollDice();
-			System.out.println(dice.getDiceFaceValues()[0] + " ," + dice.getDiceFaceValues()[1]);
-			System.out.println(dice.isTwoOfAKind());
+			System.out.println(players[i].getName());
 		}
 	}
 }

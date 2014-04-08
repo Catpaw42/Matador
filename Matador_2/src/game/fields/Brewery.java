@@ -11,6 +11,7 @@ public class Brewery extends Ownable
 		diceCup = dice;
 	}
 
+	@Override
 	public String getMessage()
 	{
 		return "have landed on field " + this.getFieldNumber() + "  " + this.getName();
