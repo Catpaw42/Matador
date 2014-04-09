@@ -35,8 +35,8 @@ public class GameData
 	private Field[] generateStandardFieldList()
 	{
 		Field[] fields = new Field[40];
-		
-	//					 --TYPE--     --NR--	--NAME--			--BASE RENT--	--PRICE--	--GROUP--
+
+		//					 --TYPE--     --NR--	--NAME--			--BASE RENT--	--PRICE--	--GROUP--
 		fields[0]  = new Refuge		(1, 	"Start");
 		fields[1]  = new Street		(2, 	"Rødovrevej", 			50, 		1200, 		Group.BLUE);
 		fields[2]  = new Chance		(3, 	"Prøv Lykken");
@@ -77,22 +77,52 @@ public class GameData
 		fields[37] = new Street		(38, 	"Frederiksberg gade", 	700, 		7000, 		Group.PURPLE);
 		fields[38] = new Tax		(39, 	"Extraordinær skat");
 		fields[39] = new Street		(40, 	"Rådhuspladsen", 		1000, 		8000, 		Group.PURPLE);
-			
+
 		return fields;
 	}
+
+/*to dimentionelt array af leje i orden af: 
+	{grund, hus, 2 huse, 3 huse, 4 huse, hotel}*/
 	
+		int [][] fieldRent = {
+				{50, 250, 750, 2250, 4000, 6000},
+				{50, 250, 750, 2250, 4000, 6000},
+				{100, 600, 1800, 5400, 8000, 11000},
+				{100, 600, 1800, 5400, 8000, 11000},
+				{150, 800, 2000, 6000, 9000, 12000},
+				{200, 1000, 3000, 9000, 12500, 15000},
+				{200, 1000, 3000, 9000, 12500, 15000},
+				{250, 1250, 3750, 10000, 14000, 18000},
+				{300, 1400, 4000, 11000, 15000, 19000},
+				{300, 1400, 4000, 11000, 15000, 19000},
+				{350, 1600, 4400, 12000, 16000, 20000},
+				{350, 1800, 5000, 14000, 17500, 21000},
+				{350, 1800, 5000, 14000, 17500, 21000},
+				{400, 2000, 6000, 15000, 18500, 22000},
+				{450, 2200, 6600, 16000, 19500, 23000},
+				{450, 2200, 6600, 16000, 19500, 23000},
+				{500, 2400, 7200, 17000, 20500, 24000},
+				{550, 2600, 7800, 18000, 22000, 25000},
+				{550, 2600, 7800, 18000, 22000, 25000},
+				{600, 3000, 9000, 20000, 24000, 28000},
+				{700, 3500, 10000, 22000, 26000, 30000},
+				{1000, 4000, 12000, 28000, 34000, 40000}};
+	
+
+
+
 	private ChanceCard[] generateStandartCardList()
 	{
 		ChanceCard[] cards = new ChanceCard[33];
-		
+
 		cards[0] = new MoneyGift 	(1,  "De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ", 1000);
 		cards[1] = new MovedToField (2,  "De rykkes til start", 1);
 		cards[2] = new GoToJail		(3,  "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
-										+ " indkassere de ikke kr. 4000 ");
+				+ " indkassere de ikke kr. 4000 ");
 		cards[3] = new GoToJail		(4,  "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
-										+ " indkassere de ikke kr. 4000 ");
+				+ " indkassere de ikke kr. 4000 ");
 		cards[4] = new Fine 		(5,  "De har været en tur i udlandet og haft for mange cigaretter med "
-										+ "hjem. Betal told kr. 200", 200);
+				+ "hjem. Betal told kr. 200", 200);
 		cards[5] = new Fine			(6,  "De har modtaget Deres tandlægeregning. Betal kr. 2000", 2000);
 		cards[6] = new MoneyGift	(7,  "De havde en række med elleve rigtige i tipning. Modtag kr. 1000", 1000);
 		cards[7] = new MoneyGift	(8,  "Deres præmieobligation er kommet ud. De modtager kr. 1000 af banken.", 1000);
@@ -103,15 +133,15 @@ public class GameData
 		cards[12] = new Fine		(13, "Ejendomsskatterne er steget, ekstraudgifterne er: kr 800 pr. hus, kr 2300 pr. hotel.", 0);
 		cards[13] = new MovedToField(14, "Ryk frem til Grønningen. Hvis De passerer Start inkassér da kr. 4000 ", 25 );
 		cards[14] = new MovedToField(15, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
-										+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
+				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
 		cards[15] = new MovedToField(16, "Ryk brikken frem til det nærmeste rederi og betal ejeren to gange den "
-										+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
+				+ "leje, han ellers er berettiget til. Hvis selskabet ikke ejes af nogen  kan De købe det af banken. ", 0);
 		cards[16] = new MovedToField	(17, "Tag med Mols-Linjen --- flyt brikken frem, og hvis De passerer Start"
-										+ " inkassér da kr. 4000 ", 16);
+				+ " inkassér da kr. 4000 ", 16);
 		cards[17] = new JailSafed 	(18, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
-										+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
+				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det.");
 		cards[18] = new JailSafed 	(19, "I anledning af kongens fødselsdag benådes De herved for fængsel. "
-										+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det");
+				+ "Dette kort kan opbevares, indtil De får brug for det, eller De kan sælge det");
 		cards[19] = new MoneyGift 	(20, "Grundet dyrtiden har De fået gageforhøjelse. Modtag kr. 1000 ", 1000);
 		cards[20] = new MovedToField(21, "Ryk frem til Frederiksberg Allé. Hvis De passerer Start inkassér kr. 4000 ", 12);
 		cards[21] = new MoneyGift	(22, "De har vundet i Klasselotteriet. Modtag kr. 500 ", 500);
@@ -121,16 +151,18 @@ public class GameData
 		cards[25] = new Fine		(26, "Betal kr. 3000 for reparation af Deres vogn. ", 3000);
 		cards[26] = new Fine		(27, "Betal kr. 3000 for reparation af Deres vogn. ", 3000);
 		cards[27] = new MoneyGift	(28, "De modtager Matador-legatet for værdigt trængende, "
-										+ "stort kr. 40000 Ved værdigt trængende forstås, at Deres formue, "
-										+ "d.v.s. Deres kontante penge + skøder + bygninger ikke overstiger kr. 15000 ", 0);
+				+ "stort kr. 40000 Ved værdigt trængende forstås, at Deres formue, "
+				+ "d.v.s. Deres kontante penge + skøder + bygninger ikke overstiger kr. 15000 ", 0);
 		cards[28] = new Fine		(29, "Kommunen har eftergivet et kvartals skat. Hæv i banken kr. 3000 ", 3000);
 		cards[29] = new MoneyGift	(30, "Modtag udbytte af Deres aktier kr. 1000", 1000);
 		cards[30] = new MoneyGift	(31, "Modtag udbytte af Deres aktier kr. 1000", 1000);
 		cards[31] = new Fine		(32, "De har kørt frem for Fuld Stop. Betal kr. 1000 i bøde. ", 1000);
 		cards[32] = new Fine		(33, "De har måttet vedtage en parkeringsbøde. Betal kr. 200 i bøde.", 200);
-		
+
 		return cards;
 	}
+
+
 
 	public ChanceCard[] getCards()
 	{
@@ -161,7 +193,7 @@ public class GameData
 	{
 		this.startingCapital = startingCapital;
 	}
-	
+
 	public Player[] getPlayers()
 	{
 		return players;
@@ -171,7 +203,7 @@ public class GameData
 	{
 		this.players = players;
 	}
-	
+
 	public DiceCup getDice()
 	{
 		return dice;
