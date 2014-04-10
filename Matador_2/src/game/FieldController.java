@@ -4,7 +4,7 @@ import game.Account.IllegalAmountException;
 import game.Account.InsufficientFundsException;
 import game.chance_cards.ChanceCard;
 import game.chance_cards.Fine;
-import game.chance_cards.GoToJail;
+import game.chance_cards.GoToJailCard;
 import game.chance_cards.JailSafed;
 import game.chance_cards.MoneyGift;
 import game.chance_cards.MovedToField;
@@ -33,7 +33,7 @@ public class FieldController
 		gui.appendTextToTextArea(p.getName() +  " " + board.getField(fieldNr).getMessage());
 
 		//The "Go to Jail" field
-		if(fieldNr == 31) //should be a Refuge type field, thus avoiding all other "if's"
+		if(board.getField(fieldNr) instanceof game.fields.GoToJail) //should be a Refuge type field, thus avoiding all other "if's"
 		{
 			p.setPlayerPosition(11);
 			p.setInPrisson(true);
@@ -58,7 +58,7 @@ public class FieldController
 		ChanceCard chanceCard = board.getChanceCard();
 
 		// Controller for chance cards that sends player to jail.
-		if(chanceCard instanceof GoToJail)
+		if(chanceCard instanceof GoToJailCard)
 		{
 			p.setPlayerPosition(11);
 			p.setInPrisson(true);

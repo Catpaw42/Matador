@@ -1,8 +1,8 @@
 package game.chance_cards;
 
-public class GoToJail extends ChanceCard{
+public class GoToJailCard extends ChanceCard{
 
-	public GoToJail(int nr, String name) {
+	public GoToJailCard(int nr, String name) {
 		super(nr, name);
 		// TODO Auto-generated constructor stub
 	}
