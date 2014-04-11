@@ -2,7 +2,7 @@ package game;
 
 import game.chance_cards.ChanceCard;
 import game.chance_cards.Fine;
-import game.chance_cards.GoToJail;
+import game.chance_cards.GoToJailCard;
 import game.chance_cards.JailSafed;
 import game.chance_cards.MoneyGift;
 import game.chance_cards.MovedToField;
@@ -12,8 +12,8 @@ import game.fields.Field;
 import game.fields.Refuge;
 import game.fields.Shipping;
 import game.fields.Street;
-import game.fields.Tax;
 import game.fields.Street.Group;
+import game.fields.Tax;
 
 public class GameData
 {
@@ -67,7 +67,7 @@ public class GameData
 		fields[27] = new Street		(28, 	"Kgs. Nytorv", 			450, 		5200, 		Group.WHITE);
 		fields[28] = new Brewery	(29, 	"Coca Cola", 			100, 		3000,		dice);
 		fields[29] = new Street		(30, 	"Østergade", 			500, 		5600, 		Group.WHITE);
-		fields[30] = new Refuge		(31, 	"Gå i fængsel");
+		fields[30] = new game.fields.GoToJail(31, 	"Gå i fængsel");
 		fields[31] = new Street		(32, 	"Amagertorv", 			550, 		6000, 		Group.YELLOW);
 		fields[32] = new Street		(33, 	"VimmelSkaftet", 		550, 		6000, 		Group.YELLOW);
 		fields[33] = new Chance		(34, 	"Prøv Lykken");
@@ -117,10 +117,10 @@ public class GameData
 
 		cards[0] = new MoneyGift 	(1,  "De modtager Deres aktieudbytte. Modtag kr. 1000 af banken. ", 1000);
 		cards[1] = new MovedToField (2,  "De rykkes til start", 1);
-		cards[2] = new GoToJail		(3,  "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
-				+ " indkassere de ikke kr. 4000 ");
-		cards[3] = new GoToJail		(4,  "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
-				+ " indkassere de ikke kr. 4000 ");
+		cards[2] = new GoToJailCard		(3,  "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
+										+ " indkassere de ikke kr. 4000 ");
+		cards[3] = new GoToJailCard		(4,  "Gå i fængsel. Ryk direkte til fængslet. Selv om De passerer Start,"
+										+ " indkassere de ikke kr. 4000 ");
 		cards[4] = new Fine 		(5,  "De har været en tur i udlandet og haft for mange cigaretter med "
 				+ "hjem. Betal told kr. 200", 200);
 		cards[5] = new Fine			(6,  "De har modtaget Deres tandlægeregning. Betal kr. 2000", 2000);
