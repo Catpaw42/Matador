@@ -10,8 +10,8 @@ public class DataAccess
 {
   // Uses MySQL database named "test" on local machine as default
   private String driver		= "com.mysql.jdbc.Driver";
-  private String database_url	= "jdbc:mysql://127.0.0.1:3306/matador";//Default schema: test.
-  private String username	= "root";
+  private String database_url	= "jdbc:mysql://mysql7.gigahost.dk:3306/jakobsabinsky_matador";//Default schema: test.
+  private String username	= "jakobsabinsky";
   private String password	= "Helena11";
    
   //=== Execute a SELECT statement
