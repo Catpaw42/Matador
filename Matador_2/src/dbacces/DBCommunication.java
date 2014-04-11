@@ -1,92 +1,93 @@
 package dbacces;
 
-import game.fields.Street;
-import game.Board;
-import game.FieldController;
-import game.Player;
 import game.GameController;
+import game.Player;
 import game.fields.Field;
 import game.fields.Ownable;
-import game.GameData;
-import java.io.Writer;
+import game.fields.Street;
+
 import java.sql.SQLException;
-import java.util.LinkedList;
-import startmenugui.StartMenuDialog;
 
 public class DBCommunication 
 {
-
-
-	public void saveGame()
+	public static void saveGame()
 	{
 		DataAccess da = new DataAccess();
 
-		Player p;
-		for (int i = 0; i < GameController.getInstance().getAllPlayers().length; i++)
+		//Save player data to the database
+		Player[] players = GameController.getInstance().getAllPlayers();
+		for (int i = 0; i < players.length; i++)
 		{
-			p = GameController.getInstance().playerQueue.get(i);
+			Player p = players[i];
 			String sql = "INSERT INTO player VALUES ("+p.getid()+",'"+p.getName()+"',"+p.getPosition()+","+p.getAccount()+","+p.getPrisonTurnCount()+","+p.getGetOutOfJailCards()+",'"+p.getCarColour()+"',"+p.getCarType()+")";
-			try {
+			try
+			{
 				da.executeUpdate(sql);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+			}
+			catch (SQLException e)
+			{
 				e.printStackTrace();
 			}
 		}
-		
-		
-		Ownable o;
-		Street s;
-		GameData g = new GameData();
-		Board b = new Board(g.getFields(),g.getCards());
-		for (int j = 0; j < GameController.getInstance().getFields().length ; j++)
+
+		Field[] fields = GameController.getInstance().getFields();
+		for (int j = 0; j < fields.length ; j++)
 		{
-			b.getField(j);
-			o = (Ownable) b.getField(j);
-			s = (Street) b.getField(j);
-			String sql = "UPDATE fields (field_owner, number_of_houses) VALUES ("+o.getOwner()+", "+s.getHouses()+" )";
-			try {
-				da.executeUpdate(sql);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if(fields[j] instanceof Ownable && ((Ownable)fields[j]).getOwner() != null)
+			{
+				String sql = "UPDATE fields WHERE field_number="+ j+1 + " (field_owner) VALUES ("+((Ownable)fields[j]).getOwner()+" )";
+				try 
+				{
+					da.executeUpdate(sql);
+				} catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			if(fields[j] instanceof Street && ((Street)fields[j]).getHouses() != 0)
+			{
+				String sql = "UPDATE fields WHERE field_number="+ j+1 + " (number_of_houses) VALUES ("+((Street)fields[j]).getHouses()+" )";
+				try 
+				{
+					da.executeUpdate(sql);
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
 			}
 		}
-
 	}
 
-
-
-
-public void collectFromPlayer()
-{
-	DataAccess da = new DataAccess();
-
-	String query = "SELECT * FROM player";
-	try {
-		da.executeQuery(query);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	public static void loadGame()
+	{
+		
 	}
+	
+	public void collectFromPlayer()
+	{
+		DataAccess da = new DataAccess();
 
-
-
-}
-public void collectFromFields()
-{
-	DataAccess da = new DataAccess();
-
-	String query = "SELECT FROM fields WHERE field_owner ARE NOT NULL";
-
-	try{
-		da.executeQuery(query);
-	}catch (SQLException e){
-		e.printStackTrace();
+		String query = "SELECT * FROM player";
+		try {
+			da.executeQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-}
+	public void collectFromFields()
+	{
+		DataAccess da = new DataAccess();
 
+		String query = "SELECT FROM fields WHERE field_owner ARE NOT NULL";
 
+		try{
+			da.executeQuery(query);
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
 }
 
 

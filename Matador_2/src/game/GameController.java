@@ -48,7 +48,7 @@ public class GameController
 	private Player currentPlayer;
 	private MoveController moveController;
 	private FieldController fieldController;
-	public LinkedList<Player> playerQueue;
+	private LinkedList<Player> playerQueue;
 
 	private GameController(GameData data)
 	{
@@ -57,15 +57,11 @@ public class GameController
 		this.moveController = new MoveController(data.getDice());
 		this.fieldController = new FieldController(board);
 		
-		
 		this.playerQueue = new LinkedList<Player>();
 		for (int i = 0; i < data.getPlayers().length; i++)
 		{
 			playerQueue.add(data.getPlayers()[i]);
 		}
-
-	
-		currentPlayer = playerQueue.remove();
 
 		this.currentPlayer = playerQueue.remove();
 

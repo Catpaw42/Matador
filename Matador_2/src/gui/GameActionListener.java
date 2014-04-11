@@ -8,6 +8,8 @@ import game.fields.Ownable;
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
 
+import dbacces.DBCommunication;
+
 public class GameActionListener implements KeyEventDispatcher
 {
 	GUI gui = new GUI();
@@ -47,6 +49,7 @@ public class GameActionListener implements KeyEventDispatcher
 	public void saveGameEvent()
 	{
 		System.out.println("Save game event");
+		DBCommunication.saveGame();
 	}
 
 	public void loadGameEvent()
