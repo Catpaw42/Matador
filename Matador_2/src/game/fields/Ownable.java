@@ -5,10 +5,10 @@ import game.Player;
 public abstract class Ownable extends Field
 {
 	private int price;
-	private int rent;
+	private int rent[];
 	private Player owner = null;
 
-	protected Ownable(int nr, String name, int rent, int price)
+	protected Ownable(int nr, String name, int[] rent, int price)
 	{
 		super(nr, name);
 		this.rent = rent;
@@ -31,13 +31,8 @@ public abstract class Ownable extends Field
 	{
 		this.owner = owner;
 	}
-	
-	public void setRent(int rent)
-	{
-		this.rent = rent;
-	}
 
-	protected int getBaseRent()
+	protected int[] getBaseRent()
 	{
 		return rent;
 	}

@@ -4,7 +4,7 @@ import game.Board;
 
 public class Shipping extends Ownable
 {	
-	public Shipping(int nr, String name, int rent, int price)
+	public Shipping(int nr, String name, int rent[], int price)
 	{
 		super(nr, name, rent, price);
 	}
@@ -18,7 +18,7 @@ public class Shipping extends Ownable
 	@Override
 	public int getRent()
 	{
-		return (int)(Math.pow(2, getNumberOfShippings()) * getBaseRent());
+		return (int)(Math.pow(2, getNumberOfShippings()) * getBaseRent()[0]);
 	}
 	
 	private int getNumberOfShippings()

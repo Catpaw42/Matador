@@ -16,22 +16,22 @@ public class Street extends Ownable
 		PURPLE(2);
 
 		private int groupSize;
-		
+
 		Group(int size)	
 		{
 			this.groupSize = size;
 		}
-		
+
 		int getGroupSize()
 		{
 			return this.groupSize;
 		}
 	}
-	
+
 	private Group group;
 	private int houses = 0;
 
-	public Street(int nr, String name, int rent, int price, Group group)
+	public Street(int nr, String name, int rent[], int price, Group group)
 	{
 		super(nr, name, rent, price);
 		this.group = group;
@@ -46,7 +46,12 @@ public class Street extends Ownable
 	@Override
 	public int getRent()
 	{
-		return getSeriesMultiplier() * getBaseRent();
+		if (houses == 0)
+			return getSeriesMultiplier() * getBaseRent()[0] ;
+
+		else 
+			return getBaseRent()[houses];
+
 	}
 
 	/**
