@@ -19,7 +19,15 @@ public class DBCommunication
 		for (int i = 0; i < players.length; i++)
 		{
 			Player p = players[i];
-			String sql = "INSERT INTO player VALUES ("+p.getid()+",'"+p.getName()+"',"+p.getPosition()+","+p.getAccount()+","+p.getPrisonTurnCount()+","+p.getGetOutOfJailCards()+",'"+p.getCarColour()+"',"+p.getCarType()+")";
+			String sql = "INSERT INTO player VALUES ("+p.getid()+",'"
+													  +p.getName()+"',"
+													  +p.getPosition()+","
+													  +p.getAccount()+","
+													  +p.getPrisonTurnCount()+","
+													  +p.getGetOutOfJailCards()+",'"
+													  +p.getCarColour()+"',"
+													  +p.getCarType()+","
+													  +/*get turn*/")";
 			try
 			{
 				da.executeUpdate(sql);

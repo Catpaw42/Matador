@@ -180,7 +180,6 @@ public class FieldController
 			{
 				// move player to nearest Shipping and withdraw double rent if owned.¨
 				// Shipping numbers are: 5, 15, 25, 35
-				Ownable o = (Ownable) board.getField(p.getPosition());
 
 				int n =-1;
 				if(p.getPosition() > 35 && p.getPosition() < 5) 	{ n = 0;}
@@ -189,6 +188,7 @@ public class FieldController
 				if(p.getPosition() > 25 && p.getPosition() < 35)	{ n = 3;}
 
 				p.setPlayerPosition(5+10*n); 
+				Ownable o = (Ownable) board.getField(p.getPosition());
 
 				// withdraws 2 times rent if the field has an owner.
 				if (o.getOwner() != null)

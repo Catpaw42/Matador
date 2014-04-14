@@ -3,378 +3,732 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="game.MoveController" project="Matador_2" 
     file="/Matador_2/src/game/MoveController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="157" x="327" y="470"/>    
+    <position height="189" width="157" x="404" y="407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="game.Account.IllegalAmountException" project="Matador_2" 
-    file="/Matador_2/src/game/Account.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="172" x="698" y="1450"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="game.Account.InsufficientFundsException" project="Matador_2" 
-    file="/Matador_2/src/game/Account.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="192" x="910" y="1450"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="game.GameData" project="Matador_2" file="/Matador_2/src/game/GameData.java" 
+  <class id="2" language="java" name="game.GameData" project="Matador_2" file="/Matador_2/src/game/GameData.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="227" x="306" y="79"/>    
+    <position height="387" width="227" x="383" y="-20"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="game.FieldController" project="Matador_2" 
+  <class id="3" language="java" name="game.FieldController" project="Matador_2" 
     file="/Matador_2/src/game/FieldController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="304" x="545" y="470"/>    
+    <position height="243" width="304" x="622" y="407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="game.Die" project="Matador_2" file="/Matador_2/src/game/Die.java" binary="false" 
+  <class id="4" language="java" name="game.Die" project="Matador_2" file="/Matador_2/src/game/Die.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="189" width="134" x="327" y="1450"/>    
+    <position height="189" width="134" x="404" y="1387"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="game.GameController" project="Matador_2" 
+  <class id="5" language="java" name="game.GameController" project="Matador_2" 
     file="/Matador_2/src/game/GameController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="233" x="680" y="79"/>    
+    <position height="315" width="233" x="757" y="-20"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="game.DiceCup" project="Matador_2" file="/Matador_2/src/game/DiceCup.java" 
+  <class id="6" language="java" name="game.DiceCup" project="Matador_2" file="/Matador_2/src/game/DiceCup.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="147" x="327" y="1167"/>    
+    <position height="171" width="147" x="404" y="1104"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="game.Board" project="Matador_2" file="/Matador_2/src/game/Board.java" 
+  <class id="7" language="java" name="game.Board" project="Matador_2" file="/Matador_2/src/game/Board.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="250" x="620" y="1167"/>    
+    <position height="243" width="250" x="697" y="1104"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="game.Player" project="Matador_2" file="/Matador_2/src/game/Player.java" 
+  <class id="8" language="java" name="game.Player" project="Matador_2" file="/Matador_2/src/game/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="657" width="190" x="910" y="470"/>    
+    <position height="657" width="190" x="987" y="407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="game.Account" project="Matador_2" file="/Matador_2/src/game/Account.java" 
+  <class id="9" language="java" name="game.Account" project="Matador_2" file="/Matador_2/src/game/Account.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="181" x="910" y="1167"/>    
+    <position height="207" width="181" x="987" y="1104"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="game.fields.Shipping" project="Matador_2" 
+  <class id="10" language="java" name="game.fields.Shipping" project="Matador_2" 
     file="/Matador_2/src/game/fields/Shipping.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="159" x="1780" y="949"/>    
+    <position height="-1" width="-1" x="-422" y="545"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="game.fields.Street" project="Matador_2" 
+  <class id="11" language="java" name="game.fields.GoToJail" project="Matador_2" 
+    file="/Matador_2/src/game/fields/GoToJail.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-439" y="280"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="game.fields.Street" project="Matador_2" 
     file="/Matador_2/src/game/fields/Street.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="166" x="1979" y="949"/>    
+    <position height="-1" width="-1" x="-216" y="581"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="game.fields.Refuge" project="Matador_2" 
+  <class id="13" language="java" name="game.fields.Refuge" project="Matador_2" 
     file="/Matador_2/src/game/fields/Refuge.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="124" x="2038" y="684"/>    
+    <position height="-1" width="-1" x="-81" y="280"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="game.fields.Ownable" project="Matador_2" 
+  <class id="14" language="java" name="game.fields.Ownable" project="Matador_2" 
     file="/Matador_2/src/game/fields/Ownable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="148" x="1850" y="684"/>    
+    <position height="-1" width="-1" x="-260" y="334"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="game.fields.Field" project="Matador_2" 
+  <class id="15" language="java" name="game.fields.Field" project="Matador_2" 
     file="/Matador_2/src/game/fields/Field.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="142" x="2121" y="437"/>    
+    <position height="-1" width="-1" x="-72" y="87"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="game.fields.Tax" project="Matador_2" file="/Matador_2/src/game/fields/Tax.java" 
+  <class id="16" language="java" name="game.fields.Tax" project="Matador_2" file="/Matador_2/src/game/fields/Tax.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="152" x="2202" y="684"/>    
+    <position height="-1" width="-1" x="97" y="334"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="18" language="java" name="game.fields.Street.Group" project="Matador_2" 
+  <enumeration id="17" language="java" name="game.fields.Street.Group" project="Matador_2" 
     file="/Matador_2/src/game/fields/Street.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="119" x="1979" y="1196"/>    
+    <position height="-1" width="-1" x="-243" y="855"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="19" language="java" name="game.fields.Brewery" project="Matador_2" 
+  <class id="18" language="java" name="game.fields.Brewery" project="Matador_2" 
     file="/Matador_2/src/game/fields/Brewery.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="190" x="2185" y="949"/>    
+    <position height="-1" width="-1" x="21" y="531"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="game.fields.Chance" project="Matador_2" 
+  <class id="19" language="java" name="game.fields.Chance" project="Matador_2" 
     file="/Matador_2/src/game/fields/Chance.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="124" x="2394" y="684"/>    
+    <position height="-1" width="-1" x="275" y="280"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="21">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <association id="22">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="23" name="playerQueue"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+  <class id="20" language="java" name="game.chance_cards.MovedToField" project="Matador_2" 
+    file="/Matador_2/src/game/chance_cards/MovedToField.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-366" y="1367"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="game.chance_cards.GoToJailCard" project="Matador_2" 
+    file="/Matador_2/src/game/chance_cards/GoToJailCard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-179" y="1340"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="game.chance_cards.ChanceCard" project="Matador_2" 
+    file="/Matador_2/src/game/chance_cards/ChanceCard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-4" y="1069"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="game.chance_cards.JailSafed" project="Matador_2" 
+    file="/Matador_2/src/game/chance_cards/JailSafed.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-9" y="1340"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="game.chance_cards.Fine" project="Matador_2" 
+    file="/Matador_2/src/game/chance_cards/Fine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="146" y="1367"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="game.chance_cards.MoneyGift" project="Matador_2" 
+    file="/Matador_2/src/game/chance_cards/MoneyGift.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="310" y="1367"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="gui.PopUpField" project="Matador_2" file="/Matador_2/src/gui/PopUpField.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="154" x="1467" y="2930"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="gui.PlayerPanel" project="Matador_2" file="/Matador_2/src/gui/PlayerPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="162" x="1260" y="2521"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="gui.GameGUI" project="Matador_2" file="/Matador_2/src/gui/GameGUI.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="513" width="220" x="1530" y="1279"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="gui.ImageFactory" project="Matador_2" file="/Matador_2/src/gui/ImageFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="281" x="1209" y="1279"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="gui.GUI" project="Matador_2" file="/Matador_2/src/gui/GUI.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="639" width="274" x="1738" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="gui.FieldPanel.Builder" project="Matador_2" 
+    file="/Matador_2/src/gui/FieldPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="567" width="167" x="1661" y="2930"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="gui.CarLabel" project="Matador_2" file="/Matador_2/src/gui/CarLabel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="169" x="1258" y="2930"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="gui.FieldPanel" project="Matador_2" file="/Matador_2/src/gui/FieldPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="193" x="1462" y="2521"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="gui.ControlPanel" project="Matador_2" file="/Matador_2/src/gui/ControlPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="173" x="1317" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="gui.DiceLabel" project="Matador_2" file="/Matador_2/src/gui/DiceLabel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="178" x="1695" y="2521"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="gui.BoardPanel" project="Matador_2" file="/Matador_2/src/gui/BoardPanel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="168" x="1530" y="1842"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="gui.GameActionListener" project="Matador_2" 
+    file="/Matador_2/src/gui/GameActionListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="208" x="1800" y="1279"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="startmenugui.StartMenuDialog" project="Matador_2" 
+    file="/Matador_2/src/startmenugui/StartMenuDialog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="664" y="2986"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="startmenugui.NewGameDialog" project="Matador_2" 
+    file="/Matador_2/src/startmenugui/NewGameDialog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1024" y="3109"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="dbacces.DBCommunication" project="Matador_2" 
+    file="/Matador_2/src/dbacces/DBCommunication.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-13" y="2917"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="dbacces.DataAccess" project="Matador_2" 
+    file="/Matador_2/src/dbacces/DataAccess.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="186" y="2935"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="dbacces.DBTest" project="Matador_2" file="/Matador_2/src/dbacces/DBTest.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="371" y="2890"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="43">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="44" name="popUpField"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="26" name="board"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+  <generalization id="46">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="47">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="48" name="boardPanel"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="51" name="account"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="16"/>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
   </generalization>  
-  <association id="29">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="30" name="die1"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+  <association id="54">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="55" name="diceCup"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <association id="33">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="34" name="instance"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
+  <association id="57">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="58" name="board"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="36">    
+  <association id="60">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="37" name="currentPlayer"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+      <attribute id="61" name="fields"/>      
+      <multiplicity id="62" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="39">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="18"/>  
-  </nesting>  
-  <association id="40">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="41" name="moveController"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
+  <association id="63">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="64" name="moveController"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="44" name="fields"/>      
-      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+  <association id="66">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="67" name="gui"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="47" name="group"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="50" name="fieldController"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="53" name="diceCup"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="56" name="players"/>      
-      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="58">    
-    <bendpoint x="514" y="470"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="59" name="dice"/>      
-      <multiplicity id="60" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="61">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="62" name="owner"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="64">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <nesting id="65">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
-  </nesting>  
-  <generalization id="66">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <association id="67">    
-    <bendpoint x="296" y="470"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="68" name="dice"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="71" name="die2"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
+  <association id="69">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="70" name="diceCup"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="74" name="fields"/>      
-      <multiplicity id="75" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="76">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="2"/>  
-  </nesting>  
-  <association id="77">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="78" name="account"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="80">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="81" name="diceCup"/>      
-      <multiplicity id="82" minimum="0" maximum="1"/>    
+  <association id="72">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="73" name="playerQueue"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="83">    
-    <end type="SOURCE" refId="12"/>    
+  <generalization id="75">    
+    <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="15"/>  
   </generalization>  
-  <association id="84">    
-    <bendpoint x="879" y="470"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="85" name="board"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+  <association id="76">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="77" name="instance"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="87">    
+  <association id="79">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="80" name="players"/>      
+      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="82">    
     <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="83">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="84" name="gui"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="87" name="holder"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="89">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="90">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="91" name="fields"/>      
+      <multiplicity id="92" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="94" name="group"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="97" name="gui"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="100" name="die1"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="103" name="cards"/>      
+      <multiplicity id="104" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="105">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="106">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="107" name="d2"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="110" name="carLabels"/>      
+      <multiplicity id="111" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <bendpoint x="956" y="407"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="113" name="board"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="115">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="116" name="chanceCards"/>      
+      <multiplicity id="117" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="119" name="currentPlayer"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="121">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="122">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="123" name="instance"/>      
+      <multiplicity id="124" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="126" name="d1"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="129" name="options"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="131">    
+    <bendpoint x="591" y="407"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="132" name="dice"/>      
+      <multiplicity id="133" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="135" name="car"/>      
+      <multiplicity id="136" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="137">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <generalization id="138">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <nesting id="139">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </nesting>  
+  <generalization id="140">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="141">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="142" name="fields"/>      
+      <multiplicity id="143" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="145" name="fieldController"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="148" name="die2"/>      
+      <multiplicity id="149" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="151" name="owner"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="154" name="controlPanel"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="156">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="157" name="playerFields"/>      
+      <multiplicity id="158" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="159">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="31"/>  
+  </nesting>  
+  <generalization id="160">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <generalization id="161">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="162">    
+    <bendpoint x="373" y="407"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="163" name="dice"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="165">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="22"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
