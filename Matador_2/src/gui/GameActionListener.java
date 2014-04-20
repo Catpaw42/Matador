@@ -20,7 +20,7 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	public void buyButtonEvent()
 	{
-	System.out.println("buy button event was pressed");
+		System.out.println("buy button event was pressed");
 	}
 
 	public void mainButtonEvent()
@@ -74,7 +74,7 @@ public class GameActionListener implements KeyEventDispatcher
 		{
 			if (e.getKeyCode() == KeyEvent.VK_ENTER)
 			{
-				
+
 			}
 		}
 		return false;
@@ -91,7 +91,7 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	//Methods to update the GUI after each "main button" event.
 	//--------------------------------------------------------------
-	
+
 	private void updateCars()
 	{
 		Player[] players = GameController.getInstance().getAllPlayers();
@@ -100,10 +100,10 @@ public class GameActionListener implements KeyEventDispatcher
 			gui.removeAllCars(players[i].getName());
 			gui.setCar(players[i].getPosition(), players[i].getName());
 		}
-		
+
 		gui.setCurrentPlayerName(GameController.getInstance().getCurentPlayer().getName());
 	}
-	
+
 	private void updateFields()
 	{
 		Field[] fields = GameController.getInstance().getFields();
@@ -111,9 +111,11 @@ public class GameActionListener implements KeyEventDispatcher
 		{
 			if(fields[i] instanceof Ownable && ((Ownable)fields[i]).getOwner() != null)
 				gui.setFieldOwner(i + 1, ((Ownable) fields[i]).getOwner().getName());
+			if(fields[i] instanceof Ownable)
+				gui.setFieldPrice(i + 1, ((Ownable) fields[i]).getPrice());
 		}
 	}
-	
+
 	private void updatePlayers()
 	{
 		Player[] players = GameController.getInstance().getAllPlayers();
@@ -122,7 +124,7 @@ public class GameActionListener implements KeyEventDispatcher
 			gui.setPlayerMoney(players[i].getName(), players[i].getAccount().getBalance());
 		}
 	}
-	
+
 	private void updateDice(int state)
 	{
 		if(state == GameController.ROLL_STATE)

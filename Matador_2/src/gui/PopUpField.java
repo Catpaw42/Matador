@@ -104,7 +104,7 @@ public class PopUpField extends JFrame
 	protected void setPrice(String price)
 	{
 		this.price = price;
-		this.priceLabel.setText("<html>" + this.priceText + ":" + "<br>" + this.price + "</html>");
+		this.priceLabel.setText("<html>" + "Price" + ":" + "<br>" + this.price + "</html>"); // change from 'this.priceText' to '"Price"'
 	}
 	
 	protected void setPriceText(String priceText)
