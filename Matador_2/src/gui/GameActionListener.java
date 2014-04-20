@@ -20,7 +20,7 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	public void buyButtonEvent()
 	{
-
+	System.out.println("buy button event was pressed");
 	}
 
 	public void mainButtonEvent()
@@ -39,11 +39,15 @@ public class GameActionListener implements KeyEventDispatcher
 		{
 			gui.setMainButtonText("End Turn");
 		}
+		if(GameController.getInstance().getCurrentState() == GameController.GAME_OVER_STATE)
+		{
+			gui.setMainButtonText("Game over " + GameController.getInstance().getWinner().getName() + "has won");
+		}
 	}
 
 	public void sellButtonEvent()
 	{
-
+		System.out.println("Sell button was pressed");
 	}
 
 	public void saveGameEvent()

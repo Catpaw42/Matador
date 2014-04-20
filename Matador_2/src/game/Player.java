@@ -1,7 +1,6 @@
 package game;
 
 import game.fields.Ownable;
-
 import java.awt.Color;
 
 public class Player
@@ -142,4 +141,5 @@ public class Player
 	{
 		this.getOutOfJailCards = getOutOfJailCards;
 	}
+	
 }

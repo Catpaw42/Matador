@@ -3,6 +3,7 @@ package game;
 import game.fields.Field;
 
 
+
 import java.util.LinkedList;
 
 public class GameController
@@ -71,7 +72,7 @@ public class GameController
 
 		if(mainButtonState != GAME_OVER_STATE) 
 		{
-			if(amountNotBroke() == 1) // virker ikke.. Tror ikke vores spillere bliver sat ordenligt broke.
+			if(amountNotBroke() == 1)
 			{
 				mainButtonState = GAME_OVER_STATE;
 			}
@@ -120,6 +121,18 @@ public class GameController
 	public Player getCurentPlayer()
 	{
 		return currentPlayer;
+	}
+	
+	public Player getWinner()
+	{
+		Player[] players = getAllPlayers();
+		int Avalue = 0;
+		for (int i = 0; i <players.length; i++)
+		{
+			if(!players[i].isBroke())
+				Avalue = i;
+		}
+		return players[Avalue];
 	}
 	
 	public Player[] getAllPlayers()
