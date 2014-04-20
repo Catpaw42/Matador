@@ -36,8 +36,6 @@ public class MoveController
 		if (diceCup.isTwoOfAKind()) 
 		{
 			currentPlayer.setTwoOfAKindRollCount(currentPlayer.getTwoOfAKindRollCount() + 1);
-			if(currentPlayer.isInPrisson())
-				currentPlayer.setInPrisson(false);
 		}
 
 		//how many times did he roll two of a kind?
@@ -45,6 +43,7 @@ public class MoveController
 		{
 			currentPlayer.setPlayerPosition(11);
 			currentPlayer.setInPrisson(true);
+			currentPlayer.setTwoOfAKindRollCount(0);
 			return false;
 		}
 
@@ -61,6 +60,7 @@ public class MoveController
 	private void jailOptions(Player currentPlayer)
 	{
 		{
+
 			String[] options1 = { "Roll dices", "Pay 1000kr", "Use Chance Card"};
 
 			int nrOfOptions = 1;
@@ -78,6 +78,38 @@ public class MoveController
 			int choise = -1;
 			String message = "You're in jail. Choose between these " + options.length + " options";
 			while((choise = gui.getUserButtonPressed(options, message, "Jail Options")) == -1);
+
+			if (choise == 0 ) 
+			{
+				diceCup.rollDice();
+				currentPlayer.setPrisonTurnCount(currentPlayer.getPrisonTurnCount() + 1);
+
+				if (diceCup.isTwoOfAKind()) 
+				{
+					currentPlayer.setInPrisson(false);
+				}
+
+				if (currentPlayer.getPrisonTurnCount() == 3) {
+					currentPlayer.setPrisonTurnCount(0);
+
+					try
+					{
+						currentPlayer.getAccount().withdraw(1000);
+						currentPlayer.setInPrisson(false);
+					} 
+					catch (InsufficientFundsException e)
+					{
+						//should not be possible
+					} 
+					catch (IllegalAmountException e)
+					{
+						System.err.println(e.getMessage());
+						e.printStackTrace();
+						System.exit(0);
+					}
+				}
+
+			}
 
 			if (choise == 1)
 			{
