@@ -57,6 +57,18 @@ public class FieldController
 	{
 		ChanceCard chanceCard = board.getChanceCard();
 
+		String[] options1 = { "Proceed game"};
+
+		int nrOfOptions = 1;
+		String[] options = new String[nrOfOptions];
+		for (int i = 0; i < options.length; i++)
+		{
+			options[i] = options1[i];
+		}
+
+		String message = chanceCard.getCardName();
+		while((gui.getUserButtonPressed(options, message, "You draw a chance card")) == -1);
+
 		// Controller for chance cards that sends player to jail.
 		if(chanceCard instanceof GoToJailCard)
 		{
@@ -211,11 +223,12 @@ public class FieldController
 						System.exit(0);
 					}
 				}
-				else
-				{
-					p.setPlayerPosition(chanceCard.getMoveAmount());
-				}
 			}
+			else
+			{
+				p.setPlayerPosition(chanceCard.getMoveAmount());
+			}
+
 		}
 		return false;
 	}
@@ -253,6 +266,8 @@ public class FieldController
 					}
 				}
 			}
+		}
+		else {
 			// All other MoneyGift Chancecards
 			try
 			{
@@ -263,6 +278,7 @@ public class FieldController
 				e.printStackTrace();
 			}
 		}
+
 	}
 
 	private boolean ownableHandler(Player p, int nr)
