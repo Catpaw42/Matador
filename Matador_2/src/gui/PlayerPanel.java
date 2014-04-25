@@ -12,7 +12,7 @@ public class PlayerPanel extends JPanel
 {
 	protected CarLabel car;
 	protected JLabel textLabel;
-	private String name;
+	protected String name;
 	private String money;
 	
 	public PlayerPanel()

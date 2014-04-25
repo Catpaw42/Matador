@@ -139,11 +139,13 @@ public class GameController
 	{
 		Player[] players = new Player[this.playerQueue.size() + 1];
 	
+		players[0] = currentPlayer;
+		
 		for (int i = 0; i < this.playerQueue.size(); i++)
 		{
-			players[i] = playerQueue.get(i);
+			players[i+1] = playerQueue.get(i);
 		}
-		players[this.playerQueue.size()] = currentPlayer;
+		
 		
 		return players;
 	}

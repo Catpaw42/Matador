@@ -72,12 +72,7 @@ public class GUI
 	
 	public void setPlayerMoney(String playerName, int amount)
 	{
-		Player[] players = GameController.getInstance().getAllPlayers();
-		for (int i = 0; i < players.length; i++)
-		{
-			if(players[i].getName().equals(playerName))
-				GameGUI.getInstance().setPlayerMoney(i, amount);
-		}	
+		GameGUI.getInstance().setPlayerMoney(playerName, amount);		
 	}
 	
 	/**

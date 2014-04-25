@@ -151,7 +151,7 @@ public class GameGUI extends JFrame
 		this.boardPanel.setDisplayedText(text);
 	}
 	
-	protected void setPlayerMoney(int player, int amount)
+	protected void setPlayerMoney(String player, int amount)
 	{
 		this.boardPanel.setPlayerMoney(player, amount);
 	}
