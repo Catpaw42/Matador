@@ -112,6 +112,11 @@ public class BoardPanel extends JPanel
 		this.displayTextLabel.setText("<html>" + text + "</html>");
 	}
 
+	protected void setFieldPicture(String pic, int fieldNr)
+	{
+		fields[fieldNr - 1].setPicture(pic);
+	}
+	
 	protected void setSubtext(String subText, int fieldNr)
 	{
 		fields[fieldNr - 1].subTextLabel.setText(subText);

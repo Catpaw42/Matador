@@ -33,7 +33,6 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	private JLayeredPane layered;
 	private CarLabel carLabels[];
 
-	@SuppressWarnings("static-access")
 	private FieldPanel(Builder b) 
 	{
 		this.fieldNumber = Builder.fieldNumber; //store and increment the field-number
@@ -86,6 +85,13 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 		//Create a pop-up field associated with this field
 		popUpField = new PopUpField(this);
 		popUpField.setAlwaysOnTop(true);
+	}
+	
+	protected void setPicture(String pic)
+	{
+		this.picture = ImageFactory.CreateImage(pic);
+		this.pictureLabel.setIcon(new ImageIcon(this.picture));
+		this.popUpField.setPicture(pic);
 	}
 
 	protected void setCar(int cartype, int carNr, Color c)

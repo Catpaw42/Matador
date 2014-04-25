@@ -1,6 +1,7 @@
 package dbacces;
 
 import game.GameController;
+import game.GameData;
 import game.Player;
 import game.fields.Field;
 import game.fields.Ownable;
@@ -27,7 +28,7 @@ public class DBCommunication
 													  +p.getGetOutOfJailCards()+",'"
 													  +p.getCarColour()+"',"
 													  +p.getCarType()+","
-													  +/*get turn*/")";
+													  + i +")";
 			try
 			{
 				da.executeUpdate(sql);
@@ -67,32 +68,49 @@ public class DBCommunication
 		}
 	}
 
-	public static void loadGame()
+	public static GameData loadGame()
 	{
+		//create new Gamedata, object.
 		
+		//get player data from DB
+		
+		//load into gamedata
+		
+		//get fields from DB
+		
+		//load into gamedata
+		
+		//return gamedata for use in setup.
+		return null;
 	}
-	
+
 	public void collectFromPlayer()
 	{
 		DataAccess da = new DataAccess();
 
 		String query = "SELECT * FROM player";
-		try {
+		try
+		{
 			da.executeQuery(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		}
+		catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 	}
+
 	public void collectFromFields()
 	{
 		DataAccess da = new DataAccess();
 
 		String query = "SELECT FROM fields WHERE field_owner ARE NOT NULL";
 
-		try{
+		try
+		{
 			da.executeQuery(query);
-		}catch (SQLException e){
+		}
+		catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 	}

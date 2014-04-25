@@ -42,10 +42,12 @@ public class ControlPanel extends JPanel
 		scrollPane.setBounds(this.getWidth() * 2 / 20, this.getHeight() * 2 / 20, this.getWidth() * 16 / 20, this.getHeight() * 9 / 20);
 
 		//add buttons to this panel
-		buttons = new JButton[3];
+		buttons = new JButton[5];
 		buttons[0] = new JButton("START"); //main button
-		buttons[1] = new JButton("<html><u>B</u>uy</html>"); //Buy
-		buttons[2] = new JButton("<html><u>S</u>ell</html>");//Sell
+		buttons[1] = new JButton("Buy House"); //Buy house
+		buttons[2] = new JButton("Sell House");//Sell house
+		buttons[3] = new JButton("Save Game");//Sell house
+		buttons[4] = new JButton("Trade");//Sell house
 
 		//add actionlistners to all the buttons
 		for (int i = 0; i < buttons.length; i++)
@@ -63,11 +65,19 @@ public class ControlPanel extends JPanel
 					}
 					else if (e.getSource().equals(buttons[1]))
 					{
-						g.buyButtonEvent();
+						g.buyHouseButtonEvent();
 					}
 					else if (e.getSource().equals(buttons[2]))
 					{
-						g.sellButtonEvent();
+						g.sellHouseButtonEvent();
+					}
+					else if (e.getSource().equals(buttons[3]))
+					{
+						g.saveGameButtonEvent();
+					}
+					else if (e.getSource().equals(buttons[4]))
+					{
+						g.tradeButtonEvent();
 					}
 				}
 			});

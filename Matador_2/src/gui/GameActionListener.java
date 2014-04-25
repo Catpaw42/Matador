@@ -1,12 +1,15 @@
 package gui;
 
+import game.Board;
 import game.GameController;
 import game.Player;
 import game.fields.Field;
 import game.fields.Ownable;
+import game.fields.Street;
 
 import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
+import java.util.LinkedList;
 
 import dbacces.DBCommunication;
 
@@ -18,9 +21,74 @@ public class GameActionListener implements KeyEventDispatcher
 	//--------------------------------------------------------------
 	//Methods to handle Action events
 	//--------------------------------------------------------------
-	public void buyButtonEvent()
+	public void buyHouseButtonEvent()
 	{
-		System.out.println("buy button event was pressed");
+		Ownable[] fields = Board.getFieldsByPlayer(GameController.getInstance().getCurentPlayer());
+		
+		LinkedList<Street> buildableStreets = new LinkedList<Street>();
+		for (int i = 0; i < fields.length; i++)
+		{
+			if(fields[i] instanceof Street)
+			{
+				if(((Street)fields[i]).getSeriesMultiplier() == 2);
+					buildableStreets.add((Street)fields[i]);
+			}
+		}
+		if(buildableStreets.size() > 0)
+		{
+			String[] options = new String[buildableStreets.size()];
+			for (int i = 0; i < buildableStreets.size(); i++)
+			{
+				options[i] = buildableStreets.get(i).getName();
+			}
+			
+			String choise = gui.getUserSelection(options, "What field would you like to build a house on?", "Buy House");
+			
+			for (int i = 0; i < buildableStreets.size(); i++)
+			{
+				if(buildableStreets.get(i).getName().equals(choise))
+				{
+					try
+					{
+						//withdraw cash
+						
+						buildableStreets.get(i).setHouses(buildableStreets.get(i).getHouses() + 1);
+					}
+					catch (Exception e)
+					{
+						//print not enough money
+					}
+					
+					//update the GUI
+					switch(buildableStreets.get(i).getHouses())
+					{
+					case 0:
+						break;
+					case 1:
+						gui.setFieldPicture(buildableStreets.get(i).getFieldNumber(), FieldPanel.Builder.HOUSE1);
+						break;
+
+					case 2:
+						gui.setFieldPicture(buildableStreets.get(i).getFieldNumber(), FieldPanel.Builder.HOUSE2);
+						break;
+
+					case 3:
+						gui.setFieldPicture(buildableStreets.get(i).getFieldNumber(), FieldPanel.Builder.HOUSE3);
+						break;
+
+					case 4:
+						gui.setFieldPicture(buildableStreets.get(i).getFieldNumber(), FieldPanel.Builder.HOUSE4);
+						break;
+
+					case 5:
+						gui.setFieldPicture(buildableStreets.get(i).getFieldNumber(), FieldPanel.Builder.HOTEL);
+						break;
+					}
+				}
+			}
+		}
+		else
+			gui.appendTextToTextArea("You cant build any houses");
 	}
 
 	public void mainButtonEvent()
@@ -45,7 +113,7 @@ public class GameActionListener implements KeyEventDispatcher
 		}
 	}
 
-	public void sellButtonEvent()
+	public void sellHouseButtonEvent()
 	{
 		System.out.println("Sell button was pressed");
 	}
@@ -59,6 +127,18 @@ public class GameActionListener implements KeyEventDispatcher
 	public void loadGameEvent()
 	{
 		System.out.println("Load game event");
+	}
+	
+	public void tradeButtonEvent()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void saveGameButtonEvent()
+	{
+		// TODO Auto-generated method stub
+		
 	}
 
 	//--------------------------------------------------------------

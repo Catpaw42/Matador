@@ -58,7 +58,7 @@ public class Street extends Ownable
 	 * Returns a multiplier 1 or 2 depending on how many fields of a color a player owns.
 	 * @return 2 if the player owns all fields in this color, 1 otherwise.
 	 */
-	private int getSeriesMultiplier()
+	public int getSeriesMultiplier()
 	{
 		int count = 0;
 		Field[] ownersFields = Board.getFieldsByPlayer(this.getOwner());

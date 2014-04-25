@@ -141,6 +141,11 @@ public class GameGUI extends JFrame
 	//----------------------------------------------------------------------------------------------------------------------------
 	// interface to the rest of the GUI
 	//----------------------------------------------------------------------------------------------------------------------------
+	protected void setFieldPicture(String pic, int fieldNr)
+	{
+		this.boardPanel.setFieldPicture(pic, fieldNr);
+	}
+	
 	protected void setDisplayedText(String text)
 	{
 		this.boardPanel.setDisplayedText(text);

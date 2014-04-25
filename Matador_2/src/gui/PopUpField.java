@@ -3,6 +3,8 @@ package gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -90,6 +92,24 @@ public class PopUpField extends JFrame
 		this.setVisible(false);
 	}
 	
+	protected void setPicture(String pic)
+	{
+		final BufferedImage picture = ImageFactory.CreateImage(pic);
+		this.pictureLabel = new JLabel()
+		{
+			@Override
+			public void paintComponent(Graphics g)
+			{
+				super.paintComponent(g);
+				if (picture != null)
+				{
+					g.drawImage(picture, 0, 0, picture.getWidth() * 2, picture.getHeight() * 2, null);
+				}
+			}
+		};
+		pictureLabel.setBounds((this.getWidth() * 1 / 2) - (picture.getWidth()), this.getHeight() * 5 / 20, picture.getWidth() * 2, picture.getHeight() * 2);
+		backgroundPanel.add(pictureLabel);
+	}
 	
 	protected void setTitleText(String text)
 	{
@@ -117,7 +137,5 @@ public class PopUpField extends JFrame
 	{
 		text = text.replaceAll("\n", "<br>");
 		this.desciptionLabel.setText("<html>" + text + "</html>");
-	}
-	
-	
+	}	
 }

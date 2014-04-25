@@ -252,6 +252,16 @@ public class GUI
 	}
 
 	/**
+	 * Sets the picture of a given field
+	 * @param fieldNumber the integer specifying the field
+	 * @param pictureName The string specifying the picture (available statically via FieldPanel.Builder) 
+	 */
+	public void setFieldPicture(int fieldNumber, String picturename)
+	{
+		GameGUI.getInstance().setFieldPicture(picturename, fieldNumber);
+	}
+	
+	/**
 	 * Sets the owner of a given field
 	 * @param fieldNumber the integer specifying the field
 	 * @param owner The string specifying the new owners name
