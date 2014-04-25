@@ -13,25 +13,26 @@ public class DBCommunication
 {
 	public static void saveGame()
 	{
-		DataAccess da = new DataAccess();
+		DBAccess dba = new DBAccess();
 
 		//Save player data to the database
 		Player[] players = GameController.getInstance().getAllPlayers();
 		for (int i = 0; i < players.length; i++)
-		{
-			Player p = players[i];
-			String sql = "INSERT INTO player VALUES ("+p.getid()+",'"
-													  +p.getName()+"',"
-													  +p.getPosition()+","
-													  +p.getAccount()+","
-													  +p.getPrisonTurnCount()+","
-													  +p.getGetOutOfJailCards()+",'"
-													  +p.getCarColour()+"',"
-													  +p.getCarType()+","
-													  + i +")";
+		{	
 			try
 			{
-				da.executeUpdate(sql);
+				dba.insertPlayers(players[i].getName(),
+						players[i].getPosition(),
+						players[i].getAccount().getBalance(),
+						players[i].getPrisonTurnCount(),
+						players[i].getGetOutOfJailCards(),
+						players[i].getCarColour().getRGB(),
+						players[i].getCarType(),
+						i);
+			}
+			catch (ClassNotFoundException e)
+			{
+				e.printStackTrace();
 			}
 			catch (SQLException e)
 			{
@@ -47,7 +48,7 @@ public class DBCommunication
 				String sql = "UPDATE fields WHERE field_number="+ j+1 + " (field_owner) VALUES ("+((Ownable)fields[j]).getOwner()+" )";
 				try 
 				{
-					da.executeUpdate(sql);
+					
 				} catch (SQLException e)
 				{
 					e.printStackTrace();
@@ -58,7 +59,7 @@ public class DBCommunication
 				String sql = "UPDATE fields WHERE field_number="+ j+1 + " (number_of_houses) VALUES ("+((Street)fields[j]).getHouses()+" )";
 				try 
 				{
-					da.executeUpdate(sql);
+					
 				}
 				catch (SQLException e)
 				{
@@ -70,34 +71,39 @@ public class DBCommunication
 
 	public static GameData loadGame()
 	{
-		//create new Gamedata, object.
-		
-		//get player data from DB
-		
-		//load into gamedata
-		
-		//get fields from DB
-		
-		//load into gamedata
-		
-		//return gamedata for use in setup.
-		return null;
-	}
-
-	public void collectFromPlayer()
-	{
 		DataAccess da = new DataAccess();
 
-		String query = "SELECT * FROM player";
+		//create new Gamedata, object.
+		GameData data = new GameData();
+
+		//get player data from DB
+		String sql = "SELECT * FROM players";
+		Object[][] sqlPlayerData = null;
 		try
 		{
-			da.executeQuery(query);
+			sqlPlayerData = da.executeQuery(sql);
 		}
 		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
+
+		//load into gamedata
+		Player[] players = new Player[sqlPlayerData.length];
+		for (int i = 0; i < players.length; i++)
+		{
+
+			players[i] = new Player((String)sqlPlayerData[i][1], carColor, carType)
+		}
+
+		//get fields from DB
+
+		//load into gamedata
+
+		//return gamedata for use in setup.
+		return data;
 	}
+
 
 	public void collectFromFields()
 	{

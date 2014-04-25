@@ -5,7 +5,6 @@ import java.awt.Color;
 
 public class Player
 {
-	private int id;
 	private String name;
 	private Color carColor;
 	private int carType;
@@ -23,11 +22,6 @@ public class Player
 		this.carColor = carColor;
 		this.carType = carType;
 		
-	}
-
-	public int getid()
-	{
-		return id;
 	}
 	
 	public String getName()
