@@ -126,7 +126,7 @@ public class FieldController
 			}
 			else
 			{
-				// Card number == 27
+				// Card number == 25
 				try {
 					p.getAccount().withdraw(calculateTotalFine(p,500,2000));
 				} catch (InsufficientFundsException e) {
@@ -226,6 +226,17 @@ public class FieldController
 			}
 			else
 			{
+				if(p.getPosition() > chanceCard.getMoveAmount() && chanceCard.getCardNumber() != 2 & chanceCard.getCardNumber() != 24)
+				{
+					try
+					{
+						p.getAccount().deposit(4000);
+					}
+					catch (IllegalAmountException e) 
+					{
+						e.printStackTrace();
+					}
+				}
 				p.setPlayerPosition(chanceCard.getMoveAmount());
 			}
 
@@ -249,7 +260,7 @@ public class FieldController
 			}
 			else
 			{
-				// Card number == 27
+				// Card number == 27 (matador-legat)
 				if(p.getAccount().getBalance() > 15000)
 				{
 					// do nothing
