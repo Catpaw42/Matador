@@ -90,7 +90,7 @@ public class FieldPanel extends JPanel implements MouseMotionListener , MouseLis
 	protected void setPicture(String pic)
 	{
 		this.picture = ImageFactory.CreateImage(pic);
-		this.pictureLabel.setIcon(new ImageIcon(this.picture));
+		this.pictureLabel = new JLabel(new ImageIcon(this.picture));
 		this.popUpField.setPicture(pic);
 	}
 
