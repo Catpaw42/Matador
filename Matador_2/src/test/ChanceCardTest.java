@@ -1,6 +1,9 @@
-package game;
+package test;
 
-import static org.junit.Assert.fail;
+import game.Board;
+import game.FieldController;
+import game.GameData;
+import game.Player;
 import game.chance_cards.ChanceCard;
 import game.fields.Chance;
 import game.fields.Field;
