@@ -295,6 +295,11 @@ public class GUI
 	{
 		GameGUI.getInstance().setPrice(price, fieldNumber);
 	}
+	
+	protected void setFieldRent(int fieldNumber, String rent)
+	{
+		GameGUI.getInstance().setRent(rent, fieldNumber);
+	}
 
 	/**
 	 * Sets the price of a given field
@@ -304,6 +309,11 @@ public class GUI
 	protected void setFieldPrice(int fieldNumber, int price)
 	{
 		GameGUI.getInstance().setPrice("" + price, fieldNumber);
+	}
+	
+	protected void setFieldRent(int fieldNumber, int rent)
+	{
+		GameGUI.getInstance().setRent("" + rent, fieldNumber);
 	}
 
 	/**

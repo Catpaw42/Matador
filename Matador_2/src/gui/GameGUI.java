@@ -196,6 +196,11 @@ public class GameGUI extends JFrame
 		this.boardPanel.setPrice(price, fieldNr);
 	}
 	
+	protected void setRent(String rent, int fieldNr)
+	{
+		this.boardPanel.setRent(rent, fieldNr);
+	}
+	
 	protected void setPriceText(String priceText, int fieldNr)
 	{
 		this.boardPanel.setPriceText(priceText, fieldNr);

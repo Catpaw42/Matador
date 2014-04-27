@@ -2,7 +2,6 @@ package game;
 
 import game.fields.Field;
 import gui.GUI;
-
 import java.util.LinkedList;
 
 public class GameController
@@ -91,6 +90,7 @@ public class GameController
 			
 				String message = getCurentPlayer().getName() + ", you have lost";
 				while((gui.getUserButtonPressed(options, message, "You have lost the game")) == -1);
+				
 			}
 			
 			if (mainButtonState == ROLL_STATE)
@@ -132,7 +132,6 @@ public class GameController
 
 		String message = getCurentPlayer().getName() + ", you have won! Contragratulations";
 		while((gui.getUserButtonPressed(options, message, "You have won the game")) == -1);
-		System.out.println("TEST WIN PRINT");
 		}
 	}
 

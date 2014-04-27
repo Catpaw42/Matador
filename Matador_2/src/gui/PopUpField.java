@@ -21,8 +21,10 @@ public class PopUpField extends JFrame
 	private JLabel fieldNumberLabel;
 	private JLabel ownerLabel;
 	private JLabel priceLabel;
+	private JLabel rentLabel;
 	private String priceText;
 	private String price;
+	private String rent;
 	
 	protected PopUpField(final FieldPanel fp)
 	{
@@ -62,14 +64,20 @@ public class PopUpField extends JFrame
 		//add an ownerLabel
 		ownerLabel = new JLabel();
 		ownerLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		ownerLabel.setBounds(0, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
+		ownerLabel.setBounds(0, this.getHeight() * 6/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
 		backgroundPanel.add(ownerLabel);
 		
 		//add a priceLabel
 		priceLabel = new JLabel();
 		priceLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		priceLabel.setBounds(this.getWidth() * 14/20, this.getHeight() * 10/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
+		priceLabel.setBounds(this.getWidth() * 14/20, this.getHeight() * 6/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
 		backgroundPanel.add(priceLabel);
+		
+		//add a rentLabel
+		rentLabel = new JLabel();
+		rentLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		rentLabel.setBounds(0, this.getHeight() * 12/20, this.getWidth() * 6/20, this.getHeight() * 4 / 20);
+		backgroundPanel.add(rentLabel);
 
 		//if there's a picture on the associated field, add it here using a custom JLabel to scale it up
 		if(fp.picture != null)
@@ -125,6 +133,12 @@ public class PopUpField extends JFrame
 	{
 		this.price = price;
 		this.priceLabel.setText("<html>" + "Price" + ":" + "<br>" + this.price + "</html>"); // change from 'this.priceText' to '"Price"'
+	}
+	
+	protected void setRent(String rent)
+	{
+		this.rent = rent;
+		this.rentLabel.setText("<html>" + "Rent" + ":" + "<br>" + this.rent + "</html>");
 	}
 	
 	protected void setPriceText(String priceText)

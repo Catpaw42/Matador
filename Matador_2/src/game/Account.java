@@ -2,7 +2,7 @@ package game;
 
 public class Account {
 	private int balance;
-	private final static int DEFAULT_START_BALANCE = 30000;
+	private final static int DEFAULT_START_BALANCE = 5000;
 
 	public Account()
 	{

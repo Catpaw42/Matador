@@ -131,6 +131,11 @@ public class BoardPanel extends JPanel
 	{
 		fields[fieldNr - 1].popUpField.setPrice(price);
 	}
+	
+	protected void setRent(String rent, int fieldNr)
+	{
+		fields[fieldNr - 1].popUpField.setRent(rent);
+	}
 
 	protected void setPriceText(String priceText, int fieldNr)
 	{
