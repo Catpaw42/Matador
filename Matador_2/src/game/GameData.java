@@ -17,7 +17,6 @@ import game.fields.Tax;
 
 public class GameData
 {
-	private int startingCapital;
 	private Player[] players;
 	private Field[] fields;
 	private ChanceCard[] cards;
@@ -53,7 +52,6 @@ public class GameData
 
 	public GameData()
 	{
-		this.startingCapital = 30000;
 		this.players = null;
 		this.fields = generateStandardFieldList();
 		this.cards = generateStandartCardList();
@@ -180,16 +178,6 @@ public class GameData
 	public void setFields(Field[] fields)
 	{
 		this.fields = fields;
-	}
-
-	public int getStartingCapital()
-	{
-		return startingCapital;
-	}
-
-	public void setStartingCapital(int startingCapital)
-	{
-		this.startingCapital = startingCapital;
 	}
 
 	public Player[] getPlayers()

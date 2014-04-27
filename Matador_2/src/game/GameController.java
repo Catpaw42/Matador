@@ -1,8 +1,7 @@
 package game;
 
 import game.fields.Field;
-
-
+import gui.GUI;
 
 import java.util.LinkedList;
 
@@ -43,21 +42,22 @@ public class GameController
 	public static final int END_TURN_STATE = 1;
 	public static final int GAME_OVER_STATE = 2;
 	private int mainButtonState = 0;
-	
+
 	private DiceCup dice;
 	private Board board;
 	private Player currentPlayer;
 	private MoveController moveController;
 	private FieldController fieldController;
 	private LinkedList<Player> playerQueue;
-
+	private GUI gui = new GUI();
+	
 	private GameController(GameData data)
 	{
 		this.dice = data.getDice();
 		this.board = new Board(data.getFields(), data.getCards());
 		this.moveController = new MoveController(data.getDice());
 		this.fieldController = new FieldController(board);
-		
+
 		this.playerQueue = new LinkedList<Player>();
 		for (int i = 0; i < data.getPlayers().length; i++)
 		{
@@ -77,13 +77,29 @@ public class GameController
 				mainButtonState = GAME_OVER_STATE;
 			}
 			
+			if(currentPlayer.isBroke())
+			{
+				// Prints when a player looses
+				String[] options1 = { "Deal with it."};
+
+				int nrOfOptions = 1;
+				String[] options = new String[nrOfOptions];
+				for (int i = 0; i < options.length; i++)
+				{
+					options[i] = options1[i];
+				}
+			
+				String message = getCurentPlayer().getName() + ", you have lost";
+				while((gui.getUserButtonPressed(options, message, "You have lost the game")) == -1);
+			}
+			
 			if (mainButtonState == ROLL_STATE)
 			{
 				boolean playerBroke = moveController.playerTurn(currentPlayer);
-				
+
 				if(!playerBroke)
 					playerBroke = fieldController.LandOnField(currentPlayer, currentPlayer.getPosition());
-				
+
 				currentPlayer.setBroke(playerBroke);
 
 				if(!dice.isTwoOfAKind() || currentPlayer.isBroke() || currentPlayer.isInPrisson())
@@ -103,9 +119,23 @@ public class GameController
 				mainButtonState = ROLL_STATE;
 			}
 		}
-		// slut spillet her	
+		if(mainButtonState == GAME_OVER_STATE){
+		// You have won message.
+		String[] options1 = { "Proceed"};
+
+		int nrOfOptions = 1;
+		String[] options = new String[nrOfOptions];
+		for (int i = 0; i < options.length; i++)
+		{
+			options[i] = options1[i];
+		}
+
+		String message = getCurentPlayer().getName() + ", you have won! Contragratulations";
+		while((gui.getUserButtonPressed(options, message, "You have won the game")) == -1);
+		System.out.println("TEST WIN PRINT");
+		}
 	}
-	
+
 	private int amountNotBroke()
 	{
 		int sum = 0;
@@ -117,12 +147,12 @@ public class GameController
 		}
 		return sum;
 	}
-	
+
 	public Player getCurentPlayer()
 	{
 		return currentPlayer;
 	}
-	
+
 	public Player getWinner()
 	{
 		Player[] players = getAllPlayers();
@@ -134,32 +164,32 @@ public class GameController
 		}
 		return players[Avalue];
 	}
-	
+
 	public Player[] getAllPlayers()
 	{
 		Player[] players = new Player[this.playerQueue.size() + 1];
-	
+
 		players[0] = currentPlayer;
-		
+
 		for (int i = 0; i < this.playerQueue.size(); i++)
 		{
 			players[i+1] = playerQueue.get(i);
 		}
-		
-		
+
+
 		return players;
 	}
-	
+
 	public int getCurrentState()
 	{
 		return mainButtonState;
 	}
-	
+
 	public DiceCup getDiceCup()
 	{
 		return this.dice;
 	}
-	
+
 	public Field[] getFields()
 	{
 		return this.board.getAllFields();

@@ -61,6 +61,7 @@ public class ChanceCardTest {
 	new Chance(42, "TestChancecard"),
 	};
 	GameData gamedata = new GameData();
+	
 	Board board = new Board(Testfield, gamedata.getCards());
 	FieldController fieldcontroller = new FieldController(board);
 	
