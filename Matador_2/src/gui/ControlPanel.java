@@ -83,9 +83,11 @@ public class ControlPanel extends JPanel
 			});
 					this.add(buttons[i]);
 		}
-		buttons[0].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 17 / 20, this.getWidth() * 16 / 20, this.getHeight() * 2 / 20);
+		buttons[0].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 34 / 40, this.getWidth() * 16 / 20, this.getHeight() * 2 / 20);
 		buttons[1].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
 		buttons[2].setBounds(this.getWidth() * 11 / 20, this.getHeight() * 31 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
+		buttons[3].setBounds(this.getWidth() * 2 / 20, this.getHeight() * 28 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
+		buttons[4].setBounds(this.getWidth() * 11 / 20, this.getHeight() * 28 / 40, this.getWidth() * 7 / 20, this.getHeight() * 1 / 20);
 	}
 	
 	protected void setNameLabelText(String text)

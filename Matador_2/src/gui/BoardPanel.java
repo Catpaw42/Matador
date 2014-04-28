@@ -25,7 +25,7 @@ public class BoardPanel extends JPanel
 	{
 		//manage this panel
 		this.setLayout(null);
-		this.setSize(825, 682);
+		this.setSize(859, 694);
 		this.setBackground(Color.GREEN);
 
 		//create the dice

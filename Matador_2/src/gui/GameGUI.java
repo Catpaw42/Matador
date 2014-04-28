@@ -23,10 +23,7 @@ public class GameGUI extends JFrame
 	private ControlPanel controlPanel;
 	private BoardPanel boardPanel;
 	private JPanel backgroundPanel;
-	private JMenuBar menuBar;
-	private JMenu[] menu;
-	private JMenuItem[] menuItems;
-
+	
 	//-----------------------------------------------------
 	//Singleton design pattern
 	//-----------------------------------------------------
@@ -62,7 +59,7 @@ public class GameGUI extends JFrame
 	{
 		// manage the frame
 		this.setTitle("Matador");
-		this.setPreferredSize(new Dimension(1244, 733));
+		this.setPreferredSize(new Dimension(1294, 720));
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
 		//add a windowlistener to manages what happens when the frame is closed.
@@ -80,43 +77,7 @@ public class GameGUI extends JFrame
 
 		this.setResizable(false);
 		this.pack(); //pack here, so that .setBounds() works with the right size.
-		
-		//manage the menu
-		ActionListener listener = new ActionListener()
-		{
-			
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				if(e.getSource().equals(menuItems[0]))
-				{
-					new GameActionListener().saveGameEvent();
-				}
-				else if (e.getSource().equals(menuItems[1]))
-				{
-					new GameActionListener().loadGameEvent();
-				}
 				
-			}
-		};
-		menuItems = new JMenuItem[3];
-		menuItems[0] = new JMenuItem("Save Game", KeyEvent.VK_S);
-		menuItems[0].setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-		menuItems[0].addActionListener(listener);
-		menuItems[1] = new JMenuItem("Load Game", KeyEvent.VK_L);
-		menuItems[1].setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
-		menuItems[1].addActionListener(listener);
-		
-		menu = new JMenu[1];
-		menu[0] = new JMenu("Save/Load");
-		menu[0].setMnemonic(KeyEvent.VK_S);
-		menu[0].add(menuItems[0]);
-		menu[0].add(menuItems[1]);
-
-		menuBar = new JMenuBar();
-		menuBar.add(menu[0]);
-		this.setJMenuBar(menuBar);
-		
 		//manage the board
 		boardPanel = new BoardPanel(fields);
 		boardPanel.setBounds(0, 0, (int) (this.getContentPane().getWidth() * 4.0 / 6.0), this.getContentPane().getHeight());
