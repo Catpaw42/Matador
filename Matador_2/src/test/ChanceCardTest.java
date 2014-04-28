@@ -66,7 +66,7 @@ public class ChanceCardTest {
 	FieldController fieldcontroller = new FieldController(board);
 	
 	@Test
-	public void ChanceCardTest() 
+	public void chanceCardTest() 
 	{
 	for (int i = 0; i < gamedata.getCards().length; i++) {
 	ChanceCard chanceCard = board.getChanceCard();
