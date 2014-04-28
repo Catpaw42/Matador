@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import dbacces.DBCommunication;
+
 @SuppressWarnings("serial")
 public class StartMenuDialog extends JDialog implements ActionListener
 {
@@ -83,8 +85,8 @@ public class StartMenuDialog extends JDialog implements ActionListener
 		//load game button
 		else if(e.getSource() == buttons[1])
 		{
-			//for later, when we get to the sql work
-			//			showLoadGameMenu();
+			this.options = DBCommunication.loadGame();
+			this.setVisible(false);
 		}
 		//options button
 		else if(e.getSource() == buttons[2])

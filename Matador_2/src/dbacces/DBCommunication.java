@@ -14,25 +14,25 @@ public class DBCommunication
 	public static void saveGame()
 	{
 		DBAccess dba = new DBAccess();
-
+		
+		//Clear the database.
+		try
+		{
+			dba.resetPlayers();
+			dba.resetFields();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
 		//Save player data to the database
 		Player[] players = GameController.getInstance().getAllPlayers();
 		for (int i = 0; i < players.length; i++)
 		{	
 			try
 			{
-				dba.insertPlayers(players[i].getName(),
-						players[i].getPosition(),
-						players[i].getAccount().getBalance(),
-						players[i].getPrisonTurnCount(),
-						players[i].getGetOutOfJailCards(),
-						players[i].getCarColour().getRGB(),
-						players[i].getCarType(),
-						i);
-			}
-			catch (ClassNotFoundException e)
-			{
-				e.printStackTrace();
+				dba.insertPlayer(players[i],i);
 			}
 			catch (SQLException e)
 			{
@@ -40,26 +40,26 @@ public class DBCommunication
 			}
 		}
 
+		//save field data to the database
 		Field[] fields = GameController.getInstance().getFields();
 		for (int j = 0; j < fields.length ; j++)
 		{
 			if(fields[j] instanceof Ownable && ((Ownable)fields[j]).getOwner() != null)
 			{
-				String sql = "UPDATE fields WHERE field_number="+ j+1 + " (field_owner) VALUES ("+((Ownable)fields[j]).getOwner()+" )";
 				try 
 				{
-					
-				} catch (SQLException e)
+					dba.updateFieldOwner(((Ownable) fields[j]).getOwner().getName(), fields[j].getFieldNumber());
+				} 
+				catch (SQLException e)
 				{
 					e.printStackTrace();
 				}
 			}
 			if(fields[j] instanceof Street && ((Street)fields[j]).getHouses() != 0)
 			{
-				String sql = "UPDATE fields WHERE field_number="+ j+1 + " (number_of_houses) VALUES ("+((Street)fields[j]).getHouses()+" )";
 				try 
 				{
-					
+					dba.updateNumberOfHouses(((Street) fields[j]).getHouses(), fields[j].getFieldNumber());
 				}
 				catch (SQLException e)
 				{
@@ -71,36 +71,48 @@ public class DBCommunication
 
 	public static GameData loadGame()
 	{
-		DataAccess da = new DataAccess();
+		DBAccess dba = new DBAccess();
 
 		//create new Gamedata, object.
 		GameData data = new GameData();
 
-		//get player data from DB
-		String sql = "SELECT * FROM players";
-		Object[][] sqlPlayerData = null;
+		//get player data from DB and load them into Gamedata.
 		try
 		{
-			sqlPlayerData = da.executeQuery(sql);
+			Player[] players = dba.getAllPlayers();
+			Object[][] fieldChanges = dba.getFieldChanges();
+			Field[] fields = data.getFields();
+			
+			//for each of the changed fields
+			for (int i = 0; i < fieldChanges.length; i++)
+			{
+				//find the coresponding fieldnumber in the field list
+				for (int j = 0; j < fields.length; j++)
+				{
+					if(fields[j].getFieldNumber() == (int)fieldChanges[i][0] && fields[j] instanceof Ownable)
+					{
+						//find the matching player, and set him as the owner
+						for (int k = 0; k < players.length; k++)
+						{
+							if(players[k].getName().equals((String)fieldChanges[i][1]))
+								((Ownable)fields[j]).setOwner(players[k]);
+						}
+						//if in addition the field is a street, update the number of houses.
+						if(fields[j] instanceof Street)
+							((Street)fields[j]).setHouses((int)fieldChanges[i][2]);
+					}
+				}
+			}
+			
+			data.setPlayers(players);
+			data.setFields(fields);
 		}
 		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
 
-		//load into gamedata
-		Player[] players = new Player[sqlPlayerData.length];
-		for (int i = 0; i < players.length; i++)
-		{
-
-			players[i] = new Player((String)sqlPlayerData[i][1], carColor, carType)
-		}
-
-		//get fields from DB
-
-		//load into gamedata
-
-		//return gamedata for use in setup.
+		//return gamedata with the new playerlist + updated field list
 		return data;
 	}
 
