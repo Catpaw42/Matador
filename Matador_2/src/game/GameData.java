@@ -21,7 +21,8 @@ public class GameData
 	private Field[] fields;
 	private ChanceCard[] cards;
 	private DiceCup dice;
-	private int [][] nonStreetRent = {{250}, {100}};
+	private int[] breweryRent = {100};
+	private int[] fleetRent = {250}; 
 
 	/*to dimentionelt array af leje i orden af: 
 	{grund, hus, 2 huse, 3 huse, 4 huse, hotel}*/
@@ -53,9 +54,9 @@ public class GameData
 	public GameData()
 	{
 		this.players = null;
+		this.dice = new DiceCup();
 		this.fields = generateStandardFieldList();
 		this.cards = generateStandartCardList();
-		this.dice = new DiceCup();
 	}
 
 	private Field[] generateStandardFieldList()
@@ -68,17 +69,17 @@ public class GameData
 		fields[2]  = new Chance		(3, 	"Prøv Lykken");
 		fields[3]  = new Street		(4, 	"Hvidovrevej", 			streetRent[1], 		1200, 		Group.BLUE);
 		fields[4]  = new Tax		(5, 	"SKAT");
-		fields[5]  = new Shipping	(6, 	"Scanlines", 			nonStreetRent[0], 		4000);
+		fields[5]  = new Shipping	(6, 	"Scanlines", 			fleetRent, 		4000);
 		fields[6]  = new Street		(7, 	"Roskildevej", 			streetRent[2], 		2000, 		Group.PINK);
 		fields[7]  = new Chance		(8, 	"Prøv Lykken");
 		fields[8]  = new Street		(9, 	"Valby Langgade", 		streetRent[3], 		2000, 		Group.PINK);
 		fields[9]  = new Street		(10, 	"Allégade", 			streetRent[4], 		2400, 		Group.PINK);
 		fields[10] = new Refuge		(11, 	"Fængsel");
 		fields[11] = new Street		(12, 	"Frederiksberg Allé", 	streetRent[5], 		2800, 		Group.GREEN);
-		fields[12] = new Brewery	(13, 	"Tuborg", 				nonStreetRent[1], 		3000, 		dice);
+		fields[12] = new Brewery	(13, 	"Tuborg", 				breweryRent, 		3000, 		dice);
 		fields[13] = new Street		(14, 	"Bülowsvej", 			streetRent[6], 		2800, 		Group.GREEN);
 		fields[14] = new Street		(15,	"Gl. Kongevej", 		streetRent[7], 		3200, 		Group.GREEN);
-		fields[15] = new Shipping	(16, 	"Mols Linien", 			nonStreetRent[0], 		4000);
+		fields[15] = new Shipping	(16, 	"Mols Linien", 			fleetRent, 		4000);
 		fields[16] = new Street		(17, 	"Bernstoftsvej", 		streetRent[8], 		3600, 		Group.GREY);
 		fields[17] = new Chance		(18, 	"Prøv Lykken");
 		fields[18] = new Street		(19, 	"Hellerupvej", 			streetRent[9], 		3600, 		Group.GREY);
@@ -88,17 +89,17 @@ public class GameData
 		fields[22] = new Chance		(23, 	"Prøv Lykken");
 		fields[23] = new Street		(24, 	"Østerbrogade", 		streetRent[12], 		4400, 		Group.RED);
 		fields[24] = new Street		(25, 	"Grønningen", 			streetRent[13], 		4800, 		Group.RED);
-		fields[25] = new Shipping	(26, 	"ColorLine", 			nonStreetRent[0], 		4000);
+		fields[25] = new Shipping	(26, 	"ColorLine", 			fleetRent, 		4000);
 		fields[26] = new Street		(27, 	"Bredgade", 			streetRent[14], 		5200, 		Group.WHITE);
 		fields[27] = new Street		(28, 	"Kgs. Nytorv", 			streetRent[15], 		5200, 		Group.WHITE);
-		fields[28] = new Brewery	(29, 	"Coca Cola", 			nonStreetRent[1], 		3000,		dice);
+		fields[28] = new Brewery	(29, 	"Coca Cola", 			breweryRent, 		3000,		dice);
 		fields[29] = new Street		(30, 	"Østergade", 			streetRent[16], 		5600, 		Group.WHITE);
 		fields[30] = new game.fields.GoToJail(31, 	"Gå i fængsel");
 		fields[31] = new Street		(32, 	"Amagertorv", 			streetRent[17], 		6000, 		Group.YELLOW);
 		fields[32] = new Street		(33, 	"VimmelSkaftet", 		streetRent[18], 		6000, 		Group.YELLOW);
 		fields[33] = new Chance		(34, 	"Prøv Lykken");
 		fields[34] = new Street		(35, 	"Nygade", 				streetRent[19], 		6400, 		Group.YELLOW);
-		fields[35] = new Shipping	(36, 	"Oslo Færgen", 			nonStreetRent[0], 		4000);
+		fields[35] = new Shipping	(36, 	"Oslo Færgen", 			fleetRent, 		4000);
 		fields[36] = new Chance		(37, 	"Prøv Lykken");
 		fields[37] = new Street		(38, 	"Frederiksberg gade", 	streetRent[20], 		7000, 		Group.PURPLE);
 		fields[38] = new Tax		(39, 	"Extraordinær skat");

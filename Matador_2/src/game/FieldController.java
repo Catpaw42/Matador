@@ -32,8 +32,8 @@ public class FieldController
 	{
 		gui.appendTextToTextArea(p.getName() +  " " + board.getField(fieldNr).getMessage());
 
-		//The "Go to Jail" field
-		if(board.getField(fieldNr) instanceof game.fields.GoToJail) //should be a Refuge type field, thus avoiding all other "if's"
+
+		if(board.getField(fieldNr) instanceof game.fields.GoToJail) 
 		{
 			p.setPlayerPosition(11);
 			p.setInPrisson(true);

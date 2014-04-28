@@ -5,11 +5,12 @@ import game.DiceCup;
 
 public class Brewery extends Ownable
 {
-	DiceCup diceCup;
+	private DiceCup diceCup;
+	
 	public Brewery(int nr, String name, int rent[], int price, DiceCup dice)
 	{
 		super(nr, name, rent, price);
-		diceCup = dice;
+		this.diceCup = dice;
 	}
 
 	@Override
@@ -21,10 +22,12 @@ public class Brewery extends Ownable
 	@Override
 	public int getRent()
 	{
-		return getBaseRent()[0] * getNumberOfBreweries() * diceCup.getSum();
+		int dieSum = this.diceCup.getSum();
+		
+		return getBaseRent()[0] * getNumberOfBreweries() * dieSum;
 	}
 	
-	private int getNumberOfBreweries()
+	public int getNumberOfBreweries()
 	{
 		Field[] fields = Board.getFieldsByPlayer(this.getOwner());
 		int count = 0;

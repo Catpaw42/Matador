@@ -193,7 +193,7 @@ public class GameActionListener implements KeyEventDispatcher
 				gui.setFieldOwner(i + 1, ((Ownable) fields[i]).getOwner().getName());
 			if(fields[i] instanceof Ownable)
 				gui.setFieldPrice(i + 1, ((Ownable) fields[i]).getPrice());
-			if(fields[i] instanceof Ownable && ((Ownable)fields[i]).getRent() != 0)
+			if(fields[i] instanceof Ownable /*&& ((Ownable)fields[i]).getOwner() != null*/ && ((Ownable)fields[i]).getRent() != 0)
 				gui.setFieldRent(i + 1, ( (Ownable) fields[i]).getRent());
 		}
 	}

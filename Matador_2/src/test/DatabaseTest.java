@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import dbacces.DBAccess;
 import dbacces.DBCommunication;
 
-public class Test
+public class DatabaseTest
 {
 	@org.junit.Test
 	public void loadGameTest()
