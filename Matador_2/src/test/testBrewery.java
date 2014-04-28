@@ -2,7 +2,6 @@ package test;
 
 import game.Board;
 import game.DiceCup;
-import game.GameData;
 import game.Player;
 import game.fields.Brewery;
 import game.fields.Field;
@@ -25,7 +24,7 @@ public class testBrewery
 		Field[] fields = new Field[1];
 		fields[0] = b;	
 		
-		Board board = new Board(fields, new GameData().getCards());
+		// Board board = new Board(fields, new GameData().getCards()); // not used
 		
 		System.out.println(Board.getFieldsByPlayer(p)[0].getName());
 		System.out.println(b.getNumberOfBreweries());

@@ -1,14 +1,8 @@
 package test;
 
 import game.GameData;
-import game.Player;
 import game.fields.Ownable;
 import game.fields.Street;
-
-import java.awt.Color;
-import java.sql.SQLException;
-
-import dbacces.DBAccess;
 import dbacces.DBCommunication;
 
 public class DatabaseTest

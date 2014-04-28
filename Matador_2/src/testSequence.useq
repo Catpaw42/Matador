@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.5" icons="true">  
+  <object id="1" language="java" name="game.GameData" project="Matador_2" file="/Matador_2/src/game/GameData.java" 
+    binary="false" label="gameData" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="2" language="java" name="game.MoveController" project="Matador_2" 
+    file="/Matador_2/src/game/MoveController.java" binary="false" label="moveController" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>
+</sequence-diagram>
