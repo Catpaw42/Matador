@@ -109,7 +109,7 @@ public class GameActionListener implements KeyEventDispatcher
 		}
 		if(GameController.getInstance().getCurrentState() == GameController.GAME_OVER_STATE)
 		{
-			gui.setMainButtonText("Game over " + GameController.getInstance().getWinner().getName() + "has won");
+			gui.setMainButtonText("Game over " + GameController.getInstance().getWinner().getName() + " has won");
 		}
 	}
 

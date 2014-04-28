@@ -130,7 +130,7 @@ public class GameController
 			options[i] = options1[i];
 		}
 
-		String message = getCurentPlayer().getName() + ", you have won! Contragratulations";
+		String message = getWinner().getName() + ", you have won! Contragratulations";
 		while((gui.getUserButtonPressed(options, message, "You have won the game")) == -1);
 		}
 	}
