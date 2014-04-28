@@ -117,21 +117,7 @@ public class DBCommunication
 	}
 
 
-	public void collectFromFields()
-	{
-		DataAccess da = new DataAccess();
-
-		String query = "SELECT FROM fields WHERE field_owner ARE NOT NULL";
-
-		try
-		{
-			da.executeQuery(query);
-		}
-		catch (SQLException e)
-		{
-			e.printStackTrace();
-		}
-	}
+	
 }
 
 
