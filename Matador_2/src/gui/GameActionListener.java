@@ -118,12 +118,6 @@ public class GameActionListener implements KeyEventDispatcher
 		System.out.println("Sell button was pressed");
 	}
 
-	public void saveGameEvent()
-	{
-		System.out.println("Save game event");
-		DBCommunication.saveGame();
-	}
-
 	public void loadGameEvent()
 	{
 		System.out.println("Load game event");
@@ -131,14 +125,13 @@ public class GameActionListener implements KeyEventDispatcher
 	
 	public void tradeButtonEvent()
 	{
-		// TODO Auto-generated method stub
-		
+ 		
 	}
 
 	public void saveGameButtonEvent()
 	{
-		// TODO Auto-generated method stub
-		
+		System.out.println("Save game event");
+		DBCommunication.saveGame();
 	}
 
 	//--------------------------------------------------------------
